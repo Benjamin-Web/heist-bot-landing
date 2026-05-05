@@ -77,8 +77,37 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
+        /* Scroll Reveal - GPU Accelerated */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            will-change: opacity, transform;
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered Animation for Feature Cards */
+        .reveal-stagger .feature-card:nth-child(1) { transition-delay: 0.1s; }
+        .reveal-stagger .feature-card:nth-child(2) { transition-delay: 0.2s; }
+        .reveal-stagger .feature-card:nth-child(3) { transition-delay: 0.3s; }
+        .reveal-stagger .feature-card:nth-child(4) { transition-delay: 0.4s; }
+        .reveal-stagger .feature-card:nth-child(5) { transition-delay: 0.5s; }
+        .reveal-stagger .feature-card:nth-child(6) { transition-delay: 0.6s; }
+
+        /* Parallax Container */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            will-change: transform;
         }
 
         body {
@@ -305,6 +334,7 @@
             overflow: hidden;
             animation: fade-in-up 0.8s var(--transition-smooth) forwards;
             opacity: 0;
+            transform: translateY(40px);
         }
 
         .hero-glass::before {
@@ -350,8 +380,6 @@
             font-weight: 900;
             line-height: 1.15;
             margin-bottom: 20px;
-            animation: fade-in-up 0.6s var(--transition-smooth) 0.2s forwards;
-            opacity: 0;
         }
 
         .hero h1 span {
@@ -361,12 +389,8 @@
             background-clip: text;
         }
 
-        .hero p {
-            font-size: 20px;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            animation: fade-in-up 0.6s var(--transition-smooth) 0.3s forwards;
-            opacity: 0;
+        .section-header.reveal {
+            transition-delay: 0s;
         }
 
         .hero-buttons {
@@ -438,12 +462,21 @@
             opacity: 1;
         }
 
+        /* Animated Counter */
         .stat-value {
             font-family: 'Orbitron', sans-serif;
             font-size: 36px;
             font-weight: 700;
             color: var(--md3-primary);
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-value.counting {
+            animation: count-pulse 0.1s ease-in-out;
+        }
+
+        @keyframes count-pulse {
+            50% { transform: scale(1.05); }
         }
 
         .stat-label {
@@ -493,7 +526,7 @@
         }
 
         /* Feature Cards - M3 Surface + Hover Lift */
-        .features-grid {
+        .features-grid.reveal-stagger {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
@@ -504,9 +537,10 @@
             border-radius: var(--md3-radius-large);
             padding: 36px 28px;
             border: 1px solid var(--md3-outline-variant);
-            transition: all 0.3s var(--transition-spring);
+            transition: all 0.3s var(--transition-spring), transform 0.4s ease, box-shadow 0.4s ease, background 0.3s;
             position: relative;
             overflow: hidden;
+            will-change: transform;
         }
 
         .feature-card::before {
@@ -880,6 +914,9 @@
     </style>
 </head>
 <body>
+    <!-- Parallax Background -->
+    <div class="parallax-bg" id="parallaxBg"></div>
+
     <!-- Navigation -->
     <nav>
         <div class="container">
@@ -939,13 +976,13 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">✨ Features</span>
                 <h2>Everything You Need</h2>
                 <p>A complete streaming tool with games, rewards, and engagement features — actively developed and supported by PRO members!</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
+            <div class="features-grid reveal-stagger">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                     </div>
@@ -994,7 +1031,7 @@
     <!-- PRO Section -->
     <section class="pro-section" id="pro">
         <div class="container">
-            <div class="pro-card">
+            <div class="pro-card reveal">
                 <div class="pro-content">
                     <h2>⭐ Heist Bot PRO</h2>
                     <p>By getting PRO, you directly support the continued development of Heist Bot. Every contribution helps us add new features, improve performance, and keep the bot running 24/7 for your community!</p>
@@ -1026,7 +1063,7 @@
                 <h2>Viewer Commands</h2>
                 <p>All available commands for your viewers to use in chat.</p>
             </div>
-            <div class="commands-table">
+            <div class="commands-table reveal">
                 <table>
                     <thead>
                         <tr>
@@ -1068,7 +1105,7 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
-            <h2>Ready to Level Up Your Stream?</h2>
+            <h2 class="reveal">Ready to Level Up Your Stream?</h2>
             <p>Download Heist Bot for free and give your viewers an exciting experience!</p>
             <div class="cta-buttons">
                 <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="btn btn-primary">
@@ -1100,5 +1137,75 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scroll Reveal + Parallax Script -->
+    <script>
+        // Intersection Observer for scroll-based reveals
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    // Animated counter for stats
+                    if (entry.target.classList.contains('stat-item')) {
+                        const counter = entry.target.querySelector('.stat-value');
+                        if (counter && !counter.dataset.animated) {
+                            animateCounter(counter);
+                            counter.dataset.animated = 'true';
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Animated Counter
+        function animateCounter(element) {
+            const target = element.textContent;
+            const isInfinity = target === '∞';
+            if (isInfinity) return;
+
+            const numericTarget = parseInt(target);
+            if (isNaN(numericTarget)) return;
+
+            let current = 0;
+            const increment = Math.max(1, Math.floor(numericTarget / 20));
+            const duration = 1000;
+            const stepTime = duration / (numericTarget / increment);
+
+            const updateCounter = () => {
+                current = Math.min(current + increment, numericTarget);
+                element.textContent = current;
+                element.classList.add('counting');
+                setTimeout(() => element.classList.remove('counting'), 50);
+                if (current < numericTarget) {
+                    setTimeout(updateCounter, stepTime);
+                } else {
+                    element.textContent = target;
+                }
+            };
+
+            updateCounter();
+        }
+
+        // Observe all reveal elements
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Parallax Effect (GPU accelerated via requestAnimationFrame)
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const parallaxBg = document.getElementById('parallaxBg');
+                    if (parallaxBg) {
+                        parallaxBg.style.transform = `translateY(${scrolled * 0.3}px)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    </script>
 </body>
 </html>
