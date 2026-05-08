@@ -506,25 +506,104 @@
             background: var(--md3-surface);
         }
 
-        .screenshots-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .screenshot-img {
-            width: 100%;
-            border-radius: var(--md3-radius-large);
-            border: 1px solid var(--md3-outline-variant);
-            transition: all 0.3s var(--transition-spring);
-            will-change: transform;
-        }
-
-        .screenshot-img:hover {
-            transform: scale(1.03);
-            border-color: var(--md3-primary);
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 48px auto 0;
+            overflow: hidden;
+            border-radius: var(--md3-radius-extra-large);
             box-shadow: var(--md3-elevation-3);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s var(--transition-smooth);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .carousel-slide .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Carousel Nav */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--md3-outline);
+            cursor: pointer;
+            transition: all 0.3s var(--transition-spring);
+            border: none;
+        }
+
+        .carousel-dot.active {
+            background: var(--md3-primary);
+            transform: scale(1.2);
+        }
+
+        .carousel-dot:hover {
+            background: var(--md3-primary);
+            opacity: 0.7;
+        }
+
+        /* Carousel Arrows */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(18, 18, 26, 0.8);
+            border: 1px solid var(--md3-outline);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s var(--transition-spring);
+            z-index: 10;
+            backdrop-filter: blur(8px);
+        }
+
+        .carousel-arrow:hover {
+            background: var(--md3-primary);
+            border-color: var(--md3-primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.prev { left: 16px; }
+        .carousel-arrow.next { right: 16px; }
+
+        .carousel-arrow svg {
+            stroke: white;
+            width: 24px;
+            height: 24px;
         }
 
         .section-header {
@@ -1071,16 +1150,42 @@
                 <h2>Take a Look Inside</h2>
                 <p>Professional dashboard with real-time statistics, game controls, and an intuitive interface — designed for both you and your viewers.</p>
             </div>
-            <div class="screenshots-grid reveal-stagger">
-                <img src="assets/screenshots/dashboard-1.jpg" alt="Heist Bot Dashboard - Main View" class="screenshot-img" loading="lazy">
-                <img src="assets/screenshots/dashboard-2.jpg" alt="Heist Bot Dashboard - Statistics" class="screenshot-img" loading="lazy">
-                <img src="assets/screenshots/dashboard-3.jpg" alt="Heist Bot Dashboard - Game Mode" class="screenshot-img" loading="lazy">
-                <img src="assets/screenshots/dashboard-4.jpg" alt="Heist Bot Dashboard - Settings" class="screenshot-img" loading="lazy">
-                <img src="assets/screenshots/dashboard-5.jpg" alt="Heist Bot Dashboard - Leaderboard" class="screenshot-img" loading="lazy">
-                <img src="assets/screenshots/dashboard-6.jpg" alt="Heist Bot Dashboard - Raffle System" class="screenshot-img" loading="lazy">
-                <img src="assets/screenshots/dashboard-7.jpg" alt="Heist Bot Dashboard - Custom Commands" class="screenshot-img" loading="lazy">
-                <img src="assets/screenshots/dashboard-8.jpg" alt="Heist Bot Dashboard - PRO Features" class="screenshot-img" loading="lazy">
-                <img src="assets/screenshots/dashboard-9.jpg" alt="Heist Bot Dashboard - Multi-Game Mode" class="screenshot-img" loading="lazy">
+            <div class="carousel-container reveal">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="assets/screenshots/dashboard-1.jpg" alt="Heist Bot Dashboard - Main View">
+                        <div class="slide-caption">Main Dashboard Overview</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/screenshots/dashboard-2.jpg" alt="Heist Bot Dashboard - Statistics">
+                        <div class="slide-caption">Real-time Statistics & Trends</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/screenshots/dashboard-3.jpg" alt="Heist Bot Dashboard - Game Mode">
+                        <div class="slide-caption">Game Mode Selection</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/screenshots/dashboard-4.jpg" alt="Heist Bot Dashboard - Settings">
+                        <div class="slide-caption">Bot Configuration & Settings</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/screenshots/dashboard-5.jpg" alt="Heist Bot Dashboard - Leaderboard">
+                        <div class="slide-caption">Player Leaderboard</div>
+                    </div>
+                </div>
+                <button class="carousel-arrow prev" onclick="moveSlide(-1)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="carousel-arrow next" onclick="moveSlide(1)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+                <button class="carousel-dot" onclick="goToSlide(1)"></button>
+                <button class="carousel-dot" onclick="goToSlide(2)"></button>
+                <button class="carousel-dot" onclick="goToSlide(3)"></button>
+                <button class="carousel-dot" onclick="goToSlide(4)"></button>
             </div>
         </div>
     </section>
@@ -1263,6 +1368,34 @@
                 ticking = true;
             }
         });
+
+        // Carousel
+        let currentSlide = 0;
+        const track = document.querySelector('.carousel-track');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = 5;
+
+        function updateCarousel() {
+            if (track) {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-play carousel
+        setInterval(() => moveSlide(1), 5000);
     </script>
 </body>
 </html>
