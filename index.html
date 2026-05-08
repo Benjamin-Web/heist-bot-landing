@@ -500,6 +500,33 @@
             padding: 100px 0;
         }
 
+        /* Screenshots Section */
+        .screenshots {
+            padding: 100px 0;
+            background: var(--md3-surface);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .screenshot-img {
+            width: 100%;
+            border-radius: var(--md3-radius-large);
+            border: 1px solid var(--md3-outline-variant);
+            transition: all 0.3s var(--transition-spring);
+            will-change: transform;
+        }
+
+        .screenshot-img:hover {
+            transform: scale(1.03);
+            border-color: var(--md3-primary);
+            box-shadow: var(--md3-elevation-3);
+        }
+
         .section-header {
             text-align: center;
             margin-bottom: 56px;
@@ -933,6 +960,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
                 <li><a href="#pro">PRO</a></li>
                 <li><a href="#commands">Commands</a></li>
                 <li><a href="https://ko-fi.com/ronincannons" target="_blank">Support</a></li>
@@ -1031,6 +1059,28 @@
                     <h3>Loyalty System</h3>
                     <p>Automatic rewards for watch time and subs (Tier 1, 2 & 3).</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Screenshots Section -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">📸 Dashboard</span>
+                <h2>Take a Look Inside</h2>
+                <p>Professional dashboard with real-time statistics, game controls, and an intuitive interface — designed for both you and your viewers.</p>
+            </div>
+            <div class="screenshots-grid reveal-stagger">
+                <img src="assets/screenshots/dashboard-1.jpg" alt="Heist Bot Dashboard - Main View" class="screenshot-img" loading="lazy">
+                <img src="assets/screenshots/dashboard-2.jpg" alt="Heist Bot Dashboard - Statistics" class="screenshot-img" loading="lazy">
+                <img src="assets/screenshots/dashboard-3.jpg" alt="Heist Bot Dashboard - Game Mode" class="screenshot-img" loading="lazy">
+                <img src="assets/screenshots/dashboard-4.jpg" alt="Heist Bot Dashboard - Settings" class="screenshot-img" loading="lazy">
+                <img src="assets/screenshots/dashboard-5.jpg" alt="Heist Bot Dashboard - Leaderboard" class="screenshot-img" loading="lazy">
+                <img src="assets/screenshots/dashboard-6.jpg" alt="Heist Bot Dashboard - Raffle System" class="screenshot-img" loading="lazy">
+                <img src="assets/screenshots/dashboard-7.jpg" alt="Heist Bot Dashboard - Custom Commands" class="screenshot-img" loading="lazy">
+                <img src="assets/screenshots/dashboard-8.jpg" alt="Heist Bot Dashboard - PRO Features" class="screenshot-img" loading="lazy">
+                <img src="assets/screenshots/dashboard-9.jpg" alt="Heist Bot Dashboard - Multi-Game Mode" class="screenshot-img" loading="lazy">
             </div>
         </div>
     </section>
