@@ -514,6 +514,7 @@
             overflow: hidden;
             border-radius: var(--md3-radius-extra-large);
             box-shadow: var(--md3-elevation-3);
+            background: var(--md3-surface-container);
         }
 
         .carousel-track {
@@ -528,7 +529,9 @@
 
         .carousel-slide img {
             width: 100%;
-            height: auto;
+            height: 500px;
+            object-fit: cover;
+            object-position: top;
             display: block;
         }
 
@@ -537,10 +540,10 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 24px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px 24px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
             color: white;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 500;
         }
 
