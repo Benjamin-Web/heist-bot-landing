@@ -1172,6 +1172,22 @@
                         <img src="assets/screenshots/dashboard-5.jpg" alt="Heist Bot Dashboard - Leaderboard">
                         <div class="slide-caption">Player Leaderboard</div>
                     </div>
+                    <div class="carousel-slide">
+                        <img src="assets/screenshots/dashboard-6.jpg" alt="Heist Bot Dashboard - Raffle System">
+                        <div class="slide-caption">Raffle System</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/screenshots/dashboard-7.jpg" alt="Heist Bot Dashboard - Custom Commands">
+                        <div class="slide-caption">Custom Commands</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/screenshots/dashboard-8.jpg" alt="Heist Bot Dashboard - PRO Features">
+                        <div class="slide-caption">PRO Features Dashboard</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/screenshots/dashboard-9.jpg" alt="Heist Bot Dashboard - Multi-Game Mode">
+                        <div class="slide-caption">Multi-Game Mode Selection</div>
+                    </div>
                 </div>
                 <button class="carousel-arrow prev" onclick="moveSlide(-1)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg>
@@ -1186,6 +1202,10 @@
                 <button class="carousel-dot" onclick="goToSlide(2)"></button>
                 <button class="carousel-dot" onclick="goToSlide(3)"></button>
                 <button class="carousel-dot" onclick="goToSlide(4)"></button>
+                <button class="carousel-dot" onclick="goToSlide(5)"></button>
+                <button class="carousel-dot" onclick="goToSlide(6)"></button>
+                <button class="carousel-dot" onclick="goToSlide(7)"></button>
+                <button class="carousel-dot" onclick="goToSlide(8)"></button>
             </div>
         </div>
     </section>
@@ -1373,7 +1393,7 @@
         let currentSlide = 0;
         const track = document.querySelector('.carousel-track');
         const dots = document.querySelectorAll('.carousel-dot');
-        const totalSlides = 5;
+        const totalSlides = 9;
 
         function updateCarousel() {
             if (track) {
