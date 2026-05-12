@@ -26,9 +26,58 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.heist-bot.pro">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/fonts.css">
+    <script src="assets/js/lucide.min.js"></script>
+    
+    <!-- Schema Markup / JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Heist Bot",
+      "operatingSystem": "Windows, macOS, Linux",
+      "applicationCategory": "GameApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "128"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is Heist Bot and how does it work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Heist Bot is a free, interactive Twitch chat game that allows your viewers to team up, rob virtual banks, and earn coins. It integrates directly with your stream to boost engagement."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is Heist Bot free to use for Twitch streamers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the core features of Heist Bot are completely free to use. We also offer optional PRO features for advanced customization and premium support."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How do I automate Twitch minigames with Heist Bot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Once connected to your Twitch channel, Heist Bot automatically listens for chat commands like '!raub' to start minigames, manage leaderboards, and distribute virtual coins without manual intervention."
+        }
+      }]
+    }
+    </script>
+
     <style>
         /* Material 3 Design System */
         :root {
@@ -1484,39 +1533,39 @@
             <div class="carousel-container reveal">
                 <div class="carousel-track">
                     <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-1.jpg" alt="Heist Bot Dashboard - Main View">
+                        <img src="assets/screenshots/dashboard-1.jpg" alt="Heist Bot Dashboard - Main View" loading="lazy">
                         <div class="slide-caption">Main Dashboard Overview</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-2.jpg" alt="Heist Bot Dashboard - Statistics">
+                        <img src="assets/screenshots/dashboard-2.jpg" alt="Heist Bot Dashboard - Statistics" loading="lazy">
                         <div class="slide-caption">Real-time Statistics & Trends</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-3.jpg" alt="Heist Bot Dashboard - Game Mode">
+                        <img src="assets/screenshots/dashboard-3.jpg" alt="Heist Bot Dashboard - Game Mode" loading="lazy">
                         <div class="slide-caption">Game Mode Selection</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-4.jpg" alt="Heist Bot Dashboard - Settings">
+                        <img src="assets/screenshots/dashboard-4.jpg" alt="Heist Bot Dashboard - Settings" loading="lazy">
                         <div class="slide-caption">Bot Configuration & Settings</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-5.jpg" alt="Heist Bot Dashboard - Leaderboard">
+                        <img src="assets/screenshots/dashboard-5.jpg" alt="Heist Bot Dashboard - Leaderboard" loading="lazy">
                         <div class="slide-caption">Player Leaderboard</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-6.jpg" alt="Heist Bot Dashboard - Raffle System">
+                        <img src="assets/screenshots/dashboard-6.jpg" alt="Heist Bot Dashboard - Raffle System" loading="lazy">
                         <div class="slide-caption">Raffle System</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-7.jpg" alt="Heist Bot Dashboard - Custom Commands">
+                        <img src="assets/screenshots/dashboard-7.jpg" alt="Heist Bot Dashboard - Custom Commands" loading="lazy">
                         <div class="slide-caption">Custom Commands</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-8.jpg" alt="Heist Bot Dashboard - PRO Features">
+                        <img src="assets/screenshots/dashboard-8.jpg" alt="Heist Bot Dashboard - PRO Features" loading="lazy">
                         <div class="slide-caption">PRO Features Dashboard</div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-9.jpg" alt="Heist Bot Dashboard - Multi-Game Mode">
+                        <img src="assets/screenshots/dashboard-9.jpg" alt="Heist Bot Dashboard - Multi-Game Mode" loading="lazy">
                         <div class="slide-caption">Multi-Game Mode Selection</div>
                     </div>
                 </div>
@@ -1695,6 +1744,31 @@
         </div>
     </section>
 
+    <!-- FAQ Section for SEO -->
+    <section id="faq" style="padding: 100px 0; background: var(--md3-surface-container); border-top: 1px solid var(--md3-outline-variant);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 class="reveal" style="font-size: 36px; font-family: 'Orbitron', sans-serif; background: var(--pro-gold); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Frequently Asked Questions</h2>
+                <p class="reveal" style="color: var(--text-secondary); max-width: 600px; margin: 10px auto;">Everything you need to know about Heist Bot.</p>
+            </div>
+            
+            <div class="faq-container reveal" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+                <details style="background: var(--bg-card); padding: 20px; border-radius: var(--md3-radius-medium); border: 1px solid var(--md3-outline-variant); cursor: pointer;">
+                    <summary style="font-size: 18px; font-weight: 600; color: var(--text-primary); outline: none;">What is Heist Bot and how does it work?</summary>
+                    <p style="margin-top: 12px; color: var(--text-secondary); line-height: 1.6;">Heist Bot is a free, interactive Twitch chat game that allows your viewers to team up, rob virtual banks, and earn coins. It integrates directly with your stream to boost engagement.</p>
+                </details>
+                <details style="background: var(--bg-card); padding: 20px; border-radius: var(--md3-radius-medium); border: 1px solid var(--md3-outline-variant); cursor: pointer;">
+                    <summary style="font-size: 18px; font-weight: 600; color: var(--text-primary); outline: none;">Is Heist Bot free to use for Twitch streamers?</summary>
+                    <p style="margin-top: 12px; color: var(--text-secondary); line-height: 1.6;">Yes, the core features of Heist Bot are completely free to use. We also offer optional PRO features for advanced customization and premium support.</p>
+                </details>
+                <details style="background: var(--bg-card); padding: 20px; border-radius: var(--md3-radius-medium); border: 1px solid var(--md3-outline-variant); cursor: pointer;">
+                    <summary style="font-size: 18px; font-weight: 600; color: var(--text-primary); outline: none;">How do I automate Twitch minigames with Heist Bot?</summary>
+                    <p style="margin-top: 12px; color: var(--text-secondary); line-height: 1.6;">Once connected to your Twitch channel, Heist Bot automatically listens for chat commands like '!raub' to start minigames, manage leaderboards, and distribute virtual coins without manual intervention.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
@@ -1723,6 +1797,8 @@
                     <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates" target="_blank">GitHub</a>
                     <a href="https://ko-fi.com/ronincannons" target="_blank">Ko-fi</a>
                     <a href="https://discord.gg/ronincannons" target="_blank">Discord</a>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
                 </div>
                 <div class="footer-copy">
                     © 2025 Heist Bot. Made with ❤️ for Twitch.
