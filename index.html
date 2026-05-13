@@ -3,225 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heist Bot - The Ultimate Twitch Heist Experience | Free Twitch Bot</title>
+    <title>Heist Bot — The Ultimate Twitch Heist Experience | Free Twitch Bot</title>
     <meta name="description" content="Turn your Twitch chat into an exciting bank robbery game! Heist Bot lets viewers rob banks together, earn coins, and compete on leaderboards. Free download, PRO features available.">
     <meta name="keywords" content="Twitch bot, Twitch heist, stream tools, Twitch games, streamer bot, channel rewards, Twitch overlay, OBS overlay, Twitch chat game">
     <meta name="author" content="Benjamin Wascher">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.heist-bot.pro">
-    <meta property="og:title" content="Heist Bot - The Ultimate Twitch Heist Experience">
+    <meta property="og:title" content="Heist Bot — The Ultimate Twitch Heist Experience">
     <meta property="og:description" content="Turn your Twitch chat into an exciting bank robbery game! Viewers rob banks together, earn coins, and compete on leaderboards.">
     <meta property="og:image" content="https://raw.githubusercontent.com/Benjamin-Web/heist-bot-landing/main/og-image.png">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.heist-bot.pro">
-    <meta property="twitter:title" content="Heist Bot - The Ultimate Twitch Heist Experience">
+    <meta property="twitter:title" content="Heist Bot — The Ultimate Twitch Heist Experience">
     <meta property="twitter:description" content="Turn your Twitch chat into an exciting bank robbery game! Viewers rob banks together, earn coins, and compete on leaderboards.">
     <meta property="twitter:image" content="https://raw.githubusercontent.com/Benjamin-Web/heist-bot-landing/main/og-image.png">
-    
-    <!-- Canonical URL -->
+
     <link rel="canonical" href="https://www.heist-bot.pro">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="assets/fonts.css">
+
+    <!-- Inter Tight for body copy (humanistic, hi-readability) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <script src="assets/js/lucide.min.js"></script>
-    
-    <!-- Schema Markup / JSON-LD -->
+
+    <!-- Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Heist Bot",
-      "operatingSystem": "Windows, macOS, Linux",
+      "operatingSystem": "Windows",
       "applicationCategory": "GameApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "128"
-      }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "128" }
     }
     </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What is Heist Bot and how does it work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Heist Bot is a free, interactive Twitch chat game that allows your viewers to team up, rob virtual banks, and earn coins. It integrates directly with your stream to boost engagement."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Is Heist Bot free to use for Twitch streamers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, the core features of Heist Bot are completely free to use. We also offer optional PRO features for advanced customization and premium support."
-        }
-      }, {
-        "@type": "Question",
-        "name": "How do I automate Twitch minigames with Heist Bot?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Once connected to your Twitch channel, Heist Bot automatically listens for chat commands like '!raub' to start minigames, manage leaderboards, and distribute virtual coins without manual intervention."
-        }
-      }]
+      "mainEntity": [
+        { "@type": "Question", "name": "What is Heist Bot and how does it work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Heist Bot is a free, interactive Twitch chat game that allows your viewers to team up, rob virtual banks, and earn coins. It integrates directly with your stream to boost engagement." } },
+        { "@type": "Question", "name": "Is Heist Bot free to use for Twitch streamers?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, the core features of Heist Bot are completely free to use. We also offer optional PRO features for advanced customization and premium support." } },
+        { "@type": "Question", "name": "How do I automate Twitch minigames with Heist Bot?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Once connected to your Twitch channel, Heist Bot automatically listens for chat commands like '!raub' to start minigames, manage leaderboards, and distribute virtual coins without manual intervention." } }
+      ]
     }
     </script>
 
     <style>
-        /* Material 3 Design System */
         :root {
-            --md3-primary: #ffd700;
-            --md3-on-primary: #000000;
-            --md3-primary-container: rgba(255, 215, 0, 0.1);
-            --md3-surface: #0a0a0f;
-            --md3-surface-tint: rgba(255, 215, 0, 0.05);
-            --md3-surface-container: #12121a;
-            --md3-surface-container-high: #1a1a24;
-            --md3-outline: rgba(255, 255, 255, 0.1);
-            --md3-outline-variant: rgba(255, 255, 255, 0.05);
-            
-            /* Border Radius */
-            --md3-radius-small: 8px;
-            --md3-radius-medium: 12px;
-            --md3-radius-large: 16px;
-            --md3-radius-extra-large: 24px;
-            --md3-radius-full: 28px;
-            
-            /* Elevation */
-            --md3-elevation-1: 0 2px 8px rgba(0,0,0,0.3);
-            --md3-elevation-2: 0 4px 16px rgba(0,0,0,0.4);
-            --md3-elevation-3: 0 8px 32px rgba(0,0,0,0.5);
-            
-            /* Motion */
-            --transition-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Legacy support */
-            --brand-primary: #ffd700;
-            --brand-secondary: #ff8c00;
-            --bg-dark: #0a0a0f;
-            --bg-card: #12121a;
-            --bg-card-hover: #1a1a25;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0b0;
-            --text-muted: #606070;
-            --border-subtle: rgba(255, 215, 0, 0.1);
-            --success: #00ff88;
+            /* Brand */
+            --gold: #ffd700;
+            --gold-deep: #ff8c00;
             --pro-gold: linear-gradient(135deg, #ffd700, #ff8c00);
+
+            /* Surfaces */
+            --surface: #0a0a0f;
+            --surface-1: #12121a;
+            --surface-2: #1a1a24;
+            --surface-3: #22222e;
+
+            /* Text — fixed contrast */
+            --text: #ffffff;
+            --text-2: #c5c5d0;   /* up from #a0a0b0 — better mid-text */
+            --text-3: #8a8a98;   /* up from #606070 — passes AA */
+            --gold-text: #ffd700;
+
+            /* Outlines */
+            --outline: rgba(255, 255, 255, 0.10);
+            --outline-soft: rgba(255, 255, 255, 0.05);
+            --gold-soft: rgba(255, 215, 0, 0.10);
+            --gold-line: rgba(255, 215, 0, 0.22);
+
+            /* Radii */
+            --r-sm: 8px;
+            --r-md: 12px;
+            --r-lg: 16px;
+            --r-xl: 24px;
+            --r-full: 999px;
+
+            /* Elevation */
+            --shadow-1: 0 2px 8px rgba(0,0,0,0.3);
+            --shadow-2: 0 8px 24px rgba(0,0,0,0.4);
+            --shadow-3: 0 16px 48px rgba(0,0,0,0.55);
+
+            /* Motion */
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Type */
+            --font-display: 'Orbitron', 'Inter Tight', sans-serif;
+            --font-body: 'Inter Tight', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --font-ui: 'Rajdhani', 'Inter Tight', sans-serif;
+
+            --success: #00ff88;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Scroll Reveal - GPU Accelerated */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            will-change: opacity, transform;
-        }
-
-        .reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Staggered Animation for Feature Cards */
-        .reveal-stagger .feature-card:nth-child(1) { transition-delay: 0.1s; }
-        .reveal-stagger .feature-card:nth-child(2) { transition-delay: 0.2s; }
-        .reveal-stagger .feature-card:nth-child(3) { transition-delay: 0.3s; }
-        .reveal-stagger .feature-card:nth-child(4) { transition-delay: 0.4s; }
-        .reveal-stagger .feature-card:nth-child(5) { transition-delay: 0.5s; }
-        .reveal-stagger .feature-card:nth-child(6) { transition-delay: 0.6s; }
-
-        /* Parallax Container */
-        .parallax-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            will-change: transform;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Rajdhani', sans-serif;
-            background: var(--md3-surface);
-            color: var(--text-primary);
+            font-family: var(--font-body);
+            background: var(--surface);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
-        /* Background Grid Effect */
+        /* Subtle background grid (much fainter than before) */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px),
-                linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(255,215,0,0.014) 1px, transparent 1px),
+                linear-gradient(rgba(255,215,0,0.014) 1px, transparent 1px);
+            background-size: 64px 64px;
             pointer-events: none;
-            z-index: -1;
+            z-index: -2;
+            mask-image: radial-gradient(ellipse at center top, black 30%, transparent 80%);
         }
 
-        /* Animated background glow */
-        body::after {
-            content: '';
+        /* Aurora hero glow — single ambient layer, no constant pulse */
+        .aurora {
             position: fixed;
-            top: 50%;
+            top: -20%;
             left: 50%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 60%);
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
+            width: 1200px;
+            height: 900px;
             pointer-events: none;
             z-index: -1;
-            animation: pulse-glow 8s ease-in-out infinite;
+            opacity: 0.7;
+            background:
+                radial-gradient(ellipse 40% 50% at 30% 40%, rgba(255,215,0,0.18), transparent 60%),
+                radial-gradient(ellipse 50% 40% at 70% 30%, rgba(255,140,0,0.10), transparent 60%),
+                radial-gradient(ellipse 60% 40% at 50% 60%, rgba(145,71,255,0.08), transparent 70%);
+            filter: blur(40px);
+            transition: opacity 0.8s var(--ease-smooth);
+        }
+        .scrolled .aurora { opacity: 0.25; }
+
+        /* Spotlight cursor — single soft glow follows pointer */
+        .spotlight {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(
+                400px circle at var(--mx, 50%) var(--my, 50%),
+                rgba(255, 215, 0, 0.10),
+                transparent 60%
+            );
+            transition: opacity 0.3s;
         }
 
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+        /* Particle canvas — reduced count, calmer */
+        #particleCanvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.7;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Navigation - M3 Style */
+        /* ===== NAVIGATION ===== */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(10, 10, 15, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--md3-outline-variant);
+            background: rgba(10, 10, 15, 0.6);
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            border-bottom: 1px solid transparent;
             z-index: 1000;
-            padding: 12px 0;
+            padding: 16px 0;
+            transition: padding 0.3s var(--ease-smooth),
+                        background 0.3s var(--ease-smooth),
+                        border-color 0.3s var(--ease-smooth);
+        }
+        .scrolled nav {
+            padding: 10px 0;
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom-color: var(--outline-soft);
         }
 
         nav .container {
@@ -231,178 +219,139 @@
         }
 
         .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 22px;
-            font-weight: 800;
-            background: var(--pro-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
         .logo-img {
             width: 32px;
             height: 32px;
             object-fit: contain;
+            transition: transform 0.3s var(--ease-smooth);
         }
-
+        .scrolled .logo-img { width: 28px; height: 28px; }
         .logo-text {
-            font-family: 'Orbitron', sans-serif;
+            font-family: var(--font-display);
             font-weight: 800;
             font-size: 18px;
-            background: var(--pro-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            letter-spacing: 1px;
+            color: var(--gold);
+            transition: font-size 0.3s var(--ease-smooth);
         }
-
-        .logo-icon {
-            font-size: 26px;
-        }
+        .scrolled .logo-text { font-size: 16px; }
 
         .nav-links {
             display: flex;
             gap: 32px;
             list-style: none;
         }
-
         .nav-links a {
-            color: var(--text-secondary);
+            color: var(--text-2);
             text-decoration: none;
             font-weight: 500;
-            font-size: 15px;
-            transition: color 0.2s var(--transition-smooth);
+            font-size: 14px;
+            font-family: var(--font-body);
+            letter-spacing: 0.2px;
+            transition: color 0.2s var(--ease-smooth);
             position: relative;
+            padding: 4px 0;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -2px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--md3-primary);
+            background: var(--gold);
             border-radius: 1px;
-            transition: width 0.3s var(--transition-spring);
+            transition: width 0.3s var(--ease-spring);
         }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover::after { width: 100%; }
 
-        .nav-links a:hover {
-            color: var(--md3-primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* M3 Filled Button */
+        /* ===== BUTTONS ===== */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0 28px;
-            height: 48px;
-            border-radius: 24px;
-            font-family: 'Rajdhani', sans-serif;
+            gap: 8px;
+            padding: 0 26px;
+            height: 46px;
+            border-radius: var(--r-full);
+            font-family: var(--font-ui);
             font-weight: 600;
             font-size: 15px;
+            letter-spacing: 0.3px;
             text-decoration: none;
             cursor: pointer;
             border: none;
-            transition: all 0.3s var(--transition-spring);
+            transition: transform 0.2s var(--ease-spring),
+                        box-shadow 0.3s var(--ease-smooth),
+                        background 0.3s;
             position: relative;
             overflow: hidden;
+            white-space: nowrap;
         }
-
+        .btn svg { width: 16px; height: 16px; }
         .btn-primary {
-            background: var(--md3-primary);
-            color: var(--md3-on-primary);
+            background: var(--gold);
+            color: #000;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.25);
         }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
         .btn-primary:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(255, 215, 0, 0.45);
         }
-
-        .btn-primary:hover::before {
-            opacity: 1;
-        }
-
-        .btn-primary:active {
-            transform: scale(0.98);
-        }
+        .btn-primary:active { transform: translateY(0); }
 
         .btn-secondary {
             background: transparent;
-            border: 2px solid var(--md3-primary);
-            color: var(--md3-primary);
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
         }
-
         .btn-secondary:hover {
-            background: var(--md3-primary-container);
-            transform: scale(1.02);
-        }
-
-        .btn-secondary:active {
-            transform: scale(0.98);
+            background: var(--gold-soft);
+            transform: translateY(-2px);
         }
 
         .btn-discord {
             background: #5865F2;
             color: white;
         }
-
         .btn-discord:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 24px rgba(88, 101, 242, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(88, 101, 242, 0.4);
         }
 
-        .btn-discord:active {
-            transform: scale(0.98);
+        .btn-sm {
+            height: 38px;
+            padding: 0 18px;
+            font-size: 13px;
         }
 
-        /* Hero Section - Glassmorphism + Fade In */
+        /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 140px 0 100px;
+            padding: 140px 0 80px;
             position: relative;
         }
 
-        .hero-content {
-            max-width: 720px;
-            position: relative;
-            z-index: 2;
-        }
+        .hero-content { max-width: 760px; position: relative; z-index: 2; }
 
-        /* Glassmorphism container */
         .hero-glass {
-            background: rgba(18, 18, 26, 0.7);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--md3-outline);
+            background: rgba(18, 18, 26, 0.55);
+            backdrop-filter: blur(20px) saturate(140%);
+            -webkit-backdrop-filter: blur(20px) saturate(140%);
+            border: 1px solid var(--outline);
             border-radius: 28px;
             padding: 48px 56px;
             position: relative;
             overflow: hidden;
-            animation: fade-in-up 0.8s var(--transition-smooth) forwards;
-            opacity: 0;
-            transform: translateY(40px);
+            animation: fade-in-up 0.7s var(--ease-smooth) 0.05s both;
         }
-
         .hero-glass::before {
             content: '';
             position: absolute;
@@ -410,321 +359,279 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.4), transparent);
         }
-
         @keyframes fade-in-up {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--md3-primary-container);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 13px;
-            color: var(--md3-primary);
+            background: var(--gold-soft);
+            border: 1px solid var(--gold-line);
+            padding: 7px 16px;
+            border-radius: var(--r-full);
+            font-size: 12.5px;
+            color: var(--gold);
             margin-bottom: 24px;
-            font-weight: 500;
-            animation: fade-in-up 0.6s var(--transition-smooth) 0.1s forwards;
-            opacity: 0;
+            font-weight: 600;
+            font-family: var(--font-ui);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .hero-badge .pulse-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 8px var(--gold);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%      { opacity: 0.5; transform: scale(0.8); }
         }
 
         .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 56px;
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5.5vw, 60px);
             font-weight: 900;
-            line-height: 1.15;
+            line-height: 1.08;
             margin-bottom: 20px;
+            letter-spacing: -0.5px;
         }
-
-        .hero h1 span {
-            background: var(--pro-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero h1 .gold-line {
+            color: var(--gold);
+            display: block;
+            min-height: 1.08em;          /* reserve space — no CLS from typewriter */
         }
+        .hero h1 .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 0.9em;
+            background: var(--gold);
+            margin-left: 4px;
+            vertical-align: text-bottom;
+            animation: blink 0.85s step-end infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
 
-        .hero-content > p {
+        .hero-lede {
             font-size: 18px;
             line-height: 1.6;
-            color: var(--text-secondary);
+            color: var(--text-2);
             margin-bottom: 28px;
-        }
-
-        .section-header.reveal {
-            transition-delay: 0s;
+            max-width: 580px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
-            animation: fade-in-up 0.6s var(--transition-smooth) 0.4s forwards;
-            opacity: 0;
-        }
-
-        .hero-visual {
-            position: absolute;
-            right: -80px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(255,215,0,0.12) 0%, transparent 65%);
-            border-radius: 50%;
-            pointer-events: none;
         }
 
         .hero-warning {
-            color: var(--text-muted);
+            color: var(--text-3);
             font-size: 13px;
-            margin-top: 16px;
-            display: flex;
+            margin-top: 20px;
+            display: inline-flex;
             align-items: center;
-            gap: 6px;
-            animation: fade-in-up 0.6s var(--transition-smooth) 0.45s forwards;
-            opacity: 0;
+            gap: 8px;
+            font-family: var(--font-body);
         }
+        .hero-warning svg { width: 14px; height: 14px; color: var(--gold); }
 
-        /* Stats - M3 Rounded + Glow */
+        /* Stats — no text-shadow, crisper numbers */
         .stats {
             display: flex;
-            gap: 48px;
-            margin-top: 40px;
-            animation: fade-in-up 0.6s var(--transition-smooth) 0.5s forwards;
-            opacity: 0;
+            gap: 14px;
+            margin-top: 36px;
+            flex-wrap: wrap;
         }
-
         .stat-item {
-            text-align: center;
-            padding: 16px 24px;
-            background: var(--md3-surface-container);
-            border-radius: var(--md3-radius-large);
-            border: 1px solid var(--md3-outline-variant);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s var(--transition-spring);
+            text-align: left;
+            padding: 14px 22px;
+            background: rgba(255,255,255,0.025);
+            border-radius: var(--r-md);
+            border: 1px solid var(--outline-soft);
+            transition: border-color 0.3s, background 0.3s, transform 0.3s var(--ease-spring);
+            flex: 1;
+            min-width: 110px;
         }
-
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(255,215,0,0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
         .stat-item:hover {
             transform: translateY(-2px);
-            border-color: rgba(255, 215, 0, 0.3);
+            border-color: var(--gold-line);
+            background: rgba(255,215,0,0.04);
         }
-
-        .stat-item:hover::before {
-            opacity: 1;
-        }
-
-        /* Animated Counter */
         .stat-value {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 36px;
+            font-family: var(--font-display);
+            font-size: 32px;
             font-weight: 700;
-            color: var(--md3-primary);
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            color: var(--gold);
+            line-height: 1.1;
         }
-
-        .stat-value.counting {
-            animation: count-pulse 0.1s ease-in-out;
-        }
-
-        @keyframes count-pulse {
-            50% { transform: scale(1.05); }
-        }
-
         .stat-label {
-            color: var(--text-muted);
-            font-size: 12px;
+            color: var(--text-3);
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-top: 4px;
             font-weight: 600;
         }
 
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-        }
-
-        /* Screenshots Section */
-        .screenshots {
-            padding: 100px 0;
-            background: var(--md3-surface);
-        }
-
-        /* Carousel */
-        .carousel-container {
-            position: relative;
-            max-width: 900px;
-            margin: 48px auto 0;
-            overflow: hidden;
-            border-radius: var(--md3-radius-extra-large);
-            box-shadow: var(--md3-elevation-3);
-            background: var(--md3-surface-container);
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s var(--transition-smooth);
-        }
-
-        .carousel-slide {
-            min-width: 100%;
+        /* ===== TRUST MARQUEE ===== */
+        .marquee {
+            padding: 32px 0 0;
             position: relative;
         }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            object-position: top;
-            display: block;
+        .marquee-label {
+            text-align: center;
+            color: var(--text-3);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+            font-weight: 600;
         }
-
-        .carousel-slide .slide-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px 24px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.85));
-            color: white;
-            font-size: 15px;
-            font-weight: 500;
+        .marquee-track-wrap {
+            overflow-x: hidden;
+            overflow-y: visible;
+            padding: 8px 0;          /* room for hover-lift so the top edge isn't clipped */
+            mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+            -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
         }
-
-        /* Carousel Nav */
-        .carousel-nav {
+        .marquee-track {
             display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 24px;
+            gap: 56px;
+            width: max-content;
+            animation: marquee 35s linear infinite;
+            align-items: center;
         }
-
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--md3-outline);
-            cursor: pointer;
-            transition: all 0.3s var(--transition-spring);
-            border: none;
+        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-item {
+            font-family: var(--font-display);
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text);
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 16px 6px 6px;
+            border-radius: var(--r-full);
+            background: var(--surface-1);
+            border: 1px solid var(--outline-soft);
+            transition: transform 0.3s var(--ease-spring), border-color 0.3s, background 0.3s;
         }
-
-        .carousel-dot.active {
-            background: var(--md3-primary);
-            transform: scale(1.2);
+        .marquee-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--mq-color, var(--gold));
+            background: var(--surface-2);
         }
-
-        .carousel-dot:hover {
-            background: var(--md3-primary);
-            opacity: 0.7;
-        }
-
-        /* Carousel Arrows */
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 48px;
-            height: 48px;
-            background: rgba(18, 18, 26, 0.8);
-            border: 1px solid var(--md3-outline);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
+        .marquee-item .badge {
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s var(--transition-spring);
-            z-index: 10;
-            backdrop-filter: blur(8px);
+            font-size: 13px;
+            font-weight: 800;
+            color: #000;
+            border-radius: 50%;
+            background: var(--mq-color, var(--gold));
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.4), 0 0 12px color-mix(in oklab, var(--mq-color, #ffd700) 50%, transparent);
+            overflow: hidden;
+        }
+        .marquee-item .badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        /* Logo badges: drop the circle so the brand mark stands on its own */
+        .marquee-item.has-logo .badge {
+            background: transparent;
+            box-shadow: none;
+            overflow: visible;
+        }
+        .marquee-item.has-logo .badge img {
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5))
+                    drop-shadow(0 0 6px color-mix(in oklab, var(--mq-color, #ffd700) 35%, transparent));
+        }
+        .marquee-item .name {
+            color: var(--mq-color, var(--gold));
+        }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
         }
 
-        .carousel-arrow:hover {
-            background: var(--md3-primary);
-            border-color: var(--md3-primary);
-            transform: translateY(-50%) scale(1.1);
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 100px 0;
+            position: relative;
         }
-
-        .carousel-arrow.prev { left: 16px; }
-        .carousel-arrow.next { right: 16px; }
-
-        .carousel-arrow svg {
-            stroke: white;
-            width: 24px;
-            height: 24px;
-        }
+        section.tight { padding: 60px 0; }
 
         .section-header {
             text-align: center;
             margin-bottom: 56px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
         .section-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--md3-primary-container);
-            color: var(--md3-primary);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 13px;
+            background: var(--gold-soft);
+            color: var(--gold);
+            padding: 7px 16px;
+            border-radius: var(--r-full);
+            font-size: 12px;
             font-weight: 600;
-            margin-bottom: 16px;
-            border: 1px solid rgba(255, 215, 0, 0.15);
+            margin-bottom: 18px;
+            border: 1px solid var(--gold-line);
+            font-family: var(--font-ui);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
         }
-
+        .section-tag svg { width: 14px; height: 14px; }
         .section-header h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 42px;
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 40px);
             margin-bottom: 14px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            line-height: 1.15;
         }
-
         .section-header p {
-            color: var(--text-secondary);
+            color: var(--text-2);
             font-size: 17px;
-            max-width: 580px;
-            margin: 0 auto;
+            line-height: 1.6;
         }
 
-        /* Feature Cards - M3 Surface + Hover Lift */
-        .features-grid.reveal-stagger {
+        /* ===== FEATURE CARDS ===== */
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 20px;
         }
-
         .feature-card {
-            background: var(--md3-surface-container);
-            border-radius: var(--md3-radius-large);
-            padding: 36px 28px;
-            border: 1px solid var(--md3-outline-variant);
-            transition: all 0.3s var(--transition-spring), transform 0.4s ease, box-shadow 0.4s ease, background 0.3s;
+            background: var(--surface-1);
+            border-radius: var(--r-lg);
+            padding: 32px 28px;
+            border: 1px solid var(--outline-soft);
+            transition: transform 0.3s var(--ease-spring),
+                        border-color 0.3s,
+                        background 0.3s;
             position: relative;
             overflow: hidden;
-            will-change: transform;
         }
-
         .feature-card::before {
             content: '';
             position: absolute;
@@ -732,483 +639,161 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--md3-primary), transparent);
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
             opacity: 0;
             transition: opacity 0.3s;
         }
-
         .feature-card:hover {
-            transform: translateY(-6px);
-            background: var(--md3-surface-container-high);
-            box-shadow: var(--md3-elevation-3);
-            border-color: rgba(255, 215, 0, 0.2);
+            transform: translateY(-4px);
+            background: var(--surface-2);
+            border-color: var(--gold-line);
         }
-
-        .feature-card:hover::before {
-            opacity: 1;
-        }
+        .feature-card:hover::before { opacity: 1; }
 
         .feature-icon {
-            margin-bottom: 18px;
+            width: 48px;
+            height: 48px;
+            background: var(--gold-soft);
+            border-radius: var(--r-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 56px;
-            height: 56px;
-            background: var(--md3-primary-container);
-            border-radius: var(--md3-radius-medium);
-            transition: all 0.3s var(--transition-spring);
+            margin-bottom: 20px;
+            transition: transform 0.3s var(--ease-spring), background 0.3s;
         }
-
         .feature-card:hover .feature-icon {
-            transform: scale(1.1);
-            box-shadow: 0 4px 16px rgba(255, 215, 0, 0.2);
+            transform: scale(1.08);
+            background: rgba(255, 215, 0, 0.18);
         }
-
+        .feature-icon svg {
+            width: 22px;
+            height: 22px;
+            color: var(--gold);
+        }
         .feature-card h3 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: var(--font-display);
             font-size: 17px;
-            margin-bottom: 10px;
-            color: var(--md3-primary);
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.2px;
         }
-
         .feature-card p {
-            color: var(--text-secondary);
-            font-size: 14px;
+            color: var(--text-2);
+            font-size: 14.5px;
             line-height: 1.6;
         }
 
-        /* PRO Section */
-        .pro-section {
-            padding: 100px 0;
-            background: linear-gradient(180deg, transparent, var(--md3-surface-tint), transparent);
+        /* ===== SCREENSHOTS CAROUSEL ===== */
+        .carousel-container {
+            position: relative;
+            max-width: 940px;
+            margin: 0 auto;
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-3);
+            border: 1px solid var(--outline);
+            background: var(--surface-1);
         }
-
-        .pro-card {
-            background: var(--md3-surface-container);
-            border: 2px solid var(--md3-primary);
-            border-radius: var(--md3-radius-extra-large);
-            padding: 56px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 56px;
-            align-items: center;
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s var(--ease-smooth);
+        }
+        .carousel-slide {
+            min-width: 100%;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 60px rgba(255, 215, 0, 0.1);
         }
-
-        .pro-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 50%);
-            animation: rotate-glow 20s linear infinite;
+        .carousel-slide img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            transform: scale(1);
+            transition: transform 8s linear;
         }
-
-        @keyframes rotate-glow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .carousel-slide.is-active img {
+            transform: scale(1.06);   /* Ken-Burns */
         }
-
-        .pro-card::after {
-            content: 'PRO';
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            background: var(--pro-gold);
-            color: #000;
-            padding: 6px 14px;
-            border-radius: 16px;
-            letter-spacing: 1px;
-        }
-
-        .pro-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .pro-content h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 32px;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .pro-content > p {
-            color: var(--text-secondary);
-            font-size: 16px;
-            margin-bottom: 28px;
-            line-height: 1.7;
-        }
-
-        .pro-features-list {
-            list-style: none;
-        }
-
-        .pro-features-list li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-            font-size: 15px;
-            color: var(--text-primary);
-        }
-
-        .pro-features-list li::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .pro-price {
-            position: relative;
-            z-index: 1;
+        .carousel-caption {
             text-align: center;
-            background: var(--md3-surface);
-            border-radius: var(--md3-radius-large);
-            padding: 40px;
-            border: 1px solid var(--md3-outline-variant);
-        }
-
-        .price-value {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 52px;
-            font-weight: 700;
-            color: var(--md3-primary);
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-        }
-
-        .price-period {
-            color: var(--text-muted);
+            margin-top: 20px;
+            color: var(--text-2);
             font-size: 14px;
-            margin-bottom: 28px;
+            font-weight: 500;
+            min-height: 22px;
+        }
+        .carousel-caption strong {
+            color: var(--gold);
+            font-family: var(--font-display);
+            font-weight: 700;
+            margin-right: 8px;
         }
 
-        .pro-price .btn {
-            width: 100%;
-        }
-
-        .pro-price-note {
-            color: var(--text-muted);
-            font-size: 12px;
-            margin-top: 14px;
-            line-height: 1.5;
-        }
-
-        /* Commands Section */
-        .commands {
-            padding: 100px 0;
-        }
-
-        .commands-table {
-            background: var(--md3-surface-container);
-            border-radius: var(--md3-radius-large);
-            overflow: hidden;
-            border: 1px solid var(--md3-outline-variant);
-        }
-
-        .commands-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .commands-table th {
-            font-family: 'Orbitron', sans-serif;
-            background: rgba(255, 215, 0, 0.05);
-            padding: 20px 24px;
-            text-align: left;
-            color: var(--md3-primary);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-        }
-
-        .commands-table td {
-            padding: 18px 24px;
-            border-top: 1px solid var(--md3-outline-variant);
-        }
-
-        .commands-table tr {
-            transition: background 0.2s;
-        }
-
-        .commands-table tr:hover td {
-            background: rgba(255, 215, 0, 0.03);
-        }
-
-        code {
-            background: var(--md3-primary-container);
-            padding: 6px 12px;
-            border-radius: var(--md3-radius-small);
-            font-family: 'Fira Code', monospace;
-            font-size: 13px;
-            color: var(--md3-primary);
-            border: 1px solid rgba(255, 215, 0, 0.1);
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 42px;
-            margin-bottom: 16px;
-        }
-
-        .cta p {
-            color: var(--text-secondary);
-            font-size: 18px;
-            margin-bottom: 36px;
-        }
-
-        .cta-buttons {
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: rgba(10, 10, 15, 0.7);
+            border: 1px solid var(--outline);
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
-            gap: 16px;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
+            transition: background 0.3s, border-color 0.3s, transform 0.3s var(--ease-spring);
+            z-index: 10;
+            backdrop-filter: blur(8px);
+            color: white;
         }
-
-        /* Footer */
-        footer {
-            padding: 48px 0;
-            border-top: 1px solid var(--md3-outline-variant);
+        .carousel-arrow:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #000;
+            transform: translateY(-50%) scale(1.08);
         }
+        .carousel-arrow.prev { left: 16px; }
+        .carousel-arrow.next { right: 16px; }
+        .carousel-arrow svg { width: 20px; height: 20px; }
 
-        .footer-content {
+        .carousel-nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 16px;
         }
-
-        .footer-links {
-            display: flex;
-            gap: 28px;
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--outline);
+            cursor: pointer;
+            transition: all 0.3s var(--ease-spring);
+            border: none;
+            padding: 0;
         }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s var(--transition-smooth);
+        .carousel-dot.active {
+            background: var(--gold);
+            width: 24px;
+            border-radius: 4px;
         }
+        .carousel-dot:hover:not(.active) { background: rgba(255,255,255,0.3); }
 
-        .footer-links a:hover {
-            color: var(--md3-primary);
-        }
-
-        .footer-copy {
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .pro-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 48px 36px;
-            }
-
-            .pro-features-list li {
-                justify-content: center;
-            }
-
-            .hero-glass {
-                padding: 36px 40px;
-            }
-
-            .hero h1 {
-                font-size: 46px;
-            }
-
-            .hero-visual {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero-glass {
-                padding: 28px 24px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                flex-wrap: wrap;
-                gap: 16px;
-            }
-
-            .stat-item {
-                flex: 1;
-                min-width: 100px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .section-header h2 {
-                font-size: 32px;
-            }
-
-            .cta h2 {
-                font-size: 32px;
-            }
-
-            .pro-content h2 {
-                font-size: 26px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 24px;
-                text-align: center;
-            }
-
-            .commands-table {
-                overflow-x: auto;
-            }
-        }
-        /* ===== PARTICLE CANVAS ===== */
-        #particleCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* ===== TYPEWRITER ===== */
-        .typewriter-cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1em;
-            background: var(--md3-primary);
-            margin-left: 4px;
-            animation: blink-cursor 0.75s step-end infinite;
-            vertical-align: text-bottom;
-        }
-        @keyframes blink-cursor {
-            50% { opacity: 0; }
-        }
-
-        /* ===== FLOATING BADGE ===== */
-        .hero-badge { animation: float-bob 3s ease-in-out infinite, fade-in-up 0.6s var(--transition-smooth) 0.1s forwards; }
-        @keyframes float-bob {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-
-        /* ===== ANIMATED GRADIENT BORDERS ===== */
-        .glow-border {
-            position: relative;
-        }
-        .glow-border::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: inherit;
-            padding: 2px;
-            background: conic-gradient(from var(--border-angle, 0deg), #ffd700, #ff8c00, #ffd700, #ff8c00, #ffd700);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s;
-            animation: rotate-border 4s linear infinite;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .glow-border:hover::after { opacity: 1; }
-        @keyframes rotate-border {
-            to { --border-angle: 360deg; }
-        }
-        @property --border-angle {
-            syntax: '<angle>';
-            initial-value: 0deg;
-            inherits: false;
-        }
-
-        /* ===== 3D TILT CARDS ===== */
-        .tilt-card {
-            transform-style: preserve-3d;
-            perspective: 800px;
-            transition: transform 0.15s ease-out, box-shadow 0.3s;
-        }
-        .tilt-card .feature-icon {
-            transform: translateZ(30px);
-        }
-        .tilt-card h3 { transform: translateZ(20px); }
-        .tilt-card p { transform: translateZ(10px); }
-
-        /* ===== SECTION GLOW PULSE ===== */
-        .section-glow {
-            position: relative;
-        }
-        .section-glow::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 50%;
-            width: 600px; height: 400px;
-            background: radial-gradient(ellipse, rgba(255,215,0,0.08) 0%, transparent 70%);
-            transform: translate(-50%, -50%) scale(0.5);
-            opacity: 0;
-            transition: opacity 0.8s, transform 0.8s;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .section-glow.revealed::after {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        /* ===== MAGNETIC BUTTON ===== */
-        .magnetic-btn {
-            transition: transform 0.2s ease-out, box-shadow 0.3s;
-        }
-
-        /* ===== LIVE TESTER SECTION ===== */
-        .live-tester {
-            padding: 100px 0;
-            position: relative;
-        }
+        /* ===== LIVE CHAT DEMO ===== */
         .chat-window {
             max-width: 700px;
-            margin: 48px auto 0;
-            background: #18181b;
-            border-radius: var(--md3-radius-extra-large);
-            border: 1px solid var(--md3-outline);
+            margin: 0 auto;
+            background: #0e0e10;
+            border-radius: var(--r-xl);
+            border: 1px solid var(--outline);
             overflow: hidden;
-            box-shadow: var(--md3-elevation-3), 0 0 60px rgba(255,215,0,0.05);
+            box-shadow: var(--shadow-3);
         }
         .chat-header {
-            background: #0e0e10;
+            background: #18181b;
             padding: 14px 20px;
             display: flex;
             align-items: center;
@@ -1216,198 +801,575 @@
             border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         .chat-header-dot {
-            width: 12px; height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: #9147ff;
-            box-shadow: 0 0 8px rgba(145,71,255,0.5);
+            box-shadow: 0 0 8px rgba(145, 71, 255, 0.6);
             animation: pulse-dot 2s ease-in-out infinite;
         }
-        @keyframes pulse-dot {
-            0%,100% { box-shadow: 0 0 8px rgba(145,71,255,0.5); }
-            50% { box-shadow: 0 0 16px rgba(145,71,255,0.8); }
-        }
-        .chat-header span {
-            font-family: 'Orbitron', sans-serif;
+        .chat-header-title {
+            font-family: var(--font-display);
             font-size: 13px;
             color: #efeff1;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .chat-header-meta {
+            margin-left: auto;
+            color: #8a8a98;
+            font-size: 12px;
+            font-family: var(--font-body);
         }
         .chat-messages {
-            height: 320px;
+            height: 340px;
             overflow-y: auto;
             padding: 16px 20px;
             display: flex;
             flex-direction: column;
             gap: 6px;
             scroll-behavior: smooth;
+            background: #0e0e10;
         }
         .chat-messages::-webkit-scrollbar { width: 4px; }
-        .chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+        .chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
         .chat-msg {
-            font-size: 14px;
-            line-height: 1.5;
+            font-size: 14.5px;
+            line-height: 1.55;
             animation: msg-appear 0.3s ease-out;
             word-break: break-word;
+            color: #efeff1;
+            font-family: var(--font-body);
         }
         @keyframes msg-appear {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-        .chat-msg .username {
-            font-weight: 700;
-            cursor: pointer;
-        }
-        .chat-msg .username.bot { color: #ffd700; }
-        .chat-msg .username.viewer { color: #9147ff; }
+        .chat-msg .username { font-weight: 700; }
+        .chat-msg .username.bot     { color: #ffd700; }
+        .chat-msg .username.viewer  { color: #9147ff; }
         .chat-msg .username.viewer2 { color: #00ff7f; }
         .chat-msg .username.viewer3 { color: #ff6b6b; }
-        .chat-msg .text { color: #efeff1; }
         .chat-msg .system { color: #ffd700; font-style: italic; }
-        .chat-msg .win { color: #00ff88; font-weight: 600; }
-        .chat-msg .lose { color: #ff4444; font-weight: 600; }
+        .chat-msg .win    { color: #00ff88; font-weight: 600; }
+        .chat-msg .lose   { color: #ff5a5a; font-weight: 600; }
+
         .chat-input-area {
             padding: 12px 16px;
             border-top: 1px solid rgba(255,255,255,0.06);
             display: flex;
             gap: 10px;
-            background: #0e0e10;
+            background: #18181b;
         }
         .chat-input {
             flex: 1;
             background: #2a2a2e;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 8px;
             padding: 10px 14px;
             color: #efeff1;
-            font-family: 'Rajdhani', sans-serif;
+            font-family: var(--font-body);
             font-size: 14px;
             outline: none;
             transition: border-color 0.2s;
         }
         .chat-input:focus { border-color: #9147ff; }
-        .chat-input::placeholder { color: #606060; }
+        .chat-input::placeholder { color: #6b6b75; }
         .chat-send {
             background: #9147ff;
             border: none;
             border-radius: 8px;
-            padding: 10px 20px;
+            padding: 10px 22px;
             color: white;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
+            font-family: var(--font-ui);
+            font-weight: 700;
             font-size: 14px;
+            letter-spacing: 0.5px;
             cursor: pointer;
             transition: background 0.2s, transform 0.1s;
         }
         .chat-send:hover { background: #a970ff; }
-        .chat-send:active { transform: scale(0.95); }
+        .chat-send:active { transform: scale(0.96); }
+
         .chat-hint {
             text-align: center;
             margin-top: 16px;
-            color: var(--text-muted);
+            color: var(--text-3);
             font-size: 13px;
         }
         .chat-hint code {
-            font-size: 12px;
+            font-size: 12.5px;
+            margin: 0 4px;
         }
 
-        /* ===== PARTNERS SECTION ===== */
-        .partners {
-            padding: 100px 0;
-            position: relative;
-        }
+        /* ===== PARTNERS ===== */
         .partners-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 48px;
+            gap: 20px;
         }
         .partner-card {
-            background: var(--md3-surface-container);
-            border-radius: var(--md3-radius-large);
+            background: var(--surface-1);
+            border-radius: var(--r-lg);
             padding: 32px 24px;
-            border: 1px solid var(--md3-outline-variant);
+            border: 1px solid var(--outline-soft);
             text-align: center;
-            transition: all 0.3s var(--transition-spring);
-            position: relative;
-            overflow: hidden;
+            transition: transform 0.3s var(--ease-spring),
+                        border-color 0.3s,
+                        background 0.3s;
         }
         .partner-card:hover {
-            transform: translateY(-6px);
-            background: var(--md3-surface-container-high);
-            box-shadow: var(--md3-elevation-3);
-            border-color: rgba(255,215,0,0.2);
+            transform: translateY(-4px);
+            background: var(--surface-2);
+            border-color: var(--gold-line);
         }
         .partner-avatar {
-            width: 72px; height: 72px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
-            margin: 0 auto 16px;
+            margin: 0 auto 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 24px;
+            font-family: var(--font-display);
+            font-size: 22px;
             font-weight: 700;
             color: #000;
-            position: relative;
         }
-        .partner-avatar.tester { background: linear-gradient(135deg, #00ff88, #00cc6a); }
+        .partner-avatar.tester  { background: linear-gradient(135deg, #00ff88, #00cc6a); }
         .partner-avatar.partner { background: linear-gradient(135deg, #9147ff, #6d28d9); color: #fff; }
-        .partner-avatar.dev { background: var(--pro-gold); }
+        .partner-avatar.dev     { background: var(--pro-gold); }
+        /* Logo avatars: no chrome — brand mark stands on its own */
+        .partner-avatar.partner-logo {
+            background: transparent;
+            width: 80px;
+            height: 80px;
+        }
+        .partner-avatar.partner-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 6px 14px rgba(0,0,0,0.5))
+                    drop-shadow(0 0 14px rgba(255, 215, 0, 0.18));
+            transition: transform 0.4s var(--ease-spring), filter 0.4s;
+        }
+        .partner-card:hover .partner-avatar.partner-logo img {
+            transform: scale(1.08);
+            filter: drop-shadow(0 8px 18px rgba(0,0,0,0.55))
+                    drop-shadow(0 0 18px rgba(255, 215, 0, 0.32));
+        }
+
         .partner-name {
-            font-family: 'Orbitron', sans-serif;
+            font-family: var(--font-display);
             font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
         }
         .partner-badge {
             display: inline-flex;
             align-items: center;
             gap: 4px;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             padding: 4px 12px;
-            border-radius: 12px;
+            border-radius: var(--r-full);
             margin-bottom: 12px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
+            font-family: var(--font-ui);
         }
-        .partner-badge.tester { background: rgba(0,255,136,0.1); color: #00ff88; border: 1px solid rgba(0,255,136,0.2); }
-        .partner-badge.partner-type { background: rgba(145,71,255,0.1); color: #9147ff; border: 1px solid rgba(145,71,255,0.2); }
-        .partner-badge.dev-type { background: rgba(255,215,0,0.1); color: #ffd700; border: 1px solid rgba(255,215,0,0.2); }
+        .partner-badge.tester       { background: rgba(0,255,136,0.10); color: #00ff88; border: 1px solid rgba(0,255,136,0.22); }
+        .partner-badge.partner-type { background: rgba(145,71,255,0.10); color: #b58cff; border: 1px solid rgba(145,71,255,0.30); }
+        .partner-badge.dev-type     { background: rgba(255,215,0,0.10); color: #ffd700; border: 1px solid var(--gold-line); }
+
         .partner-quote {
-            color: var(--text-secondary);
-            font-size: 13px;
-            line-height: 1.5;
+            color: var(--text-2);
+            font-size: 13.5px;
+            line-height: 1.55;
             font-style: italic;
+            margin-bottom: 14px;
         }
         .partner-link {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-top: 12px;
-            color: #9147ff;
+            color: #b58cff;
             text-decoration: none;
             font-size: 13px;
             font-weight: 600;
             transition: color 0.2s;
+            font-family: var(--font-ui);
         }
-        .partner-link:hover { color: #a970ff; }
+        .partner-link:hover { color: #d4b8ff; }
+        .partner-link svg { width: 13px; height: 13px; }
 
-        @media (max-width: 768px) {
-            .partners-grid { grid-template-columns: 1fr; }
-            .chat-messages { height: 260px; }
+        /* ===== PRO SECTION ===== */
+        .pro-section { padding: 100px 0; }
+        .pro-card {
+            background: var(--surface-1);
+            border: 1.5px solid var(--gold-line);
+            border-radius: var(--r-xl);
+            padding: 56px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.08);
         }
+        /* Corner ribbon — wrapper clips to a 130×130 corner square */
+        .pro-ribbon-wrap {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 130px;
+            height: 130px;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .pro-ribbon {
+            position: absolute;
+            top: 28px;
+            right: -44px;
+            width: 180px;
+            text-align: center;
+            transform: rotate(45deg);
+            background: var(--pro-gold);
+            color: #000;
+            font-family: var(--font-display);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            padding: 6px 0;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+        .pro-content { position: relative; z-index: 1; }
+        .pro-content h2 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            margin-bottom: 16px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.2px;
+        }
+        .pro-content h2 svg { width: 28px; height: 28px; color: var(--gold); }
+        .pro-content > p {
+            color: var(--text-2);
+            font-size: 16px;
+            margin-bottom: 24px;
+            line-height: 1.65;
+        }
+        .pro-features-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+        .pro-features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .pro-features-list li svg {
+            width: 18px;
+            height: 18px;
+            color: var(--success);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pro-price {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            background: var(--surface);
+            border-radius: var(--r-lg);
+            padding: 36px 32px;
+            border: 1px solid var(--outline-soft);
+        }
+        .price-value {
+            font-family: var(--font-display);
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .price-period {
+            color: var(--text-3);
+            font-size: 13px;
+            margin: 6px 0 24px;
+            letter-spacing: 0.3px;
+        }
+        .pro-price .btn { width: 100%; }
+        .pro-price-note {
+            color: var(--text-3);
+            font-size: 12px;
+            margin-top: 14px;
+            line-height: 1.5;
+        }
+
+        /* ===== COMMANDS TABLE ===== */
+        .commands-table {
+            background: var(--surface-1);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            border: 1px solid var(--outline-soft);
+        }
+        .commands-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .commands-table th {
+            font-family: var(--font-display);
+            background: rgba(255, 215, 0, 0.04);
+            padding: 18px 24px;
+            text-align: left;
+            color: var(--gold);
+            font-size: 11.5px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+        .commands-table td {
+            padding: 16px 24px;
+            border-top: 1px solid var(--outline-soft);
+            color: var(--text-2);
+            font-size: 14.5px;
+            position: relative;
+        }
+        .commands-table tr {
+            transition: background 0.2s;
+            position: relative;
+        }
+        .commands-table tbody tr td:first-child {
+            box-shadow: inset 0 0 0 0 var(--gold);
+            transition: box-shadow 0.25s var(--ease-smooth);
+        }
+        .commands-table tbody tr:hover td {
+            background: rgba(255, 215, 0, 0.03);
+            color: var(--text);
+        }
+        .commands-table tbody tr:hover td:first-child {
+            box-shadow: inset 3px 0 0 0 var(--gold);
+        }
+
+        code {
+            background: rgba(255, 215, 0, 0.08);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+            font-size: 13px;
+            color: var(--gold);
+            border: 1px solid var(--gold-line);
+            white-space: nowrap;
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            background: var(--surface-1);
+            border-top: 1px solid var(--outline-soft);
+            border-bottom: 1px solid var(--outline-soft);
+        }
+        .faq-container {
+            max-width: 780px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .faq-item {
+            background: var(--surface);
+            border-radius: var(--r-md);
+            border: 1px solid var(--outline-soft);
+            overflow: hidden;
+            transition: border-color 0.3s, background 0.3s;
+        }
+        .faq-item[open] {
+            border-color: var(--gold-line);
+            background: var(--surface-2);
+        }
+        .faq-item summary {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            outline: none;
+            padding: 20px 24px;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: color 0.2s;
+            font-family: var(--font-body);
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary:hover { color: var(--gold); }
+        .faq-chev {
+            width: 20px;
+            height: 20px;
+            color: var(--text-3);
+            transition: transform 0.3s var(--ease-spring), color 0.2s;
+            flex-shrink: 0;
+        }
+        .faq-item[open] .faq-chev {
+            transform: rotate(180deg);
+            color: var(--gold);
+        }
+        .faq-item summary:hover .faq-chev { color: var(--gold); }
+        .faq-answer {
+            padding: 0 24px 22px;
+            color: var(--text-2);
+            line-height: 1.65;
+            font-size: 15px;
+        }
+
+        /* ===== CTA ===== */
+        .cta { text-align: center; }
+        .cta-card {
+            max-width: 780px;
+            margin: 0 auto;
+            background:
+                radial-gradient(ellipse at top, rgba(255,215,0,0.06), transparent 60%),
+                var(--surface-1);
+            border: 1px solid var(--gold-line);
+            border-radius: var(--r-xl);
+            padding: 64px 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 14px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+        .cta p {
+            color: var(--text-2);
+            font-size: 17px;
+            margin-bottom: 32px;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 48px 0 32px;
+            border-top: 1px solid var(--outline-soft);
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: var(--text-3);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+            font-family: var(--font-body);
+        }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-copy {
+            color: var(--text-3);
+            font-size: 13px;
+            font-family: var(--font-body);
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s var(--ease-smooth),
+                        transform 0.7s var(--ease-smooth);
+            will-change: opacity, transform;
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-stagger > * { transition-delay: 0s; }
+        .reveal-stagger.revealed > *:nth-child(1) { transition-delay: 0.05s; }
+        .reveal-stagger.revealed > *:nth-child(2) { transition-delay: 0.10s; }
+        .reveal-stagger.revealed > *:nth-child(3) { transition-delay: 0.15s; }
+        .reveal-stagger.revealed > *:nth-child(4) { transition-delay: 0.20s; }
+        .reveal-stagger.revealed > *:nth-child(5) { transition-delay: 0.25s; }
+        .reveal-stagger.revealed > *:nth-child(6) { transition-delay: 0.30s; }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .partners-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid, .partners-grid { grid-template-columns: repeat(2, 1fr); }
+            .pro-card {
+                grid-template-columns: 1fr;
+                padding: 44px 32px;
+                text-align: center;
+            }
+            .pro-content h2 { justify-content: center; }
+            .pro-features-list li { text-align: left; }
+            .hero-glass { padding: 40px 36px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero { padding: 120px 0 60px; }
+            .hero-glass { padding: 32px 24px; }
+            .hero h1 { font-size: 36px; }
+            .features-grid, .partners-grid { grid-template-columns: 1fr; }
+            .stats { gap: 10px; }
+            .stat-item { min-width: 0; padding: 12px 16px; }
+            .stat-value { font-size: 26px; }
+            .pro-card { padding: 32px 22px; }
+            .price-value { font-size: 44px; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .commands-table { overflow-x: auto; }
+            .carousel-slide img { height: 320px; }
+            section { padding: 70px 0; }
+        }
+
+        /* ===== REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                transition-duration: 0.001ms !important;
+            }
+            .marquee-track { animation: none; }
+            #particleCanvas { display: none; }
+            .spotlight { display: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Particle Canvas -->
-    <canvas id="particleCanvas"></canvas>
-    <!-- Parallax Background -->
-    <div class="parallax-bg" id="parallaxBg"></div>
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="spotlight" aria-hidden="true"></div>
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
 
     <!-- Navigation -->
     <nav>
@@ -1424,29 +1386,42 @@
                 <li><a href="#pro">PRO</a></li>
                 <li><a href="#commands">Commands</a></li>
             </ul>
-            <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="btn btn-primary">Download</a>
+            <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="btn btn-primary btn-sm">
+                <i data-lucide="download"></i>
+                Download
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-glass">
                     <div class="hero-badge">
+                        <span class="pulse-dot"></span>
                         PRO Membership Available — Support Development
                     </div>
-                    <h1 id="heroTitle">The Ultimate<br><span id="heroTyped"></span><br>Experience</h1>
-                    <p>Turn your Twitch chat into an exciting bank robbery game. Viewers rob banks together, earn coins, and compete for the top spot on the leaderboard!</p>
+                    <h1>
+                        The Ultimate<br>
+                        <span class="gold-line" id="heroTyped"></span>
+                        Experience
+                    </h1>
+                    <p class="hero-lede">Turn your Twitch chat into an exciting bank robbery game. Viewers rob banks together, earn coins, and compete for the top spot on the leaderboard.</p>
                     <div class="hero-buttons">
                         <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="btn btn-primary">
-                            <span style="display:inline-flex;align-items:center;gap:8px;">Download Free</span>
+                            <i data-lucide="download"></i>
+                            Download Free
                         </a>
                         <a href="#pro" class="btn btn-secondary">
-                            <span>Get PRO</span>
+                            <i data-lucide="star"></i>
+                            Get PRO
                         </a>
                     </div>
-                    <p class="hero-warning">⚠️ Currently in active development — New features coming soon!</p>
+                    <span class="hero-warning">
+                        <i data-lucide="alert-triangle"></i>
+                        Currently in active development — new features coming soon
+                    </span>
                     <div class="stats">
                         <div class="stat-item">
                             <div class="stat-value">5</div>
@@ -1464,244 +1439,214 @@
                 </div>
             </div>
         </div>
-        <div class="hero-visual"></div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Trust Marquee -->
+    <section class="marquee tight" aria-label="Used by streamers">
+        <div class="container">
+            <div class="marquee-label">Trusted by streamers worldwide</div>
+            <div class="marquee-track-wrap">
+                <div class="marquee-track" id="marqueeTrack">
+                    <!-- duplicated in JS for seamless loop -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag">✨ Features</span>
+                <span class="section-tag"><i data-lucide="sparkles"></i> Features</span>
                 <h2>Everything You Need</h2>
-                <p>A complete streaming tool with games, rewards, and engagement features — actively developed and supported by PRO members!</p>
+                <p>A complete streaming tool with games, rewards, and engagement features — actively developed and supported by PRO members.</p>
             </div>
-            <div class="features-grid reveal-stagger">
-                <div class="feature-card reveal glow-border tilt-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                    </div>
+            <div class="features-grid reveal reveal-stagger">
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="zap"></i></div>
                     <h3>Heist Minigame</h3>
-                    <p>Viewers join forces to rob banks together with `!raub <bet>`. Win big or lose it all!</p>
+                    <p>Viewers join forces to rob banks together with <code>!raub &lt;bet&gt;</code>. Win big or lose it all.</p>
                 </div>
-                <div class="feature-card glow-border tilt-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="gift"></i></div>
                     <h3>Raffle System</h3>
                     <p>Fair giveaways with Sub-Only mode, minimum subscription requirements, and automatic redraw.</p>
                 </div>
-                <div class="feature-card glow-border tilt-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
                     <h3>Statistics Dashboard</h3>
                     <p>Track Heist and Raffle stats, trends, filters, and top winners in real-time.</p>
                 </div>
-                <div class="feature-card glow-border tilt-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="globe"></i></div>
                     <h3>5 Languages</h3>
-                    <p>DE, EN, ES, RU, ZH - Switch languages instantly with one click in the dashboard.</p>
+                    <p>DE, EN, ES, RU, ZH — switch languages instantly with one click in the dashboard.</p>
                 </div>
-                <div class="feature-card glow-border tilt-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="monitor"></i></div>
                     <h3>OBS Overlay</h3>
                     <p>Animated robber parade, victory animations, and sound effects for your stream.</p>
                 </div>
-                <div class="feature-card glow-border tilt-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="medal"></i></div>
                     <h3>Loyalty System</h3>
-                    <p>Automatic rewards for watch time and subs (Tier 1, 2 & 3).</p>
+                    <p>Automatic rewards for watch time and subs (Tier 1, 2 &amp; 3).</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Dashboard Screenshots Section -->
-    <section class="screenshots" id="screenshots">
+    <!-- Screenshots -->
+    <section id="screenshots">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag">📸 Dashboard</span>
+                <span class="section-tag"><i data-lucide="image"></i> Dashboard</span>
                 <h2>Take a Look Inside</h2>
                 <p>Professional dashboard with real-time statistics, game controls, and an intuitive interface — designed for both you and your viewers.</p>
             </div>
-            <div class="carousel-container reveal">
-                <div class="carousel-track">
-                    <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-1.jpg" alt="Heist Bot Dashboard - Main View" loading="lazy">
-                        <div class="slide-caption">Main Dashboard Overview</div>
+            <div class="reveal">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide is-active" data-caption="Heist Control &amp; Game Settings">
+                            <img src="assets/screenshots/dashboard-4.jpg" alt="Heist Bot Dashboard - Heist Control" loading="lazy">
+                        </div>
+                        <div class="carousel-slide" data-caption="Twitch Connection &amp; Sound Setup">
+                            <img src="assets/screenshots/dashboard-9.jpg" alt="Heist Bot Dashboard - Twitch Connection" loading="lazy">
+                        </div>
+                        <div class="carousel-slide" data-caption="Raffle Management — Sub-Only &amp; Ticket Limits">
+                            <img src="assets/screenshots/dashboard-8.jpg" alt="Heist Bot Dashboard - Raffle Management" loading="lazy">
+                        </div>
+                        <div class="carousel-slide" data-caption="Manual Coin Distribution &amp; Heist Status">
+                            <img src="assets/screenshots/dashboard-5.jpg" alt="Heist Bot Dashboard - Manual Distribution" loading="lazy">
+                        </div>
+                        <div class="carousel-slide" data-caption="OBS Integration &amp; Software Updates">
+                            <img src="assets/screenshots/dashboard-1.jpg" alt="Heist Bot Dashboard - OBS Integration" loading="lazy">
+                        </div>
+                        <div class="carousel-slide" data-caption="Statistics Overview — Winrate, Bets &amp; Top Robbers">
+                            <img src="assets/screenshots/dashboard-2.jpg" alt="Heist Bot Dashboard - Statistics Overview" loading="lazy">
+                        </div>
+                        <div class="carousel-slide" data-caption="Winrate Trends &amp; Recent Heist History">
+                            <img src="assets/screenshots/dashboard-3.jpg" alt="Heist Bot Dashboard - Trends &amp; History" loading="lazy">
+                        </div>
+                        <div class="carousel-slide" data-caption="PRO — Excluded Accounts &amp; Custom Commands">
+                            <img src="assets/screenshots/dashboard-7.jpg" alt="Heist Bot Dashboard - PRO Features" loading="lazy">
+                        </div>
+                        <div class="carousel-slide" data-caption="Sign In — Twitch Login or E-Mail">
+                            <img src="assets/screenshots/dashboard-login.png" alt="Heist Bot Dashboard - Sign In" loading="lazy">
+                        </div>
                     </div>
-                    <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-2.jpg" alt="Heist Bot Dashboard - Statistics" loading="lazy">
-                        <div class="slide-caption">Real-time Statistics & Trends</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-3.jpg" alt="Heist Bot Dashboard - Game Mode" loading="lazy">
-                        <div class="slide-caption">Game Mode Selection</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-4.jpg" alt="Heist Bot Dashboard - Settings" loading="lazy">
-                        <div class="slide-caption">Bot Configuration & Settings</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-5.jpg" alt="Heist Bot Dashboard - Leaderboard" loading="lazy">
-                        <div class="slide-caption">Player Leaderboard</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-6.jpg" alt="Heist Bot Dashboard - Raffle System" loading="lazy">
-                        <div class="slide-caption">Raffle System</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-7.jpg" alt="Heist Bot Dashboard - Custom Commands" loading="lazy">
-                        <div class="slide-caption">Custom Commands</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-8.jpg" alt="Heist Bot Dashboard - PRO Features" loading="lazy">
-                        <div class="slide-caption">PRO Features Dashboard</div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="assets/screenshots/dashboard-9.jpg" alt="Heist Bot Dashboard - Multi-Game Mode" loading="lazy">
-                        <div class="slide-caption">Multi-Game Mode Selection</div>
-                    </div>
+                    <button class="carousel-arrow prev" onclick="moveSlide(-1)" aria-label="Previous slide">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow next" onclick="moveSlide(1)" aria-label="Next slide">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
                 </div>
-                <button class="carousel-arrow prev" onclick="moveSlide(-1)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg>
-                </button>
-                <button class="carousel-arrow next" onclick="moveSlide(1)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
-            </div>
-            <div class="carousel-nav">
-                <button class="carousel-dot active" onclick="goToSlide(0)"></button>
-                <button class="carousel-dot" onclick="goToSlide(1)"></button>
-                <button class="carousel-dot" onclick="goToSlide(2)"></button>
-                <button class="carousel-dot" onclick="goToSlide(3)"></button>
-                <button class="carousel-dot" onclick="goToSlide(4)"></button>
-                <button class="carousel-dot" onclick="goToSlide(5)"></button>
-                <button class="carousel-dot" onclick="goToSlide(6)"></button>
-                <button class="carousel-dot" onclick="goToSlide(7)"></button>
-                <button class="carousel-dot" onclick="goToSlide(8)"></button>
+                <p class="carousel-caption" id="carouselCaption">
+                    <strong>01 / 09</strong><span id="captionText">Heist Control &amp; Game Settings</span>
+                </p>
+                <div class="carousel-nav" id="carouselNav"></div>
             </div>
         </div>
     </section>
 
-    <!-- Live Tester Section -->
-    <section class="live-tester section-glow reveal" id="live-demo">
+    <!-- Live Demo -->
+    <section id="live-demo">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">🎮 Live Demo</span>
-                <h2>Try It Now</h2>
-                <p>Experience the Heist Bot right here — type a command and watch the action unfold in real-time!</p>
+            <div class="section-header reveal">
+                <span class="section-tag"><i data-lucide="terminal"></i> Live Demo</span>
+                <h2>Try It Right Now</h2>
+                <p>Experience the Heist Bot here — type a command and watch the action unfold in real-time.</p>
             </div>
-            <div class="chat-window">
-                <div class="chat-header">
-                    <div class="chat-header-dot"></div>
-                    <span>HEIST BOT — LIVE DEMO</span>
+            <div class="reveal">
+                <div class="chat-window">
+                    <div class="chat-header">
+                        <div class="chat-header-dot"></div>
+                        <span class="chat-header-title">HEIST BOT — LIVE DEMO</span>
+                        <span class="chat-header-meta">demo-mode</span>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="chat-msg"><span class="username bot">HeistBot: </span><span class="system">Welcome! Type !raub &lt;amount&gt; to start a heist, !coins to check balance, or !topliste for the leaderboard.</span></div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Type !raub 100, !coins, or !topliste …" autocomplete="off">
+                        <button class="chat-send" id="chatSend">Chat</button>
+                    </div>
                 </div>
-                <div class="chat-messages" id="chatMessages">
-                    <div class="chat-msg"><span class="username bot">HeistBot: </span><span class="system">Welcome! Type !raub &lt;amount&gt; to start a heist, !coins to check balance, or !topliste for the leaderboard.</span></div>
-                </div>
-                <div class="chat-input-area">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Type !raub 100, !coins, or !topliste ..." autocomplete="off">
-                    <button class="chat-send" id="chatSend">Chat</button>
-                </div>
+                <p class="chat-hint">Try: <code>!raub 100</code> <code>!raub 500</code> <code>!coins</code> <code>!topliste</code></p>
             </div>
-            <p class="chat-hint">Try: <code>!raub 100</code> · <code>!raub 500</code> · <code>!coins</code> · <code>!topliste</code></p>
         </div>
     </section>
 
-    <!-- Partners & Testers Section -->
-    <section class="partners section-glow reveal" id="partners">
+    <!-- Partners -->
+    <section id="partners">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">🤝 Community</span>
+            <div class="section-header reveal">
+                <span class="section-tag"><i data-lucide="users"></i> Community</span>
                 <h2>Trusted By Streamers</h2>
                 <p>Meet the amazing community members who help test, improve, and promote Heist Bot every day.</p>
             </div>
-            <div class="partners-grid">
-                <div class="partner-card glow-border">
+            <div class="partners-grid reveal reveal-stagger">
+                <div class="partner-card">
                     <div class="partner-avatar dev">B</div>
                     <div class="partner-name">RoninCannons</div>
-                    <span class="partner-badge dev-type">⚡ Developer</span>
+                    <span class="partner-badge dev-type"><i data-lucide="zap" style="width:11px;height:11px"></i> Developer</span>
                     <p class="partner-quote">"Building the ultimate Twitch heist experience — one robbery at a time."</p>
-                    <a href="https://twitch.tv/ronincannons" target="_blank" class="partner-link">↗ Twitch Channel</a>
+                    <a href="https://twitch.tv/ronincannons" target="_blank" rel="noopener" class="partner-link">
+                        <i data-lucide="external-link"></i> Twitch Channel
+                    </a>
                 </div>
-                <div class="partner-card glow-border">
-                    <div class="partner-avatar tester">T</div>
-                    <div class="partner-name">Beta Tester #1</div>
-                    <span class="partner-badge tester">🧪 Beta Tester</span>
-                    <p class="partner-quote">"The heist system keeps my chat engaged for hours. Absolutely love it!"</p>
-                    <a href="#" class="partner-link">↗ Twitch Channel</a>
+                <div class="partner-card">
+                    <div class="partner-avatar partner-logo"><img src="assets/partners/l4ny.png" alt="L4ny_ logo"></div>
+                    <div class="partner-name">L4ny_</div>
+                    <span class="partner-badge tester"><i data-lucide="flask-conical" style="width:11px;height:11px"></i> Beta Tester</span>
+                    <p class="partner-quote">"The heist system keeps my chat engaged for hours — absolutely love it."</p>
+                    <a href="https://www.twitch.tv/l4ny_" target="_blank" rel="noopener" class="partner-link"><i data-lucide="external-link"></i> twitch.tv/l4ny_</a>
                 </div>
-                <div class="partner-card glow-border">
-                    <div class="partner-avatar partner">P</div>
-                    <div class="partner-name">Partner Streamer</div>
-                    <span class="partner-badge partner-type">🤝 Partner</span>
-                    <p class="partner-quote">"Heist Bot transformed my stream interaction. My viewers can't stop playing!"</p>
-                    <a href="#" class="partner-link">↗ Twitch Channel</a>
-                </div>
-                <div class="partner-card glow-border">
-                    <div class="partner-avatar tester">T</div>
-                    <div class="partner-name">Beta Tester #2</div>
-                    <span class="partner-badge tester">🧪 Beta Tester</span>
-                    <p class="partner-quote">"Great overlay animations and the leaderboard keeps everyone competitive."</p>
-                    <a href="#" class="partner-link">↗ Twitch Channel</a>
-                </div>
-                <div class="partner-card glow-border">
-                    <div class="partner-avatar partner">P</div>
-                    <div class="partner-name">Partner Streamer</div>
-                    <span class="partner-badge partner-type">🤝 Partner</span>
-                    <p class="partner-quote">"Setup was super easy and the multi-language support is perfect for my community."</p>
-                    <a href="#" class="partner-link">↗ Twitch Channel</a>
-                </div>
-                <div class="partner-card glow-border">
-                    <div class="partner-avatar tester">T</div>
-                    <div class="partner-name">Beta Tester #3</div>
-                    <span class="partner-badge tester">🧪 Beta Tester</span>
-                    <p class="partner-quote">"The Zombie Dog mode is hilarious — my chat goes wild every time!"</p>
-                    <a href="#" class="partner-link">↗ Twitch Channel</a>
+                <div class="partner-card">
+                    <div class="partner-avatar partner-logo"><img src="assets/partners/mohjo.png" alt="Mohjo_beist logo"></div>
+                    <div class="partner-name">Mohjo_beist</div>
+                    <span class="partner-badge tester"><i data-lucide="flask-conical" style="width:11px;height:11px"></i> Beta Tester</span>
+                    <p class="partner-quote">"Heist Bot transformed my stream interaction — my viewers can't stop playing."</p>
+                    <a href="https://www.twitch.tv/mohjo_beist" target="_blank" rel="noopener" class="partner-link"><i data-lucide="external-link"></i> twitch.tv/mohjo_beist</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PRO Section -->
+    <!-- PRO -->
     <section class="pro-section" id="pro">
         <div class="container">
             <div class="pro-card reveal">
+                <div class="pro-ribbon-wrap"><div class="pro-ribbon">MOST POPULAR</div></div>
                 <div class="pro-content">
-                    <h2>⭐ Heist Bot PRO</h2>
-                    <p>By getting PRO, you directly support the continued development of Heist Bot. Every contribution helps us add new features, improve performance, and keep the bot running 24/7 for your community!</p>
+                    <h2><i data-lucide="star"></i> Heist Bot PRO</h2>
+                    <p>By getting PRO, you directly support the continued development of Heist Bot. Every contribution helps us add new features, improve performance, and keep the bot running 24/7 for your community.</p>
                     <ul class="pro-features-list">
-                        <li>Custom Commands (ads, Discord links, sounds, messages)</li>
-                        <li>Excluded Accounts (exclude users from leaderboard)</li>
-                        <li>Extended Statistics & Trends</li>
-                        <li>Zombie Dog Mode (exclusive game mode)</li>
-                        <li>Priority Support</li>
+                        <li><i data-lucide="check"></i> Custom Commands (ads, Discord links, sounds, messages)</li>
+                        <li><i data-lucide="check"></i> Excluded Accounts (exclude users from leaderboard)</li>
+                        <li><i data-lucide="check"></i> Extended Statistics &amp; Trends</li>
+                        <li><i data-lucide="check"></i> Zombie Dog Mode (exclusive game mode)</li>
+                        <li><i data-lucide="check"></i> Priority Support</li>
                     </ul>
                 </div>
                 <div class="pro-price">
                     <div class="price-value">€4.99</div>
                     <div class="price-period">per month</div>
-                    <a href="https://ko-fi.com/ronincannons" target="_blank" class="btn btn-primary">
-                        🎁 Get PRO on Ko-fi
+                    <a href="https://ko-fi.com/ronincannons" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i data-lucide="gift"></i> Get PRO on Ko-fi
                     </a>
-                    <p class="pro-price-note">Include "Twitch: YourUsername"<br>in Order Note</p>
+                    <p class="pro-price-note">Include "Twitch: YourUsername"<br>in the Order Note</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Commands Section -->
-    <section class="commands" id="commands">
+    <!-- Commands -->
+    <section id="commands">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">🎮 Commands</span>
+            <div class="section-header reveal">
+                <span class="section-tag"><i data-lucide="terminal"></i> Commands</span>
                 <h2>Viewer Commands</h2>
                 <p>All available commands for your viewers to use in chat.</p>
             </div>
@@ -1714,73 +1659,73 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><code>!raub &lt;bet&gt;</code></td>
-                            <td>Start a bank robbery or join an existing one</td>
-                        </tr>
-                        <tr>
-                            <td><code>!coins</code></td>
-                            <td>Show your current coin balance</td>
-                        </tr>
-                        <tr>
-                            <td><code>!topliste</code></td>
-                            <td>Show the top 5 robbers in chat</td>
-                        </tr>
-                        <tr>
-                            <td><code>!top</code></td>
-                            <td>(Mod/Broadcaster) Show the top 10 leaderboard</td>
-                        </tr>
-                        <tr>
-                            <td><code>!give @User &lt;amount&gt;</code></td>
-                            <td>Give your coins to another user</td>
-                        </tr>
-                        <tr>
-                            <td><code>!heistbot</code></td>
-                            <td>Show bot version information</td>
-                        </tr>
+                        <tr><td><code>!raub &lt;bet&gt;</code></td><td>Start a bank robbery or join an existing one</td></tr>
+                        <tr><td><code>!coins</code></td><td>Show your current coin balance</td></tr>
+                        <tr><td><code>!topliste</code></td><td>Show the top 5 robbers in chat</td></tr>
+                        <tr><td><code>!top</code></td><td>(Mod/Broadcaster) Show the top 10 leaderboard</td></tr>
+                        <tr><td><code>!give @User &lt;amount&gt;</code></td><td>Give your coins to another user</td></tr>
+                        <tr><td><code>!heistbot</code></td><td>Show bot version information</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section for SEO -->
-    <section id="faq" style="padding: 100px 0; background: var(--md3-surface-container); border-top: 1px solid var(--md3-outline-variant);">
+    <!-- FAQ -->
+    <section class="faq" id="faq">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <h2 class="reveal" style="font-size: 36px; font-family: 'Orbitron', sans-serif; background: var(--pro-gold); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Frequently Asked Questions</h2>
-                <p class="reveal" style="color: var(--text-secondary); max-width: 600px; margin: 10px auto;">Everything you need to know about Heist Bot.</p>
+            <div class="section-header reveal">
+                <span class="section-tag"><i data-lucide="help-circle"></i> FAQ</span>
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about Heist Bot.</p>
             </div>
-            
-            <div class="faq-container reveal" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
-                <details style="background: var(--bg-card); padding: 20px; border-radius: var(--md3-radius-medium); border: 1px solid var(--md3-outline-variant); cursor: pointer;">
-                    <summary style="font-size: 18px; font-weight: 600; color: var(--text-primary); outline: none;">What is Heist Bot and how does it work?</summary>
-                    <p style="margin-top: 12px; color: var(--text-secondary); line-height: 1.6;">Heist Bot is a free, interactive Twitch chat game that allows your viewers to team up, rob virtual banks, and earn coins. It integrates directly with your stream to boost engagement.</p>
+            <div class="faq-container reveal">
+                <details class="faq-item">
+                    <summary>
+                        What is Heist Bot and how does it work?
+                        <i data-lucide="chevron-down" class="faq-chev"></i>
+                    </summary>
+                    <div class="faq-answer">Heist Bot is a free, interactive Twitch chat game that allows your viewers to team up, rob virtual banks, and earn coins. It integrates directly with your stream to boost engagement.</div>
                 </details>
-                <details style="background: var(--bg-card); padding: 20px; border-radius: var(--md3-radius-medium); border: 1px solid var(--md3-outline-variant); cursor: pointer;">
-                    <summary style="font-size: 18px; font-weight: 600; color: var(--text-primary); outline: none;">Is Heist Bot free to use for Twitch streamers?</summary>
-                    <p style="margin-top: 12px; color: var(--text-secondary); line-height: 1.6;">Yes, the core features of Heist Bot are completely free to use. We also offer optional PRO features for advanced customization and premium support.</p>
+                <details class="faq-item">
+                    <summary>
+                        Is Heist Bot free to use for Twitch streamers?
+                        <i data-lucide="chevron-down" class="faq-chev"></i>
+                    </summary>
+                    <div class="faq-answer">Yes, the core features of Heist Bot are completely free to use. We also offer optional PRO features for advanced customization and premium support.</div>
                 </details>
-                <details style="background: var(--bg-card); padding: 20px; border-radius: var(--md3-radius-medium); border: 1px solid var(--md3-outline-variant); cursor: pointer;">
-                    <summary style="font-size: 18px; font-weight: 600; color: var(--text-primary); outline: none;">How do I automate Twitch minigames with Heist Bot?</summary>
-                    <p style="margin-top: 12px; color: var(--text-secondary); line-height: 1.6;">Once connected to your Twitch channel, Heist Bot automatically listens for chat commands like '!raub' to start minigames, manage leaderboards, and distribute virtual coins without manual intervention.</p>
+                <details class="faq-item">
+                    <summary>
+                        How do I automate Twitch minigames with Heist Bot?
+                        <i data-lucide="chevron-down" class="faq-chev"></i>
+                    </summary>
+                    <div class="faq-answer">Once connected to your Twitch channel, Heist Bot automatically listens for chat commands like '!raub' to start minigames, manage leaderboards, and distribute virtual coins without manual intervention.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        Does Heist Bot work on every streaming platform?
+                        <i data-lucide="chevron-down" class="faq-chev"></i>
+                    </summary>
+                    <div class="faq-answer">Heist Bot is built for Twitch. The dashboard and OBS overlay currently run on <strong>Windows only</strong> — macOS and Linux support is on the roadmap.</div>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta">
         <div class="container">
-            <h2 class="reveal">Ready to Level Up Your Stream?</h2>
-            <p>Download Heist Bot for free and give your viewers an exciting experience!</p>
-            <div class="cta-buttons">
-                <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="btn btn-primary">
-                    <span style="display:inline-flex;align-items:center;gap:8px;">Download Now</span>
-                </a>
-                <a href="https://ko-fi.com/ronincannons" class="btn btn-discord" target="_blank">
-                    <span>Support on Ko-fi</span>
-                </a>
+            <div class="cta-card reveal">
+                <h2>Ready to Level Up Your Stream?</h2>
+                <p>Download Heist Bot for free and give your viewers an exciting experience.</p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="btn btn-primary">
+                        <i data-lucide="download"></i> Download Now
+                    </a>
+                    <a href="https://ko-fi.com/ronincannons" class="btn btn-discord" target="_blank" rel="noopener">
+                        <i data-lucide="coffee"></i> Support on Ko-fi
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1794,25 +1739,50 @@
                     <span class="logo-text">HEIST BOT</span>
                 </div>
                 <div class="footer-links">
-                    <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates" target="_blank">GitHub</a>
-                    <a href="https://ko-fi.com/ronincannons" target="_blank">Ko-fi</a>
-                    <a href="https://discord.gg/ronincannons" target="_blank">Discord</a>
+                    <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://ko-fi.com/ronincannons" target="_blank" rel="noopener">Ko-fi</a>
+                    <a href="https://discord.gg/ronincannons" target="_blank" rel="noopener">Discord</a>
                     <a href="impressum.html">Impressum</a>
                     <a href="datenschutz.html">Datenschutz</a>
                 </div>
-                <div class="footer-copy">
-                    © 2025 Heist Bot. Made with ❤️ for Twitch.
-                </div>
+                <div class="footer-copy">© 2025 Heist Bot · Made for Twitch</div>
             </div>
         </div>
     </footer>
 
-    <!-- Enhanced Script -->
     <script>
-        // ===== PARTICLE SYSTEM =====
+        /* ===== LUCIDE ICONS ===== */
+        if (window.lucide) lucide.createIcons();
+
+        /* ===== SCROLL STATE ===== */
+        const html = document.documentElement;
+        let lastScrolled = false;
+        window.addEventListener('scroll', () => {
+            const isScrolled = window.scrollY > 40;
+            if (isScrolled !== lastScrolled) {
+                html.classList.toggle('scrolled', isScrolled);
+                lastScrolled = isScrolled;
+            }
+        }, { passive: true });
+
+        /* ===== SPOTLIGHT CURSOR ===== */
+        const spotlight = document.querySelector('.spotlight');
+        let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+        let tx = mx, ty = my;
+        window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+        (function loop() {
+            mx += (tx - mx) * 0.12;
+            my += (ty - my) * 0.12;
+            spotlight.style.setProperty('--mx', mx + 'px');
+            spotlight.style.setProperty('--my', my + 'px');
+            requestAnimationFrame(loop);
+        })();
+
+        /* ===== PARTICLES (lean) ===== */
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
+        const PARTICLE_COUNT = 25;
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -1821,38 +1791,38 @@
         window.addEventListener('resize', resizeCanvas);
 
         class Particle {
-            constructor() { this.reset(); }
-            reset() {
+            constructor() { this.reset(true); }
+            reset(initial) {
                 this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 3 + 1;
-                this.speedY = -(Math.random() * 0.5 + 0.1);
-                this.speedX = (Math.random() - 0.5) * 0.3;
-                this.opacity = Math.random() * 0.5 + 0.1;
-                this.glow = Math.random() > 0.7;
+                this.y = initial ? Math.random() * canvas.height : canvas.height + 10;
+                this.size = Math.random() * 2 + 0.6;
+                this.speedY = -(Math.random() * 0.4 + 0.08);
+                this.speedX = (Math.random() - 0.5) * 0.15;
+                this.maxOpacity = Math.random() * 0.35 + 0.1;
+                this.opacity = 0;
+                this.glow = Math.random() > 0.75;
             }
             update() {
                 this.y += this.speedY;
                 this.x += this.speedX;
-                this.opacity -= 0.001;
-                if (this.y < -10 || this.opacity <= 0) this.reset();
-                this.y = this.y < -10 ? canvas.height + 10 : this.y;
+                this.opacity = Math.min(this.opacity + 0.005, this.maxOpacity);
+                if (this.y < -10) this.reset(false);
             }
             draw() {
                 ctx.save();
                 ctx.globalAlpha = this.opacity;
                 if (this.glow) {
-                    ctx.shadowBlur = 15;
+                    ctx.shadowBlur = 12;
                     ctx.shadowColor = 'rgba(255,215,0,0.6)';
                 }
-                ctx.fillStyle = this.glow ? '#ffd700' : 'rgba(255,215,0,0.4)';
+                ctx.fillStyle = this.glow ? '#ffd700' : 'rgba(255,215,0,0.5)';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.restore();
             }
         }
-        for (let i = 0; i < 60; i++) particles.push(new Particle());
+        for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach(p => { p.update(); p.draw(); });
@@ -1860,130 +1830,97 @@
         }
         animateParticles();
 
-        // ===== TYPEWRITER HERO =====
+        /* ===== TYPEWRITER (no CLS) ===== */
         const heroTyped = document.getElementById('heroTyped');
         if (heroTyped) {
             const text = 'Twitch Heist';
             let i = 0;
+            // pre-fill invisible to preserve height
             heroTyped.innerHTML = '<span class="typewriter-cursor"></span>';
             function typeChar() {
                 if (i < text.length) {
                     heroTyped.innerHTML = text.substring(0, i + 1) + '<span class="typewriter-cursor"></span>';
                     i++;
-                    setTimeout(typeChar, 100);
-                } else {
-                    setTimeout(() => {
-                        const cursor = heroTyped.querySelector('.typewriter-cursor');
-                        if (cursor) cursor.style.animation = 'blink-cursor 0.75s step-end infinite';
-                    }, 500);
+                    setTimeout(typeChar, 95);
                 }
             }
-            setTimeout(typeChar, 800);
+            setTimeout(typeChar, 600);
         }
 
-        // ===== 3D TILT ON FEATURE CARDS =====
-        document.querySelectorAll('.tilt-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -8;
-                const rotateY = ((x - centerX) / centerX) * 8;
-                card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
-            });
-        });
+        /* ===== MARQUEE ===== */
+        // Each streamer with their personal accent color & avatar initial.
+        // Tweak the `color` to match each streamer's actual brand color.
+        const marqueeStreamers = [
+            { name: 'RoninCannons', initial: 'R', color: '#ffd700' },                                   // gold (developer)
+            { name: 'L4ny_',        logo: 'assets/partners/l4ny.png', color: '#ffd700' },                // gold shield brand
+            { name: 'Mohjo_beist',  logo: 'assets/partners/mohjo.png', color: '#c9a96a' }                // warm sand (logo palette)
+        ];
+        const marqueeTrack = document.getElementById('marqueeTrack');
+        function buildMarquee() {
+            const repeats = Math.max(4, Math.ceil(12 / marqueeStreamers.length));
+            const set = Array(repeats).fill(marqueeStreamers).flat().map(s => {
+                const inner = s.logo
+                    ? `<span class="badge"><img src="${s.logo}" alt="${s.name} logo" loading="lazy"></span>`
+                    : `<span class="badge">${s.initial}</span>`;
+                const cls = 'marquee-item' + (s.logo ? ' has-logo' : '');
+                return `<span class="${cls}" style="--mq-color:${s.color}">${inner}<span class="name">${s.name}</span></span>`;
+            }).join('');
+            marqueeTrack.innerHTML = set + set;
+        }
+        buildMarquee();
 
-        // ===== MAGNETIC BUTTONS =====
-        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
-            btn.classList.add('magnetic-btn');
-            btn.addEventListener('mousemove', e => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) scale(1.02)`;
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = '';
-            });
-        });
-
-        // ===== SCROLL REVEAL =====
-        const revealObserver = new IntersectionObserver((entries) => {
+        /* ===== SCROLL REVEAL ===== */
+        const revealObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
-                    if (entry.target.classList.contains('stat-item')) {
-                        const counter = entry.target.querySelector('.stat-value');
-                        if (counter && !counter.dataset.animated) {
-                            animateCounter(counter);
-                            counter.dataset.animated = 'true';
-                        }
-                    }
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
-
-        function animateCounter(element) {
-            const target = element.textContent;
-            if (target === '∞' || target === '24/7') return;
-            const numericTarget = parseInt(target);
-            if (isNaN(numericTarget)) return;
-            let current = 0;
-            const increment = Math.max(1, Math.floor(numericTarget / 30));
-            const duration = 1200;
-            const stepTime = duration / (numericTarget / increment);
-            const updateCounter = () => {
-                current = Math.min(current + increment, numericTarget);
-                element.textContent = current;
-                element.classList.add('counting');
-                setTimeout(() => element.classList.remove('counting'), 50);
-                if (current < numericTarget) {
-                    setTimeout(updateCounter, stepTime);
-                } else {
-                    element.textContent = target;
-                }
-            };
-            updateCounter();
-        }
-
+        }, { threshold: 0.12 });
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        // ===== PARALLAX =====
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    const scrolled = window.pageYOffset;
-                    const parallaxBg = document.getElementById('parallaxBg');
-                    if (parallaxBg) parallaxBg.style.transform = `translateY(${scrolled * 0.3}px)`;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-
-        // ===== CAROUSEL =====
+        /* ===== CAROUSEL ===== */
+        const track = document.getElementById('carouselTrack');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const nav = document.getElementById('carouselNav');
+        const captionText = document.getElementById('captionText');
+        const captionNum = document.querySelector('#carouselCaption strong');
+        const totalSlides = slides.length;
         let currentSlide = 0;
-        const track = document.querySelector('.carousel-track');
-        const dots = document.querySelectorAll('.carousel-dot');
-        const totalSlides = 9;
+
+        // build dots
+        for (let i = 0; i < totalSlides; i++) {
+            const b = document.createElement('button');
+            b.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+            b.addEventListener('click', () => goToSlide(i));
+            nav.appendChild(b);
+        }
+        const dots = nav.querySelectorAll('.carousel-dot');
+
         function updateCarousel() {
-            if (track) track.style.transform = `translateX(-${currentSlide * 100}%)`;
-            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slides.forEach((s, i) => s.classList.toggle('is-active', i === currentSlide));
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+            captionText.textContent = slides[currentSlide].dataset.caption;
+            captionNum.textContent = String(currentSlide + 1).padStart(2, '0') + ' / ' + String(totalSlides).padStart(2, '0');
         }
         function moveSlide(direction) {
             currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
             updateCarousel();
         }
         function goToSlide(index) { currentSlide = index; updateCarousel(); }
-        setInterval(() => moveSlide(1), 5000);
+        window.moveSlide = moveSlide;
+        window.goToSlide = goToSlide;
 
-        // ===== LIVE CHAT DEMO =====
+        let carouselTimer = setInterval(() => moveSlide(1), 6000);
+        // pause on hover
+        document.querySelector('.carousel-container').addEventListener('mouseenter', () => clearInterval(carouselTimer));
+        document.querySelector('.carousel-container').addEventListener('mouseleave', () => carouselTimer = setInterval(() => moveSlide(1), 6000));
+        updateCarousel();
+
+        /* ===== LIVE CHAT DEMO ===== */
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
         const chatSend = document.getElementById('chatSend');
@@ -1995,14 +1932,14 @@
             { name: 'LootGoblin99', cls: 'viewer2' },
             { name: 'ShadowThief_', cls: 'viewer3' },
             { name: 'CoinHunterTV', cls: 'viewer' },
-            { name: 'BankBuster42', cls: 'viewer2' },
+            { name: 'BankBuster42', cls: 'viewer2' }
         ];
         const leaderboard = [
             { name: 'xNightRaider', coins: 15420 },
             { name: 'LootGoblin99', coins: 12800 },
             { name: 'ShadowThief_', coins: 9650 },
             { name: 'BankBuster42', coins: 7200 },
-            { name: 'CoinHunterTV', coins: 5100 },
+            { name: 'CoinHunterTV', coins: 5100 }
         ];
 
         function addMsg(html) {
@@ -2015,17 +1952,12 @@
 
         function processCommand(input) {
             const cmd = input.trim().toLowerCase();
-
-            // User message
-            addMsg(`<span class="username viewer">You: </span><span class="text">${input}</span>`);
+            addMsg(`<span class="username viewer">You: </span><span>${input.replace(/</g,'&lt;')}</span>`);
 
             if (cmd === '!coins') {
-                setTimeout(() => {
-                    addMsg(`<span class="username bot">HeistBot: </span><span class="text">💰 You have <strong style="color:#ffd700">${demoCoins.toLocaleString()}</strong> coins!</span>`);
-                }, 500);
+                setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>💰 You have <strong style="color:#ffd700">${demoCoins.toLocaleString()}</strong> coins!`), 500);
                 return;
             }
-
             if (cmd === '!topliste') {
                 setTimeout(() => {
                     let lb = '🏆 <strong style="color:#ffd700">Top 5 Robbers:</strong><br>';
@@ -2033,67 +1965,51 @@
                         const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i+1}.`;
                         lb += `${medal} ${p.name} — ${p.coins.toLocaleString()} coins<br>`;
                     });
-                    addMsg(`<span class="username bot">HeistBot: </span><span class="text">${lb}</span>`);
+                    addMsg(`<span class="username bot">HeistBot: </span>${lb}`);
                 }, 500);
                 return;
             }
-
             const raubMatch = cmd.match(/^!raub\s+(\d+)$/);
             if (raubMatch) {
                 const bet = parseInt(raubMatch[1]);
-                if (bet > demoCoins) {
-                    setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="text">❌ Not enough coins! You have ${demoCoins.toLocaleString()} coins.</span>`), 400);
-                    return;
-                }
-                if (bet < 10) {
-                    setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="text">❌ Minimum bet is 10 coins!</span>`), 400);
-                    return;
-                }
-                if (heistActive) {
-                    setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="text">⏳ A heist is already in progress! Wait for it to finish.</span>`), 400);
-                    return;
-                }
+                if (bet > demoCoins) { setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>❌ Not enough coins! You have ${demoCoins.toLocaleString()}.`), 400); return; }
+                if (bet < 10)         { setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>❌ Minimum bet is 10 coins!`), 400); return; }
+                if (heistActive)      { setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>⏳ A heist is already in progress! Wait for it to finish.`), 400); return; }
 
                 heistActive = true;
-                // Start heist
-                setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="system">🏦 A BANK HEIST IS STARTING! You bet ${bet} coins! Other robbers are joining...</span>`), 600);
+                setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="system">🏦 A BANK HEIST IS STARTING! You bet ${bet} coins. Other robbers are joining …</span>`), 600);
 
-                // Fake viewers join
                 const joinCount = Math.floor(Math.random() * 3) + 1;
-                const joiners = fakeViewers.sort(() => Math.random() - 0.5).slice(0, joinCount);
+                const joiners = [...fakeViewers].sort(() => Math.random() - 0.5).slice(0, joinCount);
                 joiners.forEach((v, i) => {
                     const vBet = Math.floor(Math.random() * 400) + 50;
                     setTimeout(() => {
-                        addMsg(`<span class="username ${v.cls}">${v.name}: </span><span class="text">!raub ${vBet}</span>`);
-                        setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="text">🔫 ${v.name} joins the heist with ${vBet} coins!</span>`), 300);
+                        addMsg(`<span class="username ${v.cls}">${v.name}: </span>!raub ${vBet}`);
+                        setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>🔫 ${v.name} joins the heist with ${vBet} coins!`), 300);
                     }, 1200 + i * 800);
                 });
 
-                // Countdown
                 const countdownStart = 1200 + joinCount * 800 + 500;
-                setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="system">⏰ Heist starts in 3...</span>`), countdownStart);
-                setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="system">⏰ 2...</span>`), countdownStart + 800);
-                setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="system">⏰ 1...</span>`), countdownStart + 1600);
+                setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="system">⏰ Heist starts in 3 …</span>`), countdownStart);
+                setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="system">⏰ 2 …</span>`), countdownStart + 800);
+                setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="system">⏰ 1 …</span>`), countdownStart + 1600);
 
-                // Result
                 setTimeout(() => {
                     const win = Math.random() > 0.4;
                     if (win) {
                         const multiplier = (Math.random() * 2 + 1.5).toFixed(1);
                         const winnings = Math.floor(bet * multiplier);
                         demoCoins += winnings;
-                        addMsg(`<span class="username bot">HeistBot: </span><span class="win">🎉 HEIST SUCCESSFUL! The crew escaped with the loot! You won ${winnings.toLocaleString()} coins (${multiplier}x)! Balance: ${demoCoins.toLocaleString()} 💰</span>`);
+                        addMsg(`<span class="username bot">HeistBot: </span><span class="win">🎉 HEIST SUCCESSFUL! The crew escaped with the loot. You won ${winnings.toLocaleString()} coins (${multiplier}×). Balance: ${demoCoins.toLocaleString()} 💰</span>`);
                     } else {
                         demoCoins -= bet;
-                        addMsg(`<span class="username bot">HeistBot: </span><span class="lose">🚨 HEIST FAILED! The police caught the crew! You lost ${bet.toLocaleString()} coins! Balance: ${demoCoins.toLocaleString()} 💸</span>`);
+                        addMsg(`<span class="username bot">HeistBot: </span><span class="lose">🚨 HEIST FAILED! The police caught the crew. You lost ${bet.toLocaleString()} coins. Balance: ${demoCoins.toLocaleString()} 💸</span>`);
                     }
                     heistActive = false;
                 }, countdownStart + 2600);
                 return;
             }
-
-            // Unknown
-            setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="text">Unknown command. Try <strong>!raub &lt;amount&gt;</strong>, <strong>!coins</strong>, or <strong>!topliste</strong></span>`), 400);
+            setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>Unknown command. Try <strong>!raub &lt;amount&gt;</strong>, <strong>!coins</strong>, or <strong>!topliste</strong>.`), 400);
         }
 
         chatSend.addEventListener('click', () => {
