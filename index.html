@@ -8,29 +8,29 @@
     <meta name="keywords" content="Twitch bot, Twitch heist, stream tools, Twitch games, streamer bot, channel rewards, Twitch overlay, OBS overlay, Twitch chat game">
     <meta name="author" content="Benjamin Wascher">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0f">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.heist-bot.pro">
     <meta property="og:title" content="Heist Bot — The Ultimate Twitch Heist Experience">
     <meta property="og:description" content="Turn your Twitch chat into an exciting bank robbery game! Viewers rob banks together, earn coins, and compete on leaderboards.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/Benjamin-Web/heist-bot-landing/main/og-image.png">
+    <meta property="og:image" content="https://www.heist-bot.pro/assets/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.heist-bot.pro">
     <meta property="twitter:title" content="Heist Bot — The Ultimate Twitch Heist Experience">
     <meta property="twitter:description" content="Turn your Twitch chat into an exciting bank robbery game! Viewers rob banks together, earn coins, and compete on leaderboards.">
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/Benjamin-Web/heist-bot-landing/main/og-image.png">
+    <meta property="twitter:image" content="https://www.heist-bot.pro/assets/og-image.png">
 
     <link rel="canonical" href="https://www.heist-bot.pro">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="assets/fonts.css">
 
-    <!-- Inter Tight for body copy (humanistic, hi-readability) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Orbitron:wght@700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 
     <script src="assets/js/lucide.min.js"></script>
 
@@ -42,8 +42,7 @@
       "name": "Heist Bot",
       "operatingSystem": "Windows",
       "applicationCategory": "GameApplication",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "128" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
     </script>
     <script type="application/ld+json">
@@ -55,6 +54,8 @@
           "acceptedAnswer": { "@type": "Answer", "text": "Heist Bot is a free, interactive Twitch chat game that allows your viewers to team up, rob virtual banks, and earn coins. It integrates directly with your stream to boost engagement." } },
         { "@type": "Question", "name": "Is Heist Bot free to use for Twitch streamers?",
           "acceptedAnswer": { "@type": "Answer", "text": "Yes, the core features of Heist Bot are completely free to use. We also offer optional PRO features for advanced customization and premium support." } },
+        { "@type": "Question", "name": "How do I install Heist Bot?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Download the latest release from GitHub, extract the ZIP, run HeistBot.exe, connect your Twitch account in the dashboard, and go live. Full setup takes under 5 minutes." } },
         { "@type": "Question", "name": "How do I automate Twitch minigames with Heist Bot?",
           "acceptedAnswer": { "@type": "Answer", "text": "Once connected to your Twitch channel, Heist Bot automatically listens for chat commands like '!raub' to start minigames, manage leaderboards, and distribute virtual coins without manual intervention." } }
       ]
@@ -62,47 +63,40 @@
     </script>
 
     <style>
+        /* ===== CSS CUSTOM PROPERTIES ===== */
         :root {
-            /* Brand */
             --gold: #ffd700;
             --gold-deep: #ff8c00;
             --pro-gold: linear-gradient(135deg, #ffd700, #ff8c00);
 
-            /* Surfaces */
             --surface: #0a0a0f;
             --surface-1: #12121a;
             --surface-2: #1a1a24;
             --surface-3: #22222e;
 
-            /* Text — fixed contrast */
             --text: #ffffff;
-            --text-2: #c5c5d0;   /* up from #a0a0b0 — better mid-text */
-            --text-3: #8a8a98;   /* up from #606070 — passes AA */
+            --text-2: #c5c5d0;
+            --text-3: #8a8a98;
             --gold-text: #ffd700;
 
-            /* Outlines */
             --outline: rgba(255, 255, 255, 0.10);
             --outline-soft: rgba(255, 255, 255, 0.05);
             --gold-soft: rgba(255, 215, 0, 0.10);
             --gold-line: rgba(255, 215, 0, 0.22);
 
-            /* Radii */
             --r-sm: 8px;
             --r-md: 12px;
             --r-lg: 16px;
             --r-xl: 24px;
             --r-full: 999px;
 
-            /* Elevation */
             --shadow-1: 0 2px 8px rgba(0,0,0,0.3);
             --shadow-2: 0 8px 24px rgba(0,0,0,0.4);
             --shadow-3: 0 16px 48px rgba(0,0,0,0.55);
 
-            /* Motion */
             --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
             --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
-            /* Type */
             --font-display: 'Orbitron', 'Inter Tight', sans-serif;
             --font-body: 'Inter Tight', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
             --font-ui: 'Rajdhani', 'Inter Tight', sans-serif;
@@ -111,9 +105,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: var(--font-body);
             background: var(--surface);
@@ -125,7 +117,6 @@
             text-rendering: optimizeLegibility;
         }
 
-        /* Subtle background grid (much fainter than before) */
         body::before {
             content: '';
             position: fixed;
@@ -139,7 +130,6 @@
             mask-image: radial-gradient(ellipse at center top, black 30%, transparent 80%);
         }
 
-        /* Aurora hero glow — single ambient layer, no constant pulse */
         .aurora {
             position: fixed;
             top: -20%;
@@ -159,7 +149,6 @@
         }
         .scrolled .aurora { opacity: 0.25; }
 
-        /* Spotlight cursor — single soft glow follows pointer */
         .spotlight {
             position: fixed;
             inset: 0;
@@ -173,7 +162,6 @@
             transition: opacity 0.3s;
         }
 
-        /* Particle canvas — reduced count, calmer */
         #particleCanvas {
             position: fixed;
             inset: 0;
@@ -208,20 +196,21 @@
         }
         .scrolled nav {
             padding: 10px 0;
-            background: rgba(10, 10, 15, 0.85);
+            background: rgba(10, 10, 15, 0.92);
             border-bottom-color: var(--outline-soft);
         }
-
         nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        /* Logo with animated gradient shimmer */
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
+            text-decoration: none;
         }
         .logo-img {
             width: 32px;
@@ -235,8 +224,16 @@
             font-weight: 800;
             font-size: 18px;
             letter-spacing: 1px;
-            color: var(--gold);
+            background: linear-gradient(90deg, #ffd700 0%, #ff8c00 30%, #ffd700 60%, #ff8c00 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logo-shine 4s linear infinite;
             transition: font-size 0.3s var(--ease-smooth);
+        }
+        @keyframes logo-shine {
+            to { background-position: 200% center; }
         }
         .scrolled .logo-text { font-size: 16px; }
 
@@ -270,6 +267,55 @@
         .nav-links a:hover { color: var(--gold); }
         .nav-links a:hover::after { width: 100%; }
 
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: transform 0.3s var(--ease-smooth), opacity 0.3s, background 0.3s;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--gold); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--gold); }
+
+        /* Mobile nav overlay */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 15, 0.97);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            padding: 80px 24px 40px;
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-2);
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+        .mobile-nav a:hover { color: var(--gold); }
+
         /* ===== BUTTONS ===== */
         .btn {
             display: inline-flex;
@@ -294,10 +340,25 @@
             white-space: nowrap;
         }
         .btn svg { width: 16px; height: 16px; }
+
+        /* Shimmer effect on primary buttons (21st.dev style) */
         .btn-primary {
             background: var(--gold);
             color: #000;
             box-shadow: 0 4px 12px rgba(255, 215, 0, 0.25);
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.45) 50%, transparent 65%);
+            background-size: 200% 100%;
+            background-position: 200% 0;
+            animation: btn-shimmer 3s ease-in-out infinite;
+        }
+        @keyframes btn-shimmer {
+            0% { background-position: 200% 0; }
+            40%, 100% { background-position: -200% 0; }
         }
         .btn-primary:hover {
             transform: translateY(-2px);
@@ -324,6 +385,15 @@
             box-shadow: 0 10px 28px rgba(88, 101, 242, 0.4);
         }
 
+        .btn-kofi {
+            background: #FF5E5B;
+            color: white;
+        }
+        .btn-kofi:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(255, 94, 91, 0.4);
+        }
+
         .btn-sm {
             height: 38px;
             padding: 0 18px;
@@ -338,9 +408,7 @@
             padding: 140px 0 80px;
             position: relative;
         }
-
         .hero-content { max-width: 760px; position: relative; z-index: 2; }
-
         .hero-glass {
             background: rgba(18, 18, 26, 0.55);
             backdrop-filter: blur(20px) saturate(140%);
@@ -355,9 +423,7 @@
         .hero-glass::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255,215,0,0.4), transparent);
         }
@@ -406,7 +472,7 @@
         .hero h1 .gold-line {
             color: var(--gold);
             display: block;
-            min-height: 1.08em;          /* reserve space — no CLS from typewriter */
+            min-height: 1.08em;
         }
         .hero h1 .typewriter-cursor {
             display: inline-block;
@@ -426,12 +492,24 @@
             margin-bottom: 28px;
             max-width: 580px;
         }
-
         .hero-buttons {
             display: flex;
             gap: 14px;
             flex-wrap: wrap;
+            align-items: center;
         }
+
+        /* Windows-only badge */
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-3);
+            font-family: var(--font-body);
+            margin-top: 12px;
+        }
+        .platform-badge svg { width: 13px; height: 13px; color: #0078d4; }
 
         .hero-warning {
             color: var(--text-3);
@@ -444,7 +522,7 @@
         }
         .hero-warning svg { width: 14px; height: 14px; color: var(--gold); }
 
-        /* Stats — no text-shadow, crisper numbers */
+        /* NumberTicker stats */
         .stats {
             display: flex;
             gap: 14px;
@@ -483,10 +561,7 @@
         }
 
         /* ===== TRUST MARQUEE ===== */
-        .marquee {
-            padding: 32px 0 0;
-            position: relative;
-        }
+        .marquee { padding: 32px 0 0; position: relative; }
         .marquee-label {
             text-align: center;
             color: var(--text-3);
@@ -499,7 +574,7 @@
         .marquee-track-wrap {
             overflow-x: hidden;
             overflow-y: visible;
-            padding: 8px 0;          /* room for hover-lift so the top edge isn't clipped */
+            padding: 8px 0;
             mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
             -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
         }
@@ -533,8 +608,7 @@
             background: var(--surface-2);
         }
         .marquee-item .badge {
-            width: 30px;
-            height: 30px;
+            width: 30px; height: 30px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -543,38 +617,22 @@
             color: #000;
             border-radius: 50%;
             background: var(--mq-color, var(--gold));
-            box-shadow: 0 0 0 2px rgba(0,0,0,0.4), 0 0 12px color-mix(in oklab, var(--mq-color, #ffd700) 50%, transparent);
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.4);
             overflow: hidden;
         }
-        .marquee-item .badge img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-        /* Logo badges: drop the circle so the brand mark stands on its own */
-        .marquee-item.has-logo .badge {
-            background: transparent;
-            box-shadow: none;
-            overflow: visible;
-        }
+        .marquee-item .badge img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .marquee-item.has-logo .badge { background: transparent; box-shadow: none; overflow: visible; }
         .marquee-item.has-logo .badge img {
-            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5))
-                    drop-shadow(0 0 6px color-mix(in oklab, var(--mq-color, #ffd700) 35%, transparent));
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
         }
-        .marquee-item .name {
-            color: var(--mq-color, var(--gold));
-        }
+        .marquee-item .name { color: var(--mq-color, var(--gold)); }
         @keyframes marquee {
             from { transform: translateX(0); }
             to   { transform: translateX(-50%); }
         }
 
         /* ===== SECTIONS ===== */
-        section {
-            padding: 100px 0;
-            position: relative;
-        }
+        section { padding: 100px 0; position: relative; }
         section.tight { padding: 60px 0; }
 
         .section-header {
@@ -609,13 +667,9 @@
             letter-spacing: -0.3px;
             line-height: 1.15;
         }
-        .section-header p {
-            color: var(--text-2);
-            font-size: 17px;
-            line-height: 1.6;
-        }
+        .section-header p { color: var(--text-2); font-size: 17px; line-height: 1.6; }
 
-        /* ===== FEATURE CARDS ===== */
+        /* ===== FEATURE CARDS — MagicCard style (21st.dev) ===== */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -626,63 +680,119 @@
             border-radius: var(--r-lg);
             padding: 32px 28px;
             border: 1px solid var(--outline-soft);
-            transition: transform 0.3s var(--ease-spring),
-                        border-color 0.3s,
-                        background 0.3s;
+            transition: transform 0.3s var(--ease-spring), border-color 0.3s, background 0.3s;
             position: relative;
             overflow: hidden;
         }
+        /* Top gold line on hover */
         .feature-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
             opacity: 0;
             transition: opacity 0.3s;
         }
-        .feature-card:hover {
-            transform: translateY(-4px);
-            background: var(--surface-2);
-            border-color: var(--gold-line);
+        /* MagicCard mouse-follow glow (21st.dev) */
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,215,0,0.07), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
         }
+        .feature-card:hover { transform: translateY(-4px); background: var(--surface-2); border-color: var(--gold-line); }
         .feature-card:hover::before { opacity: 1; }
-
+        .feature-card:hover::after { opacity: 1; }
         .feature-icon {
-            width: 48px;
-            height: 48px;
+            width: 48px; height: 48px;
             background: var(--gold-soft);
             border-radius: var(--r-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             margin-bottom: 20px;
             transition: transform 0.3s var(--ease-spring), background 0.3s;
         }
-        .feature-card:hover .feature-icon {
-            transform: scale(1.08);
-            background: rgba(255, 215, 0, 0.18);
-        }
-        .feature-icon svg {
-            width: 22px;
-            height: 22px;
-            color: var(--gold);
-        }
+        .feature-card:hover .feature-icon { transform: scale(1.08); background: rgba(255, 215, 0, 0.18); }
+        .feature-icon svg { width: 22px; height: 22px; color: var(--gold); }
         .feature-card h3 {
             font-family: var(--font-display);
-            font-size: 17px;
-            margin-bottom: 8px;
+            font-size: 17px; margin-bottom: 8px;
+            font-weight: 700; color: var(--text); letter-spacing: 0.2px;
+        }
+        .feature-card p { color: var(--text-2); font-size: 14.5px; line-height: 1.6; }
+
+        /* ===== SETUP STEPS (new section) ===== */
+        .setup-section { background: var(--surface-1); border-top: 1px solid var(--outline-soft); border-bottom: 1px solid var(--outline-soft); }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: calc(16.6% + 24px);
+            right: calc(16.6% + 24px);
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold-line), var(--gold-line));
+            z-index: 0;
+        }
+        .step-card {
+            background: var(--surface);
+            border-radius: var(--r-lg);
+            padding: 32px 24px;
+            border: 1px solid var(--outline-soft);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s var(--ease-spring), border-color 0.3s;
+        }
+        .step-card:hover { transform: translateY(-4px); border-color: var(--gold-line); }
+        .step-number {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: var(--gold-soft);
+            border: 2px solid var(--gold-line);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--gold);
+            position: relative;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .step-card:hover .step-number {
+            background: rgba(255,215,0,0.18);
+            box-shadow: 0 0 20px rgba(255,215,0,0.2);
+        }
+        .step-card h3 {
+            font-family: var(--font-display);
+            font-size: 16px; font-weight: 700;
+            margin-bottom: 10px; color: var(--text);
+        }
+        .step-card p { color: var(--text-2); font-size: 14px; line-height: 1.6; }
+        .step-card .step-btn {
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-ui);
+            font-size: 13px;
             font-weight: 700;
-            color: var(--text);
-            letter-spacing: 0.2px;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            transition: gap 0.2s var(--ease-spring);
         }
-        .feature-card p {
-            color: var(--text-2);
-            font-size: 14.5px;
-            line-height: 1.6;
-        }
+        .step-card .step-btn:hover { gap: 10px; }
+        .step-card .step-btn svg { width: 14px; height: 14px; }
 
         /* ===== SCREENSHOTS CAROUSEL ===== */
         .carousel-container {
@@ -695,27 +805,16 @@
             border: 1px solid var(--outline);
             background: var(--surface-1);
         }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.6s var(--ease-smooth);
-        }
-        .carousel-slide {
-            min-width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
+        .carousel-track { display: flex; transition: transform 0.6s var(--ease-smooth); }
+        .carousel-slide { min-width: 100%; position: relative; overflow: hidden; }
         .carousel-slide img {
-            width: 100%;
-            height: 520px;
-            object-fit: cover;
-            object-position: top center;
+            width: 100%; height: 520px;
+            object-fit: cover; object-position: top center;
             display: block;
             transform: scale(1);
             transition: transform 8s linear;
         }
-        .carousel-slide.is-active img {
-            transform: scale(1.06);   /* Ken-Burns */
-        }
+        .carousel-slide.is-active img { transform: scale(1.06); }
         .carousel-caption {
             text-align: center;
             margin-top: 20px;
@@ -724,68 +823,43 @@
             font-weight: 500;
             min-height: 22px;
         }
-        .carousel-caption strong {
-            color: var(--gold);
-            font-family: var(--font-display);
-            font-weight: 700;
-            margin-right: 8px;
-        }
-
+        .carousel-caption strong { color: var(--gold); font-family: var(--font-display); font-weight: 700; margin-right: 8px; }
         .carousel-arrow {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 44px;
-            height: 44px;
+            top: 50%; transform: translateY(-50%);
+            width: 44px; height: 44px;
             background: rgba(10, 10, 15, 0.7);
             border: 1px solid var(--outline);
             border-radius: 50%;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             transition: background 0.3s, border-color 0.3s, transform 0.3s var(--ease-spring);
             z-index: 10;
             backdrop-filter: blur(8px);
             color: white;
         }
         .carousel-arrow:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: #000;
+            background: var(--gold); border-color: var(--gold); color: #000;
             transform: translateY(-50%) scale(1.08);
         }
         .carousel-arrow.prev { left: 16px; }
         .carousel-arrow.next { right: 16px; }
         .carousel-arrow svg { width: 20px; height: 20px; }
-
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 16px;
-        }
+        .carousel-nav { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
         .carousel-dot {
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             border-radius: 50%;
             background: var(--outline);
             cursor: pointer;
             transition: all 0.3s var(--ease-spring);
-            border: none;
-            padding: 0;
+            border: none; padding: 0;
         }
-        .carousel-dot.active {
-            background: var(--gold);
-            width: 24px;
-            border-radius: 4px;
-        }
+        .carousel-dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
         .carousel-dot:hover:not(.active) { background: rgba(255,255,255,0.3); }
 
         /* ===== LIVE CHAT DEMO ===== */
         .chat-window {
-            max-width: 700px;
-            margin: 0 auto;
+            max-width: 700px; margin: 0 auto;
             background: #0e0e10;
             border-radius: var(--r-xl);
             border: 1px solid var(--outline);
@@ -795,56 +869,33 @@
         .chat-header {
             background: #18181b;
             padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            display: flex; align-items: center; gap: 10px;
             border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         .chat-header-dot {
-            width: 10px;
-            height: 10px;
+            width: 10px; height: 10px;
             border-radius: 50%;
             background: #9147ff;
             box-shadow: 0 0 8px rgba(145, 71, 255, 0.6);
             animation: pulse-dot 2s ease-in-out infinite;
         }
-        .chat-header-title {
-            font-family: var(--font-display);
-            font-size: 13px;
-            color: #efeff1;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-        .chat-header-meta {
-            margin-left: auto;
-            color: #8a8a98;
-            font-size: 12px;
-            font-family: var(--font-body);
-        }
+        .chat-header-title { font-family: var(--font-display); font-size: 13px; color: #efeff1; letter-spacing: 1px; font-weight: 700; }
+        .chat-header-meta { margin-left: auto; color: #8a8a98; font-size: 12px; font-family: var(--font-body); }
         .chat-messages {
-            height: 340px;
-            overflow-y: auto;
+            height: 340px; overflow-y: auto;
             padding: 16px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            scroll-behavior: smooth;
-            background: #0e0e10;
+            display: flex; flex-direction: column; gap: 6px;
+            scroll-behavior: smooth; background: #0e0e10;
         }
         .chat-messages::-webkit-scrollbar { width: 4px; }
         .chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
         .chat-msg {
-            font-size: 14.5px;
-            line-height: 1.55;
+            font-size: 14.5px; line-height: 1.55;
             animation: msg-appear 0.3s ease-out;
-            word-break: break-word;
-            color: #efeff1;
+            word-break: break-word; color: #efeff1;
             font-family: var(--font-body);
         }
-        @keyframes msg-appear {
-            from { opacity: 0; transform: translateY(6px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes msg-appear { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
         .chat-msg .username { font-weight: 700; }
         .chat-msg .username.bot     { color: #ffd700; }
         .chat-msg .username.viewer  { color: #9147ff; }
@@ -853,163 +904,100 @@
         .chat-msg .system { color: #ffd700; font-style: italic; }
         .chat-msg .win    { color: #00ff88; font-weight: 600; }
         .chat-msg .lose   { color: #ff5a5a; font-weight: 600; }
-
         .chat-input-area {
             padding: 12px 16px;
             border-top: 1px solid rgba(255,255,255,0.06);
-            display: flex;
-            gap: 10px;
+            display: flex; gap: 10px;
             background: #18181b;
         }
         .chat-input {
-            flex: 1;
-            background: #2a2a2e;
+            flex: 1; background: #2a2a2e;
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 8px;
-            padding: 10px 14px;
-            color: #efeff1;
-            font-family: var(--font-body);
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.2s;
+            padding: 10px 14px; color: #efeff1;
+            font-family: var(--font-body); font-size: 14px;
+            outline: none; transition: border-color 0.2s;
         }
         .chat-input:focus { border-color: #9147ff; }
         .chat-input::placeholder { color: #6b6b75; }
         .chat-send {
-            background: #9147ff;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 22px;
-            color: white;
-            font-family: var(--font-ui);
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            cursor: pointer;
+            background: #9147ff; border: none;
+            border-radius: 8px; padding: 10px 22px;
+            color: white; font-family: var(--font-ui);
+            font-weight: 700; font-size: 14px;
+            letter-spacing: 0.5px; cursor: pointer;
             transition: background 0.2s, transform 0.1s;
         }
         .chat-send:hover { background: #a970ff; }
         .chat-send:active { transform: scale(0.96); }
-
-        .chat-hint {
-            text-align: center;
-            margin-top: 16px;
-            color: var(--text-3);
-            font-size: 13px;
-        }
-        .chat-hint code {
-            font-size: 12.5px;
-            margin: 0 4px;
-        }
+        .chat-hint { text-align: center; margin-top: 16px; color: var(--text-3); font-size: 13px; }
+        .chat-hint code { font-size: 12.5px; margin: 0 4px; }
 
         /* ===== PARTNERS ===== */
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
+        .partners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .partner-card {
             background: var(--surface-1);
             border-radius: var(--r-lg);
             padding: 32px 24px;
             border: 1px solid var(--outline-soft);
             text-align: center;
-            transition: transform 0.3s var(--ease-spring),
-                        border-color 0.3s,
-                        background 0.3s;
+            transition: transform 0.3s var(--ease-spring), border-color 0.3s, background 0.3s;
         }
-        .partner-card:hover {
-            transform: translateY(-4px);
-            background: var(--surface-2);
-            border-color: var(--gold-line);
-        }
+        .partner-card:hover { transform: translateY(-4px); background: var(--surface-2); border-color: var(--gold-line); }
         .partner-avatar {
-            width: 64px;
-            height: 64px;
+            width: 64px; height: 64px;
             border-radius: 50%;
             margin: 0 auto 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-size: 22px;
-            font-weight: 700;
-            color: #000;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display); font-size: 22px; font-weight: 700; color: #000;
         }
         .partner-avatar.tester  { background: linear-gradient(135deg, #00ff88, #00cc6a); }
         .partner-avatar.partner { background: linear-gradient(135deg, #9147ff, #6d28d9); color: #fff; }
         .partner-avatar.dev     { background: var(--pro-gold); }
-        /* Logo avatars: no chrome — brand mark stands on its own */
-        .partner-avatar.partner-logo {
-            background: transparent;
-            width: 80px;
-            height: 80px;
-        }
+        .partner-avatar.partner-logo { background: transparent; width: 80px; height: 80px; }
         .partner-avatar.partner-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            filter: drop-shadow(0 6px 14px rgba(0,0,0,0.5))
-                    drop-shadow(0 0 14px rgba(255, 215, 0, 0.18));
+            width: 100%; height: 100%; object-fit: contain; display: block;
+            filter: drop-shadow(0 6px 14px rgba(0,0,0,0.5)) drop-shadow(0 0 14px rgba(255, 215, 0, 0.18));
             transition: transform 0.4s var(--ease-spring), filter 0.4s;
         }
         .partner-card:hover .partner-avatar.partner-logo img {
             transform: scale(1.08);
-            filter: drop-shadow(0 8px 18px rgba(0,0,0,0.55))
-                    drop-shadow(0 0 18px rgba(255, 215, 0, 0.32));
+            filter: drop-shadow(0 8px 18px rgba(0,0,0,0.55)) drop-shadow(0 0 18px rgba(255, 215, 0, 0.32));
         }
-
-        .partner-name {
-            font-family: var(--font-display);
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--text);
-        }
+        .partner-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
         .partner-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: var(--r-full);
-            margin-bottom: 12px;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            font-family: var(--font-ui);
+            display: inline-flex; align-items: center; gap: 4px;
+            font-size: 11px; font-weight: 700;
+            padding: 4px 12px; border-radius: var(--r-full);
+            margin-bottom: 12px; letter-spacing: 0.8px;
+            text-transform: uppercase; font-family: var(--font-ui);
         }
         .partner-badge.tester       { background: rgba(0,255,136,0.10); color: #00ff88; border: 1px solid rgba(0,255,136,0.22); }
         .partner-badge.partner-type { background: rgba(145,71,255,0.10); color: #b58cff; border: 1px solid rgba(145,71,255,0.30); }
         .partner-badge.dev-type     { background: rgba(255,215,0,0.10); color: #ffd700; border: 1px solid var(--gold-line); }
-
-        .partner-quote {
-            color: var(--text-2);
-            font-size: 13.5px;
-            line-height: 1.55;
-            font-style: italic;
-            margin-bottom: 14px;
-        }
+        .partner-quote { color: var(--text-2); font-size: 13.5px; line-height: 1.55; font-style: italic; margin-bottom: 14px; }
         .partner-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: #b58cff;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            transition: color 0.2s;
-            font-family: var(--font-ui);
+            display: inline-flex; align-items: center; gap: 6px;
+            color: #b58cff; text-decoration: none;
+            font-size: 13px; font-weight: 600;
+            transition: color 0.2s; font-family: var(--font-ui);
         }
         .partner-link:hover { color: #d4b8ff; }
         .partner-link svg { width: 13px; height: 13px; }
 
-        /* ===== PRO SECTION ===== */
+        /* ===== PRO SECTION — BorderBeam (21st.dev) ===== */
         .pro-section { padding: 100px 0; }
+
+        /* @property for conic animation */
+        @property --beam-angle {
+            syntax: '<angle>';
+            inherits: false;
+            initial-value: 0deg;
+        }
+        @keyframes beam-rotate { to { --beam-angle: 360deg; } }
+
         .pro-card {
             background: var(--surface-1);
-            border: 1.5px solid var(--gold-line);
             border-radius: var(--r-xl);
             padding: 56px;
             display: grid;
@@ -1018,31 +1006,54 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.08);
+            isolation: isolate;
         }
-        /* Corner ribbon — wrapper clips to a 130×130 corner square */
+        /* BorderBeam: animated conic gradient border */
+        .pro-card::before {
+            content: '';
+            position: absolute;
+            inset: -1.5px;
+            border-radius: calc(var(--r-xl) + 1.5px);
+            background: conic-gradient(
+                from var(--beam-angle, 0deg),
+                transparent 0deg,
+                #ffd700 60deg,
+                #ff8c00 100deg,
+                transparent 160deg
+            );
+            animation: beam-rotate 4s linear infinite;
+            z-index: -1;
+        }
+        /* Inner mask to show only the border */
+        .pro-card::after {
+            content: '';
+            position: absolute;
+            inset: 1.5px;
+            border-radius: calc(var(--r-xl) - 1.5px);
+            background: var(--surface-1);
+            z-index: -1;
+        }
+        .pro-card-inner {
+            display: contents;
+        }
         .pro-ribbon-wrap {
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 130px;
-            height: 130px;
+            top: 0; right: 0;
+            width: 130px; height: 130px;
             overflow: hidden;
             pointer-events: none;
             z-index: 2;
         }
         .pro-ribbon {
             position: absolute;
-            top: 28px;
-            right: -44px;
+            top: 28px; right: -44px;
             width: 180px;
             text-align: center;
             transform: rotate(45deg);
             background: var(--pro-gold);
             color: #000;
             font-family: var(--font-display);
-            font-size: 11px;
-            font-weight: 800;
+            font-size: 11px; font-weight: 800;
             letter-spacing: 1.4px;
             padding: 6px 0;
             box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
@@ -1050,71 +1061,31 @@
         .pro-content { position: relative; z-index: 1; }
         .pro-content h2 {
             font-family: var(--font-display);
-            font-size: 32px;
-            margin-bottom: 16px;
+            font-size: 32px; margin-bottom: 16px;
             font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            display: flex; align-items: center; gap: 12px;
             letter-spacing: -0.2px;
         }
         .pro-content h2 svg { width: 28px; height: 28px; color: var(--gold); }
-        .pro-content > p {
-            color: var(--text-2);
-            font-size: 16px;
-            margin-bottom: 24px;
-            line-height: 1.65;
-        }
-        .pro-features-list {
-            list-style: none;
-            display: grid;
-            gap: 12px;
-        }
+        .pro-content > p { color: var(--text-2); font-size: 16px; margin-bottom: 24px; line-height: 1.65; }
+        .pro-features-list { list-style: none; display: grid; gap: 12px; }
         .pro-features-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 15px;
-            color: var(--text);
-            line-height: 1.5;
+            display: flex; align-items: flex-start; gap: 12px;
+            font-size: 15px; color: var(--text); line-height: 1.5;
         }
-        .pro-features-list li svg {
-            width: 18px;
-            height: 18px;
-            color: var(--success);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
+        .pro-features-list li svg { width: 18px; height: 18px; color: var(--success); flex-shrink: 0; margin-top: 2px; }
         .pro-price {
-            position: relative;
-            z-index: 1;
+            position: relative; z-index: 1;
             text-align: center;
             background: var(--surface);
             border-radius: var(--r-lg);
             padding: 36px 32px;
             border: 1px solid var(--outline-soft);
         }
-        .price-value {
-            font-family: var(--font-display);
-            font-size: 52px;
-            font-weight: 800;
-            color: var(--gold);
-            line-height: 1;
-        }
-        .price-period {
-            color: var(--text-3);
-            font-size: 13px;
-            margin: 6px 0 24px;
-            letter-spacing: 0.3px;
-        }
+        .price-value { font-family: var(--font-display); font-size: 52px; font-weight: 800; color: var(--gold); line-height: 1; }
+        .price-period { color: var(--text-3); font-size: 13px; margin: 6px 0 24px; letter-spacing: 0.3px; }
         .pro-price .btn { width: 100%; }
-        .pro-price-note {
-            color: var(--text-3);
-            font-size: 12px;
-            margin-top: 14px;
-            line-height: 1.5;
-        }
+        .pro-price-note { color: var(--text-3); font-size: 12px; margin-top: 14px; line-height: 1.5; }
 
         /* ===== COMMANDS TABLE ===== */
         .commands-table {
@@ -1123,10 +1094,7 @@
             overflow: hidden;
             border: 1px solid var(--outline-soft);
         }
-        .commands-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+        .commands-table table { width: 100%; border-collapse: collapse; }
         .commands-table th {
             font-family: var(--font-display);
             background: rgba(255, 215, 0, 0.04);
@@ -1141,25 +1109,16 @@
         .commands-table td {
             padding: 16px 24px;
             border-top: 1px solid var(--outline-soft);
-            color: var(--text-2);
-            font-size: 14.5px;
+            color: var(--text-2); font-size: 14.5px;
             position: relative;
         }
-        .commands-table tr {
-            transition: background 0.2s;
-            position: relative;
-        }
+        .commands-table tr { transition: background 0.2s; position: relative; }
         .commands-table tbody tr td:first-child {
             box-shadow: inset 0 0 0 0 var(--gold);
             transition: box-shadow 0.25s var(--ease-smooth);
         }
-        .commands-table tbody tr:hover td {
-            background: rgba(255, 215, 0, 0.03);
-            color: var(--text);
-        }
-        .commands-table tbody tr:hover td:first-child {
-            box-shadow: inset 3px 0 0 0 var(--gold);
-        }
+        .commands-table tbody tr:hover td { background: rgba(255, 215, 0, 0.03); color: var(--text); }
+        .commands-table tbody tr:hover td:first-child { box-shadow: inset 3px 0 0 0 var(--gold); }
 
         code {
             background: rgba(255, 215, 0, 0.08);
@@ -1173,18 +1132,8 @@
         }
 
         /* ===== FAQ ===== */
-        .faq {
-            background: var(--surface-1);
-            border-top: 1px solid var(--outline-soft);
-            border-bottom: 1px solid var(--outline-soft);
-        }
-        .faq-container {
-            max-width: 780px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        .faq { background: var(--surface-1); border-top: 1px solid var(--outline-soft); border-bottom: 1px solid var(--outline-soft); }
+        .faq-container { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
         .faq-item {
             background: var(--surface);
             border-radius: var(--r-md);
@@ -1192,131 +1141,72 @@
             overflow: hidden;
             transition: border-color 0.3s, background 0.3s;
         }
-        .faq-item[open] {
-            border-color: var(--gold-line);
-            background: var(--surface-2);
-        }
+        .faq-item[open] { border-color: var(--gold-line); background: var(--surface-2); }
         .faq-item summary {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text);
-            outline: none;
-            padding: 20px 24px;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            transition: color 0.2s;
-            font-family: var(--font-body);
+            font-size: 16px; font-weight: 600; color: var(--text);
+            outline: none; padding: 20px 24px;
+            cursor: pointer; list-style: none;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            transition: color 0.2s; font-family: var(--font-body);
         }
         .faq-item summary::-webkit-details-marker { display: none; }
         .faq-item summary:hover { color: var(--gold); }
         .faq-chev {
-            width: 20px;
-            height: 20px;
+            width: 20px; height: 20px;
             color: var(--text-3);
             transition: transform 0.3s var(--ease-spring), color 0.2s;
             flex-shrink: 0;
         }
-        .faq-item[open] .faq-chev {
-            transform: rotate(180deg);
-            color: var(--gold);
-        }
+        .faq-item[open] .faq-chev { transform: rotate(180deg); color: var(--gold); }
         .faq-item summary:hover .faq-chev { color: var(--gold); }
-        .faq-answer {
-            padding: 0 24px 22px;
-            color: var(--text-2);
-            line-height: 1.65;
-            font-size: 15px;
-        }
+        .faq-answer { padding: 0 24px 22px; color: var(--text-2); line-height: 1.65; font-size: 15px; }
 
         /* ===== CTA ===== */
         .cta { text-align: center; }
         .cta-card {
-            max-width: 780px;
-            margin: 0 auto;
-            background:
-                radial-gradient(ellipse at top, rgba(255,215,0,0.06), transparent 60%),
-                var(--surface-1);
+            max-width: 780px; margin: 0 auto;
+            background: radial-gradient(ellipse at top, rgba(255,215,0,0.06), transparent 60%), var(--surface-1);
             border: 1px solid var(--gold-line);
             border-radius: var(--r-xl);
             padding: 64px 48px;
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
         }
         .cta-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
         .cta h2 {
             font-family: var(--font-display);
             font-size: clamp(28px, 4vw, 40px);
-            margin-bottom: 14px;
-            font-weight: 800;
-            letter-spacing: -0.3px;
+            margin-bottom: 14px; font-weight: 800; letter-spacing: -0.3px;
         }
-        .cta p {
-            color: var(--text-2);
-            font-size: 17px;
-            margin-bottom: 32px;
-        }
-        .cta-buttons {
-            display: flex;
-            gap: 14px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .cta p { color: var(--text-2); font-size: 17px; margin-bottom: 32px; }
+        .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
         /* ===== FOOTER ===== */
-        footer {
-            padding: 48px 0 32px;
-            border-top: 1px solid var(--outline-soft);
-        }
+        footer { padding: 48px 0 32px; border-top: 1px solid var(--outline-soft); }
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 24px;
         }
-        .footer-links {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
+        .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
         .footer-links a {
-            color: var(--text-3);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-            font-family: var(--font-body);
+            color: var(--text-3); text-decoration: none;
+            font-size: 14px; transition: color 0.2s; font-family: var(--font-body);
         }
         .footer-links a:hover { color: var(--gold); }
-        .footer-copy {
-            color: var(--text-3);
-            font-size: 13px;
-            font-family: var(--font-body);
-        }
+        .footer-copy { color: var(--text-3); font-size: 13px; font-family: var(--font-body); }
 
         /* ===== SCROLL REVEAL ===== */
         .reveal {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s var(--ease-smooth),
-                        transform 0.7s var(--ease-smooth);
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
             will-change: opacity, transform;
         }
-        .reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.revealed { opacity: 1; transform: translateY(0); }
         .reveal-stagger > * { transition-delay: 0s; }
         .reveal-stagger.revealed > *:nth-child(1) { transition-delay: 0.05s; }
         .reveal-stagger.revealed > *:nth-child(2) { transition-delay: 0.10s; }
@@ -1328,21 +1218,24 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .features-grid, .partners-grid { grid-template-columns: repeat(2, 1fr); }
-            .pro-card {
-                grid-template-columns: 1fr;
-                padding: 44px 32px;
-                text-align: center;
-            }
+            .steps-grid { grid-template-columns: repeat(3, 1fr); }
+            .pro-card { grid-template-columns: 1fr; padding: 44px 32px; text-align: center; }
             .pro-content h2 { justify-content: center; }
             .pro-features-list li { text-align: left; }
             .hero-glass { padding: 40px 36px; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .hamburger { display: flex; }
             .hero { padding: 120px 0 60px; }
             .hero-glass { padding: 32px 24px; }
             .hero h1 { font-size: 36px; }
             .features-grid, .partners-grid { grid-template-columns: 1fr; }
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .steps-grid::before { display: none; }
             .stats { gap: 10px; }
             .stat-item { min-width: 0; padding: 12px 16px; }
             .stat-value { font-size: 26px; }
@@ -1352,6 +1245,7 @@
             .commands-table { overflow-x: auto; }
             .carousel-slide img { height: 320px; }
             section { padding: 70px 0; }
+            .cta-card { padding: 44px 24px; }
         }
 
         /* ===== REDUCED MOTION ===== */
@@ -1363,6 +1257,9 @@
             .marquee-track { animation: none; }
             #particleCanvas { display: none; }
             .spotlight { display: none; }
+            .pro-card::before { animation: none; }
+            .btn-primary::after { animation: none; }
+            .logo-text { animation: none; }
         }
     </style>
 </head>
@@ -1371,25 +1268,45 @@
     <div class="spotlight" aria-hidden="true"></div>
     <canvas id="particleCanvas" aria-hidden="true"></canvas>
 
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+        <a href="#features" onclick="closeMobileNav()">Features</a>
+        <a href="#setup" onclick="closeMobileNav()">Setup</a>
+        <a href="#screenshots" onclick="closeMobileNav()">Screenshots</a>
+        <a href="#live-demo" onclick="closeMobileNav()">Live Demo</a>
+        <a href="#partners" onclick="closeMobileNav()">Partners</a>
+        <a href="#pro" onclick="closeMobileNav()">PRO</a>
+        <a href="#commands" onclick="closeMobileNav()">Commands</a>
+        <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="btn btn-primary" style="margin-top:8px" onclick="closeMobileNav()">
+            <i data-lucide="download"></i> Download Free
+        </a>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">
+            <a href="#" class="logo">
                 <img src="assets/favicon.png" alt="Heist Bot Logo" class="logo-img">
                 <span class="logo-text">HEIST BOT</span>
-            </div>
+            </a>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
+                <li><a href="#setup">Setup</a></li>
                 <li><a href="#screenshots">Screenshots</a></li>
                 <li><a href="#live-demo">Live Demo</a></li>
                 <li><a href="#partners">Partners</a></li>
                 <li><a href="#pro">PRO</a></li>
                 <li><a href="#commands">Commands</a></li>
             </ul>
-            <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="btn btn-primary btn-sm">
-                <i data-lucide="download"></i>
-                Download
+            <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="btn btn-primary btn-sm" style="display:none" id="navDownloadDesktop">
+                <i data-lucide="download"></i> Download
             </a>
+            <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="btn btn-primary btn-sm nav-cta-desktop">
+                <i data-lucide="download"></i> Download
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
@@ -1418,13 +1335,17 @@
                             Get PRO
                         </a>
                     </div>
+                    <div class="platform-badge">
+                        <i data-lucide="monitor"></i>
+                        Windows only · macOS &amp; Linux on the roadmap
+                    </div>
                     <span class="hero-warning">
                         <i data-lucide="alert-triangle"></i>
                         Currently in active development — new features coming soon
                     </span>
                     <div class="stats">
                         <div class="stat-item">
-                            <div class="stat-value">5</div>
+                            <div class="stat-value" data-counter="5" data-suffix="">5</div>
                             <div class="stat-label">Languages</div>
                         </div>
                         <div class="stat-item">
@@ -1446,9 +1367,7 @@
         <div class="container">
             <div class="marquee-label">Trusted by streamers worldwide</div>
             <div class="marquee-track-wrap">
-                <div class="marquee-track" id="marqueeTrack">
-                    <!-- duplicated in JS for seamless loop -->
-                </div>
+                <div class="marquee-track" id="marqueeTrack"></div>
             </div>
         </div>
     </section>
@@ -1496,6 +1415,37 @@
         </div>
     </section>
 
+    <!-- Setup Steps (new) -->
+    <section class="setup-section tight" id="setup">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i data-lucide="rocket"></i> Quick Start</span>
+                <h2>Up &amp; Running in 3 Steps</h2>
+                <p>No technical knowledge required. From download to live in under 5 minutes.</p>
+            </div>
+            <div class="steps-grid reveal reveal-stagger">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Download</h3>
+                    <p>Grab the latest release from GitHub. Extract the ZIP and run <code>HeistBot.exe</code> — no installer needed.</p>
+                    <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="step-btn" target="_blank" rel="noopener">
+                        Get release <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Connect Twitch</h3>
+                    <p>Open the dashboard, click <strong style="color:var(--gold)">Connect</strong>, and authorize Heist Bot with your Twitch account. Takes 30 seconds.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Go Live</h3>
+                    <p>Tell your viewers to type <code>!raub 100</code> in chat and watch the heist begin. Add the OBS overlay for full effect.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Screenshots -->
     <section id="screenshots">
         <div class="container">
@@ -1507,32 +1457,14 @@
             <div class="reveal">
                 <div class="carousel-container">
                     <div class="carousel-track" id="carouselTrack">
-                        <div class="carousel-slide is-active" data-caption="Heist Control &amp; Game Settings">
-                            <img src="assets/screenshots/dashboard-4.jpg" alt="Heist Bot Dashboard - Heist Control" loading="lazy">
-                        </div>
-                        <div class="carousel-slide" data-caption="Twitch Connection &amp; Sound Setup">
-                            <img src="assets/screenshots/dashboard-9.jpg" alt="Heist Bot Dashboard - Twitch Connection" loading="lazy">
-                        </div>
-                        <div class="carousel-slide" data-caption="Raffle Management — Sub-Only &amp; Ticket Limits">
-                            <img src="assets/screenshots/dashboard-8.jpg" alt="Heist Bot Dashboard - Raffle Management" loading="lazy">
-                        </div>
-                        <div class="carousel-slide" data-caption="Manual Coin Distribution &amp; Heist Status">
-                            <img src="assets/screenshots/dashboard-5.jpg" alt="Heist Bot Dashboard - Manual Distribution" loading="lazy">
-                        </div>
-                        <div class="carousel-slide" data-caption="OBS Integration &amp; Software Updates">
-                            <img src="assets/screenshots/dashboard-1.jpg" alt="Heist Bot Dashboard - OBS Integration" loading="lazy">
-                        </div>
-                        <div class="carousel-slide" data-caption="Statistics Overview — Winrate, Bets &amp; Top Robbers">
-                            <img src="assets/screenshots/dashboard-2.jpg" alt="Heist Bot Dashboard - Statistics Overview" loading="lazy">
+                        <div class="carousel-slide is-active" data-caption="Statistics Overview — Winrate, Bets &amp; Top Robbers">
+                            <img src="assets/screenshots/dashboard-1.jpg" alt="Heist Bot Dashboard - Statistics Overview" loading="lazy">
                         </div>
                         <div class="carousel-slide" data-caption="Winrate Trends &amp; Recent Heist History">
-                            <img src="assets/screenshots/dashboard-3.jpg" alt="Heist Bot Dashboard - Trends &amp; History" loading="lazy">
+                            <img src="assets/screenshots/dashboard-2.jpg" alt="Heist Bot Dashboard - Trends &amp; History" loading="lazy">
                         </div>
-                        <div class="carousel-slide" data-caption="PRO — Excluded Accounts &amp; Custom Commands">
-                            <img src="assets/screenshots/dashboard-7.jpg" alt="Heist Bot Dashboard - PRO Features" loading="lazy">
-                        </div>
-                        <div class="carousel-slide" data-caption="Sign In — Twitch Login or E-Mail">
-                            <img src="assets/screenshots/dashboard-login.png" alt="Heist Bot Dashboard - Sign In" loading="lazy">
+                        <div class="carousel-slide" data-caption="OBS Integration &amp; Software Updates">
+                            <img src="assets/screenshots/dashboard-3.jpg" alt="Heist Bot Dashboard - OBS Integration" loading="lazy">
                         </div>
                     </div>
                     <button class="carousel-arrow prev" onclick="moveSlide(-1)" aria-label="Previous slide">
@@ -1543,7 +1475,7 @@
                     </button>
                 </div>
                 <p class="carousel-caption" id="carouselCaption">
-                    <strong>01 / 09</strong><span id="captionText">Heist Control &amp; Game Settings</span>
+                    <strong>01 / 03</strong><span id="captionText">Statistics Overview — Winrate, Bets &amp; Top Robbers</span>
                 </p>
                 <div class="carousel-nav" id="carouselNav"></div>
             </div>
@@ -1626,7 +1558,7 @@
                         <li><i data-lucide="check"></i> Custom Commands (ads, Discord links, sounds, messages)</li>
                         <li><i data-lucide="check"></i> Excluded Accounts (exclude users from leaderboard)</li>
                         <li><i data-lucide="check"></i> Extended Statistics &amp; Trends</li>
-                        <li><i data-lucide="check"></i> Zombie Dog Mode (exclusive game mode)</li>
+                        <li><i data-lucide="check"></i> Zombie Dog Mode (exclusive surprise game mode 🐕)</li>
                         <li><i data-lucide="check"></i> Priority Support</li>
                     </ul>
                 </div>
@@ -1634,7 +1566,7 @@
                     <div class="price-value">€4.99</div>
                     <div class="price-period">per month</div>
                     <a href="https://ko-fi.com/ronincannons" target="_blank" rel="noopener" class="btn btn-primary">
-                        <i data-lucide="gift"></i> Get PRO on Ko-fi
+                        <i data-lucide="coffee"></i> Get PRO on Ko-fi
                     </a>
                     <p class="pro-price-note">Include "Twitch: YourUsername"<br>in the Order Note</p>
                 </div>
@@ -1689,6 +1621,13 @@
                 </details>
                 <details class="faq-item">
                     <summary>
+                        How do I install Heist Bot?
+                        <i data-lucide="chevron-down" class="faq-chev"></i>
+                    </summary>
+                    <div class="faq-answer">Download the latest release from GitHub, extract the ZIP to any folder, and run <code>HeistBot.exe</code>. No installer required. Connect your Twitch account in the dashboard and you're live in under 5 minutes.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>
                         Is Heist Bot free to use for Twitch streamers?
                         <i data-lucide="chevron-down" class="faq-chev"></i>
                     </summary>
@@ -1696,17 +1635,17 @@
                 </details>
                 <details class="faq-item">
                     <summary>
-                        How do I automate Twitch minigames with Heist Bot?
-                        <i data-lucide="chevron-down" class="faq-chev"></i>
-                    </summary>
-                    <div class="faq-answer">Once connected to your Twitch channel, Heist Bot automatically listens for chat commands like '!raub' to start minigames, manage leaderboards, and distribute virtual coins without manual intervention.</div>
-                </details>
-                <details class="faq-item">
-                    <summary>
                         Does Heist Bot work on every streaming platform?
                         <i data-lucide="chevron-down" class="faq-chev"></i>
                     </summary>
                     <div class="faq-answer">Heist Bot is built for Twitch. The dashboard and OBS overlay currently run on <strong>Windows only</strong> — macOS and Linux support is on the roadmap.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        How do I automate Twitch minigames with Heist Bot?
+                        <i data-lucide="chevron-down" class="faq-chev"></i>
+                    </summary>
+                    <div class="faq-answer">Once connected to your Twitch channel, Heist Bot automatically listens for chat commands like <code>!raub</code> to start minigames, manage leaderboards, and distribute virtual coins without manual intervention.</div>
                 </details>
             </div>
         </div>
@@ -1722,7 +1661,10 @@
                     <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" class="btn btn-primary">
                         <i data-lucide="download"></i> Download Now
                     </a>
-                    <a href="https://ko-fi.com/ronincannons" class="btn btn-discord" target="_blank" rel="noopener">
+                    <a href="https://discord.gg/ronincannons" class="btn btn-discord" target="_blank" rel="noopener">
+                        <i data-lucide="message-circle"></i> Join Discord
+                    </a>
+                    <a href="https://ko-fi.com/ronincannons" class="btn btn-kofi" target="_blank" rel="noopener">
                         <i data-lucide="coffee"></i> Support on Ko-fi
                     </a>
                 </div>
@@ -1734,10 +1676,10 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="logo">
+                <a href="#" class="logo">
                     <img src="assets/favicon.png" alt="Heist Bot Logo" class="logo-img">
                     <span class="logo-text">HEIST BOT</span>
-                </div>
+                </a>
                 <div class="footer-links">
                     <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates" target="_blank" rel="noopener">GitHub</a>
                     <a href="https://ko-fi.com/ronincannons" target="_blank" rel="noopener">Ko-fi</a>
@@ -1778,18 +1720,12 @@
             requestAnimationFrame(loop);
         })();
 
-        /* ===== PARTICLES (lean) ===== */
+        /* ===== PARTICLES ===== */
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
-        let particles = [];
-        const PARTICLE_COUNT = 25;
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
-
         class Particle {
             constructor() { this.reset(true); }
             reset(initial) {
@@ -1803,18 +1739,14 @@
                 this.glow = Math.random() > 0.75;
             }
             update() {
-                this.y += this.speedY;
-                this.x += this.speedX;
+                this.y += this.speedY; this.x += this.speedX;
                 this.opacity = Math.min(this.opacity + 0.005, this.maxOpacity);
                 if (this.y < -10) this.reset(false);
             }
             draw() {
                 ctx.save();
                 ctx.globalAlpha = this.opacity;
-                if (this.glow) {
-                    ctx.shadowBlur = 12;
-                    ctx.shadowColor = 'rgba(255,215,0,0.6)';
-                }
+                if (this.glow) { ctx.shadowBlur = 12; ctx.shadowColor = 'rgba(255,215,0,0.6)'; }
                 ctx.fillStyle = this.glow ? '#ffd700' : 'rgba(255,215,0,0.5)';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -1822,7 +1754,8 @@
                 ctx.restore();
             }
         }
-        for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+        const particles = [];
+        for (let i = 0; i < 25; i++) particles.push(new Particle());
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach(p => { p.update(); p.draw(); });
@@ -1830,12 +1763,11 @@
         }
         animateParticles();
 
-        /* ===== TYPEWRITER (no CLS) ===== */
+        /* ===== TYPEWRITER ===== */
         const heroTyped = document.getElementById('heroTyped');
         if (heroTyped) {
             const text = 'Twitch Heist';
             let i = 0;
-            // pre-fill invisible to preserve height
             heroTyped.innerHTML = '<span class="typewriter-cursor"></span>';
             function typeChar() {
                 if (i < text.length) {
@@ -1847,17 +1779,31 @@
             setTimeout(typeChar, 600);
         }
 
+        /* ===== HAMBURGER MENU ===== */
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        hamburger.addEventListener('click', () => {
+            const isOpen = hamburger.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+            mobileNav.classList.toggle('open', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+        window.closeMobileNav = () => {
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        };
+
         /* ===== MARQUEE ===== */
-        // Each streamer with their personal accent color & avatar initial.
-        // Tweak the `color` to match each streamer's actual brand color.
         const marqueeStreamers = [
-            { name: 'RoninCannons', initial: 'R', color: '#ffd700' },                                   // gold (developer)
-            { name: 'L4ny_',        logo: 'assets/partners/l4ny.png', color: '#ffd700' },                // gold shield brand
-            { name: 'Mohjo_beist',  logo: 'assets/partners/mohjo.png', color: '#c9a96a' }                // warm sand (logo palette)
+            { name: 'RoninCannons', initial: 'R', color: '#ffd700' },
+            { name: 'L4ny_',        logo: 'assets/partners/l4ny.png', color: '#ffd700' },
+            { name: 'Mohjo_beist',  logo: 'assets/partners/mohjo.png', color: '#c9a96a' }
         ];
         const marqueeTrack = document.getElementById('marqueeTrack');
         function buildMarquee() {
-            const repeats = Math.max(4, Math.ceil(12 / marqueeStreamers.length));
+            const repeats = Math.max(6, Math.ceil(18 / marqueeStreamers.length));
             const set = Array(repeats).fill(marqueeStreamers).flat().map(s => {
                 const inner = s.logo
                     ? `<span class="badge"><img src="${s.logo}" alt="${s.name} logo" loading="lazy"></span>`
@@ -1880,6 +1826,38 @@
         }, { threshold: 0.12 });
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+        /* ===== MAGIC CARD — mouse-follow glow (21st.dev) ===== */
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+                card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+            });
+        });
+
+        /* ===== NUMBER TICKER — count-up animation (21st.dev) ===== */
+        function animateTicker(el, target, duration) {
+            const start = performance.now();
+            const update = now => {
+                const t = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - t, 3);
+                el.textContent = Math.floor(eased * target).toLocaleString();
+                if (t < 1) requestAnimationFrame(update);
+                else el.textContent = target.toLocaleString();
+            };
+            requestAnimationFrame(update);
+        }
+        const tickerObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                const target = parseInt(el.dataset.counter);
+                if (!isNaN(target)) animateTicker(el, target, 1500);
+                tickerObserver.unobserve(el);
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('[data-counter]').forEach(el => tickerObserver.observe(el));
+
         /* ===== CAROUSEL ===== */
         const track = document.getElementById('carouselTrack');
         const slides = document.querySelectorAll('.carousel-slide');
@@ -1889,7 +1867,6 @@
         const totalSlides = slides.length;
         let currentSlide = 0;
 
-        // build dots
         for (let i = 0; i < totalSlides; i++) {
             const b = document.createElement('button');
             b.className = 'carousel-dot' + (i === 0 ? ' active' : '');
@@ -1914,10 +1891,25 @@
         window.moveSlide = moveSlide;
         window.goToSlide = goToSlide;
 
+        /* Keyboard navigation */
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft')  moveSlide(-1);
+            if (e.key === 'ArrowRight') moveSlide(1);
+        });
+
         let carouselTimer = setInterval(() => moveSlide(1), 6000);
-        // pause on hover
-        document.querySelector('.carousel-container').addEventListener('mouseenter', () => clearInterval(carouselTimer));
-        document.querySelector('.carousel-container').addEventListener('mouseleave', () => carouselTimer = setInterval(() => moveSlide(1), 6000));
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselTimer));
+        carouselContainer.addEventListener('mouseleave', () => { carouselTimer = setInterval(() => moveSlide(1), 6000); });
+
+        /* Touch swipe on carousel */
+        let touchStartX = 0;
+        carouselContainer.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        carouselContainer.addEventListener('touchend', e => {
+            const delta = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(delta) > 40) moveSlide(delta > 0 ? 1 : -1);
+        });
+
         updateCarousel();
 
         /* ===== LIVE CHAT DEMO ===== */
@@ -1950,9 +1942,11 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
+        function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
         function processCommand(input) {
             const cmd = input.trim().toLowerCase();
-            addMsg(`<span class="username viewer">You: </span><span>${input.replace(/</g,'&lt;')}</span>`);
+            addMsg(`<span class="username viewer">You: </span><span>${esc(input)}</span>`);
 
             if (cmd === '!coins') {
                 setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>💰 You have <strong style="color:#ffd700">${demoCoins.toLocaleString()}</strong> coins!`), 500);
@@ -1963,7 +1957,7 @@
                     let lb = '🏆 <strong style="color:#ffd700">Top 5 Robbers:</strong><br>';
                     leaderboard.forEach((p, i) => {
                         const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i+1}.`;
-                        lb += `${medal} ${p.name} — ${p.coins.toLocaleString()} coins<br>`;
+                        lb += `${medal} ${esc(p.name)} — ${p.coins.toLocaleString()} coins<br>`;
                     });
                     addMsg(`<span class="username bot">HeistBot: </span>${lb}`);
                 }, 500);
@@ -1973,8 +1967,8 @@
             if (raubMatch) {
                 const bet = parseInt(raubMatch[1]);
                 if (bet > demoCoins) { setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>❌ Not enough coins! You have ${demoCoins.toLocaleString()}.`), 400); return; }
-                if (bet < 10)         { setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>❌ Minimum bet is 10 coins!`), 400); return; }
-                if (heistActive)      { setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>⏳ A heist is already in progress! Wait for it to finish.`), 400); return; }
+                if (bet < 10)        { setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>❌ Minimum bet is 10 coins!`), 400); return; }
+                if (heistActive)     { setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>⏳ A heist is already in progress! Wait for it to finish.`), 400); return; }
 
                 heistActive = true;
                 setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span><span class="system">🏦 A BANK HEIST IS STARTING! You bet ${bet} coins. Other robbers are joining …</span>`), 600);
@@ -1984,8 +1978,8 @@
                 joiners.forEach((v, i) => {
                     const vBet = Math.floor(Math.random() * 400) + 50;
                     setTimeout(() => {
-                        addMsg(`<span class="username ${v.cls}">${v.name}: </span>!raub ${vBet}`);
-                        setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>🔫 ${v.name} joins the heist with ${vBet} coins!`), 300);
+                        addMsg(`<span class="username ${v.cls}">${esc(v.name)}: </span>!raub ${vBet}`);
+                        setTimeout(() => addMsg(`<span class="username bot">HeistBot: </span>🔫 ${esc(v.name)} joins the heist with ${vBet} coins!`), 300);
                     }, 1200 + i * 800);
                 });
 
