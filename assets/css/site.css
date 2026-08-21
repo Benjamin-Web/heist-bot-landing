@@ -705,3 +705,23 @@ code {
 @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; }
 }
+
+/* Zeilenausgleich: verhindert einzeln haengende Woerter in Ueberschriften. */
+h1, h2 { text-wrap: balance; }
+
+/* Held kompakter: der Blick soll schnell beim naechsten Abschnitt sein. */
+@media (min-width: 900px) {
+    .held { padding: 72px 0 76px; }
+    .chat-verlauf { height: 380px; }
+}
+
+/* Abschnittsabstaende etwas straffer — die Seite soll zuegig lesen. */
+@media (min-width: 768px) {
+    .abschnitt { padding: 84px 0; }
+}
+
+/* Tap-Ziele auf dem Handy komfortabel gross (Empfehlung: mind. 44px). */
+@media (max-width: 899px) {
+    .sprache { min-height: 44px; min-width: 50px; }
+    .hamburger { width: 44px; height: 44px; }
+}

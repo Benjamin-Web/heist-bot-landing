@@ -144,8 +144,14 @@
             b.addEventListener('click', () => verarbeite(b.dataset.cmd));
         });
 
-        // Begruessung, damit das Fenster nicht leer wirkt.
-        bot('Tippe <strong>!raub 100</strong> und sieh, was passiert.');
+        // Kurzer Verlauf beim Laden: ein leeres Fenster wirkt tot, ein
+        // angefangenes Gespraech zeigt sofort, worum es geht.
+        zeile('<span class="chat-name v2">LootGoblin99: </span>!raub 250');
+        bot('<span class="chat-system">🏦 Ein Raub startet! LootGoblin99 ist mit 250 Punkten dabei. Wer kommt mit?</span>');
+        zeile('<span class="chat-name v3">ShadowThief_: </span>!raub 180');
+        bot('🔫 ShadowThief_ ist mit 180 Punkten dabei!');
+        bot('<span class="chat-gewinn">💰 Der Raub hat geklappt! Beute: 1.032 Punkte (2,4×).</span>');
+        bot('Jetzt du: tippe <strong>!raub 100</strong> oder klick unten drauf.');
     }
 
     /* ---------- Sprache ---------- */

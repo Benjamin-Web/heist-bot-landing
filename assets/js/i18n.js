@@ -20,7 +20,7 @@ window.HEIST_I18N = (function () {
 
         /* Held */
         held_kicker: '100% free · every feature',
-        held_titel: 'Your chat is planning<br><span class="gold">the next heist</span>',
+        held_titel: 'Your chat is planning <span class="gold">the next heist</span>',
         held_lede: 'Viewers put their points on the line, head out together, and watch it play out live on stream. Plus alerts, moderation, custom commands and timers — in an app that costs nothing.',
         btn_download: 'Download for Windows',
         btn_ansehen: 'Try it first',
