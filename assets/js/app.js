@@ -148,9 +148,19 @@
         bot('Tippe <strong>!raub 100</strong> und sieh, was passiert.');
     }
 
+    /* ---------- Sprache ---------- */
+    function initSprache() {
+        const i18n = window.HEIST_I18N;
+        if (!i18n) return;
+        i18n.anwenden(i18n.startSprache());
+        const knopf = document.getElementById("sprache");
+        if (knopf) knopf.addEventListener("click", i18n.umschalten);
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         initMenue();
         initIcons();
         initDemo();
+        initSprache();
     });
 })();
