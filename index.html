@@ -92,12 +92,261 @@
 </nav>
 
 <main id="top">
-    <!-- Abschnitte folgen -->
+    <!-- ═══ Held ═══ -->
+    <section class="held">
+        <div class="container held-raster">
+            <div class="held-text">
+                <p class="kicker" data-i18n="held_kicker">100 % kostenlos · alle Funktionen</p>
+                <h1 data-i18n="held_titel">Dein Chat plant den<br><span class="gold">nächsten Raub</span></h1>
+                <p class="lede" data-i18n="held_lede">Zuschauer setzen ihre Punkte ein, ziehen gemeinsam los und sehen im Stream, wie es ausgeht. Dazu Alerts, Moderation, eigene Befehle und Timer — in einer App, die nichts kostet.</p>
+                <div class="held-knoepfe">
+                    <a class="knopf knopf-gold" href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases">
+                        <i data-lucide="download"></i>
+                        <span data-i18n="btn_download">Für Windows herunterladen</span>
+                    </a>
+                    <a class="knopf knopf-leer" href="#beweis">
+                        <i data-lucide="play"></i>
+                        <span data-i18n="btn_ansehen">Erst ausprobieren</span>
+                    </a>
+                </div>
+                <p class="held-fuss" data-i18n="held_fuss">Windows · Browserquelle in OBS · Anmeldung mit Twitch</p>
+            </div>
+
+            <!-- Die Demo ist der Blickfang: echtes Verhalten statt Screenshot. -->
+            <div class="held-demo" id="beweis">
+                <div class="chatfenster">
+                    <div class="chat-kopf">
+                        <span class="chat-punkt"></span>
+                        <span class="chat-titel">#deinkanal</span>
+                        <span class="chat-meta" data-i18n="demo_meta">Demo</span>
+                    </div>
+                    <div class="chat-verlauf" id="chatVerlauf" aria-live="polite"></div>
+                    <div class="chat-eingabe">
+                        <input id="chatEingabe" type="text" autocomplete="off" spellcheck="false"
+                               placeholder="!raub 100" data-i18n-attr="placeholder" data-i18n="demo_platzhalter">
+                        <button class="knopf knopf-gold knopf-klein" id="chatSenden" type="button">
+                            <span data-i18n="demo_senden">Senden</span>
+                        </button>
+                    </div>
+                    <div class="chat-vorschlaege">
+                        <button type="button" data-cmd="!raub 100">!raub 100</button>
+                        <button type="button" data-cmd="!coins">!coins</button>
+                        <button type="button" data-cmd="!topliste">!topliste</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 01 Funktionen ═══ -->
+    <section class="abschnitt" id="funktionen">
+        <div class="container">
+            <div class="abschnitt-kopf">
+                <p class="marker"><span data-i18n="mk_funktionen">01 — Ausrüstung</span></p>
+                <h2 data-i18n="fn_titel">Alles dabei, nichts gesperrt</h2>
+                <p data-i18n="fn_lede">Kein Abo, keine Stufen, keine Funktion hinter einer Bezahlschranke. Was der Bot kann, kann er für jeden.</p>
+            </div>
+
+            <div class="karten">
+                <article class="karte">
+                    <i data-lucide="landmark"></i>
+                    <h3 data-i18n="fn1_t">Raub-Minispiel</h3>
+                    <p data-i18n="fn1_b">Der Kern: Einsatz im Chat, gemeinsame Beute, Animation im Overlay.</p>
+                </article>
+                <article class="karte">
+                    <i data-lucide="dog"></i>
+                    <h3 data-i18n="fn2_t">Zombie-Hunde-Modus</h3>
+                    <p data-i18n="fn2_b">Zweiter Spielmodus für Abwechslung — gleiche Regeln, andere Welt.</p>
+                </article>
+                <article class="karte">
+                    <i data-lucide="bell-ring"></i>
+                    <h3 data-i18n="fn3_t">Alerts</h3>
+                    <p data-i18n="fn3_b">Follow, Sub, Cheer, Raid — mit eigenen Bildern, Sounds und Texten.</p>
+                </article>
+                <article class="karte">
+                    <i data-lucide="trending-up"></i>
+                    <h3 data-i18n="fn4_t">Loyalty, XP &amp; Level</h3>
+                    <p data-i18n="fn4_b">Zuschauer sammeln fürs Zuschauen, holen den Tagesbonus und steigen auf.</p>
+                </article>
+                <article class="karte">
+                    <i data-lucide="shield"></i>
+                    <h3 data-i18n="fn5_t">Moderation</h3>
+                    <p data-i18n="fn5_b">Spam-Filter gegen Caps, Emote-Fluten, Links und Wiederholungen.</p>
+                </article>
+                <article class="karte">
+                    <i data-lucide="terminal"></i>
+                    <h3 data-i18n="fn6_t">Eigene Befehle</h3>
+                    <p data-i18n="fn6_b">Discord-Link, Regeln, Sounds oder Werbung — auf einen Befehl im Chat.</p>
+                </article>
+                <article class="karte">
+                    <i data-lucide="timer"></i>
+                    <h3 data-i18n="fn7_t">Timer &amp; Counter</h3>
+                    <p data-i18n="fn7_b">Wiederkehrende Nachrichten und Zähler wie <code>!deaths</code>.</p>
+                </article>
+                <article class="karte">
+                    <i data-lucide="ticket"></i>
+                    <h3 data-i18n="fn8_t">Verlosungen</h3>
+                    <p data-i18n="fn8_b">Tickets, Sub-Only, Nachziehen und Countdown zum Einlösen.</p>
+                </article>
+                <article class="karte">
+                    <i data-lucide="users"></i>
+                    <h3 data-i18n="fn9_t">Mod-Dashboard</h3>
+                    <p data-i18n="fn9_b">Deine Mods konfigurieren im Browser — ganz ohne Installation.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 02 Warum kostenlos ═══ -->
+    <section class="abschnitt" id="kostenlos">
+        <div class="container">
+            <div class="abschnitt-kopf">
+                <p class="marker"><span data-i18n="mk_kostenlos">02 — Die Rechnung</span></p>
+                <h2 data-i18n="kf_titel">Warum das kostenlos ist</h2>
+            </div>
+
+            <div class="rechnung">
+                <div class="rechnung-text">
+                    <p data-i18n="kf_p1">Andere Bots kosten nichts, also kostet dieser auch nichts — dauerhaft, mit allen Funktionen. Bezahlt wird es anders: Zuschauer können ihrer Räuber-Figur ein eigenes Aussehen und eine Sprechblase geben. Rein optisch, ohne Einfluss auf das Spiel.</p>
+                    <ul class="haken">
+                        <li><i data-lucide="check"></i><span data-i18n="kf_l1">Für dich gibt es nichts zu kaufen</span></li>
+                        <li><i data-lucide="check"></i><span data-i18n="kf_l2">Keine Funktion ist gesperrt</span></li>
+                        <li><i data-lucide="check"></i><span data-i18n="kf_l3">Kosmetik ändert nichts am Ausgang eines Raubs</span></li>
+                    </ul>
+                    <p class="status"><i data-lucide="clock"></i><span data-i18n="kf_status">Der Shop ist in Vorbereitung — der Bot ist jetzt schon vollständig nutzbar.</span></p>
+                </div>
+
+                <aside class="anteil">
+                    <p class="anteil-zahl">30&nbsp;%</p>
+                    <p class="anteil-text" data-i18n="kf_anteil">deines Zuschauer-Umsatzes gehen an dich</p>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 03 Loslegen ═══ -->
+    <section class="abschnitt" id="start">
+        <div class="container">
+            <div class="abschnitt-kopf">
+                <p class="marker"><span data-i18n="mk_start">03 — Der Plan</span></p>
+                <h2 data-i18n="st_titel">In drei Schritten startklar</h2>
+            </div>
+
+            <ol class="schritte">
+                <li>
+                    <span class="schritt-nr">1</span>
+                    <h3 data-i18n="st1_t">Herunterladen und installieren</h3>
+                    <p data-i18n="st1_b">Windows-Installer von GitHub, Doppelklick, fertig. Updates kommen automatisch.</p>
+                </li>
+                <li>
+                    <span class="schritt-nr">2</span>
+                    <h3 data-i18n="st2_t">Mit Twitch anmelden</h3>
+                    <p data-i18n="st2_b">Ein Klick — kein Token kopieren, kein Schlüssel eintippen.</p>
+                </li>
+                <li>
+                    <span class="schritt-nr">3</span>
+                    <h3 data-i18n="st3_t">Browserquelle in OBS</h3>
+                    <p data-i18n="st3_b">Adresse <code>http://localhost:8765</code> als Browserquelle eintragen — das Overlay läuft.</p>
+                </li>
+            </ol>
+
+            <div class="vertrauen">
+                <p class="vertrauen-titel" data-i18n="vt_titel">Läuft unter anderem bei</p>
+                <div class="partner">
+                    <a href="https://twitch.tv/l4ny_" target="_blank" rel="noopener">
+                        <img src="assets/partners/l4ny.png" alt="L4ny_" loading="lazy">
+                        <span>L4ny_</span>
+                    </a>
+                    <a href="https://twitch.tv/mohjo_beist" target="_blank" rel="noopener">
+                        <img src="assets/partners/mohjo.png" alt="Mohjo_Beist" loading="lazy">
+                        <span>Mohjo_Beist</span>
+                    </a>
+                </div>
+                <a class="knopf knopf-leer" href="https://discord.gg/FV83Fcu3V3" target="_blank" rel="noopener">
+                    <i data-lucide="message-circle"></i>
+                    <span data-i18n="vt_discord">Fragen? Ab in den Discord</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 04 Befehle ═══ -->
+    <section class="abschnitt" id="befehle">
+        <div class="container">
+            <div class="abschnitt-kopf">
+                <p class="marker"><span data-i18n="mk_befehle">04 — Im Chat</span></p>
+                <h2 data-i18n="bf_titel">Was deine Zuschauer tippen</h2>
+                <p data-i18n="bf_lede">Eine Auswahl — eigene Befehle kommen dazu, so viele du willst.</p>
+            </div>
+
+            <div class="tabelle-rahmen">
+                <table class="befehle">
+                    <thead>
+                        <tr>
+                            <th data-i18n="bf_sp1">Befehl</th>
+                            <th data-i18n="bf_sp2">Was passiert</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>!raub &lt;Einsatz&gt;</code></td><td data-i18n="bf_r1">Raub starten oder einem laufenden beitreten</td></tr>
+                        <tr><td><code>!coins</code></td><td data-i18n="bf_r2">Eigenen Punktestand anzeigen</td></tr>
+                        <tr><td><code>!topliste</code></td><td data-i18n="bf_r3">Die besten fünf Räuber im Chat</td></tr>
+                        <tr><td><code>!daily</code></td><td data-i18n="bf_r4">Tagesbonus abholen</td></tr>
+                        <tr><td><code>!rank</code></td><td data-i18n="bf_r5">Level, XP und Rang abfragen</td></tr>
+                        <tr><td><code>!give @name &lt;Menge&gt;</code></td><td data-i18n="bf_r6">Punkte verschenken</td></tr>
+                        <tr><td><code>!ticket</code></td><td data-i18n="bf_r7">An einer laufenden Verlosung teilnehmen</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 05 FAQ ═══ -->
+    <section class="abschnitt" id="faq">
+        <div class="container">
+            <div class="abschnitt-kopf">
+                <p class="marker"><span data-i18n="mk_faq">05 — Nachgefragt</span></p>
+                <h2 data-i18n="fq_titel">Kurz beantwortet</h2>
+            </div>
+
+            <div class="faq">
+                <details>
+                    <summary data-i18n="fq1_f">Kostet der Bot wirklich nichts?</summary>
+                    <p data-i18n="fq1_a">Ja. Alle Funktionen sind enthalten, es gibt kein Abo und keinen Lizenzschlüssel. Geld verdient das Projekt über Kosmetik, die Zuschauer freiwillig kaufen — und davon bekommst du 30 %.</p>
+                </details>
+                <details>
+                    <summary data-i18n="fq2_f">Brauche ich Programmierkenntnisse?</summary>
+                    <p data-i18n="fq2_a">Nein. Installieren, mit Twitch anmelden, eine Browserquelle in OBS eintragen. Alles Weitere stellst du im Fenster der App ein.</p>
+                </details>
+                <details>
+                    <summary data-i18n="fq3_f">Läuft das auch auf Mac oder Linux?</summary>
+                    <p data-i18n="fq3_a">Derzeit nur unter Windows. Für andere Systeme gibt es aktuell keine Fassung.</p>
+                </details>
+                <details>
+                    <summary data-i18n="fq4_f">Was passiert mit meinen Daten?</summary>
+                    <p data-i18n="fq4_a">Das Spiel läuft auf deinem Rechner; in der Cloud liegen nur die Einstellungen, die du dort speicherst. Was genau gespeichert wird, steht in der Datenschutzerklärung.</p>
+                </details>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer class="fuss">
+    <div class="container fuss-raster">
+        <div>
+            <p class="fuss-marke">Heist Bot</p>
+            <p class="fuss-klein" data-i18n="fuss_claim">Kostenloser Twitch-Bot mit Raub-Minispiel im OBS-Overlay.</p>
+        </div>
+        <nav class="fuss-links" aria-label="Fußzeile">
+            <a href="https://discord.gg/FV83Fcu3V3" target="_blank" rel="noopener">Discord</a>
+            <a href="https://github.com/Benjamin-Web/Heist_Bot_Updates/releases" target="_blank" rel="noopener" data-i18n="fuss_download">Download</a>
+            <a href="https://ko-fi.com/ronincannons" target="_blank" rel="noopener" data-i18n="fuss_kofi">Unterstützen</a>
+            <a href="impressum.html" data-i18n="fuss_impressum">Impressum</a>
+            <a href="datenschutz.html" data-i18n="fuss_datenschutz">Datenschutz</a>
+        </nav>
+    </div>
     <div class="container">
-        <p>&copy; 2026 Heist Bot</p>
+        <p class="fuss-klein fuss-spende" data-i18n="fuss_spende">Ko-fi ist freiwillig und bringt keine Vorteile im Bot — der ist ohnehin vollständig kostenlos.</p>
     </div>
 </footer>
 
