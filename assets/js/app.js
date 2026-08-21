@@ -157,10 +157,31 @@
         if (knopf) knopf.addEventListener("click", i18n.umschalten);
     }
 
+    /* ---------- Einblenden beim Scrollen ----------
+       Sparsam und abschaltbar: wer Bewegung reduziert hat, sieht alles sofort. */
+    function initReveal() {
+        const mag = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const ziele = document.querySelectorAll(".abschnitt-kopf, .karte, .schritte li, .anteil, .faq details, .tabelle-rahmen");
+        if (mag || !("IntersectionObserver" in window)) {
+            ziele.forEach(el => el.classList.add("sichtbar"));
+            return;
+        }
+        ziele.forEach(el => el.classList.add("reveal"));
+        const beobachter = new IntersectionObserver((eintraege) => {
+            eintraege.forEach(e => {
+                if (!e.isIntersecting) return;
+                e.target.classList.add("sichtbar");
+                beobachter.unobserve(e.target);
+            });
+        }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+        ziele.forEach(el => beobachter.observe(el));
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         initMenue();
         initIcons();
         initDemo();
         initSprache();
+        initReveal();
     });
 })();
