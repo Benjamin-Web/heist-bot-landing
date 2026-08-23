@@ -1,0 +1,165 @@
+/* =============================================================
+   Heist Bot — Shop
+   Baut vollstaendig auf site.css auf; hier steht nur, was es auf
+   der Startseite nicht gibt: Farbproben, Artikelkarten, das
+   Textfeld der Sprechblase und der Anmeldebereich im Kopf.
+   ============================================================= */
+
+/* `hidden` muss staerker sein als jede eigene display-Regel — sonst bleibt
+   ein ausgeblendeter Knopf sichtbar, weil .knopf { display: inline-flex }
+   die Vorgabe des Browsers ueberschreibt. */
+[hidden] { display: none !important; }
+
+/* ---------- Anmeldung im Kopf ---------- */
+.anmeldung { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+
+/* site.css blendet .kopf .knopf-gold auf schmalen Anzeigen aus (dort steckt
+   der Knopf im Menue). Hier gibt es kein Menue, und die Anmeldung ist der
+   wichtigste Knopf der Seite — also immer sichtbar. */
+.kopf .anmeldung .knopf-gold { display: inline-flex; }
+
+.wer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: var(--text-2);
+}
+
+.wer #werName {
+    max-width: 22ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Auf schmalen Anzeigen zaehlt der Anmeldeknopf mehr als die Navigation. */
+@media (max-width: 899px) {
+    .kopf .nav { display: none; }
+}
+
+/* Ganz schmal wird es eng: der Markenname darf nicht umbrechen, und der
+   eigene Name weicht dem Knopf — der Name steht ohnehin bei "Mein Raeuber". */
+.nur-schmal { display: none; }
+
+@media (max-width: 599px) {
+    .marke span { white-space: nowrap; }
+    .wer #werName { display: none; }
+    .anmeldung .knopf { padding: 0 12px; }
+    /* "Mit Twitch anmelden" bricht hier um und schiebt die Marke weg. */
+    .nur-breit { display: none; }
+    .nur-schmal { display: inline; }
+}
+
+/* ---------- Kopfbereich der Seite ---------- */
+.shop-held {
+    padding: calc(var(--kopf-hoehe) + 48px) 0 8px;
+}
+
+.shop-held h1 { margin: 10px 0 14px; }
+.shop-held .lede { max-width: 62ch; }
+
+/* ---------- Hinweisstreifen ----------
+   Sichtbar, aber nicht laut: Stoerungen sollen den Katalog nicht verdecken. */
+.hinweis {
+    margin-top: 22px;
+    padding: 12px 16px;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-line);
+    border-radius: var(--r-md);
+    color: var(--text-2);
+    font-size: 0.92rem;
+}
+
+/* ---------- Artikelkarten ---------- */
+.artikel { display: flex; flex-direction: column; gap: 10px; }
+
+.artikel h3 { margin: 0; }
+
+/* Farbprobe statt Artwork: die Skins faerben die vorhandene Figur ein,
+   also zeigt die Probe genau das, was der Zuschauer bekommt. */
+.probe {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--r-full);
+    background: var(--probe, var(--surface-3));
+    border: 2px solid var(--gold-line);
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.45);
+}
+
+.probe-blase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-3);
+}
+
+.probe-blase svg { width: 22px; height: 22px; color: var(--gold); margin: 0; }
+
+.artikel-meta { margin: 0; color: var(--text-3); font-size: 0.9rem; }
+
+.artikel .knopf { margin-top: auto; align-self: flex-start; }
+
+/* Gesperrt heisst gesperrt: ein voll leuchtender Goldknopf, der nichts tut,
+   waere eine Einladung zum Draufklicken ("Bald verfuegbar", "Aktiv"). */
+.artikel .knopf:disabled,
+.artikel .knopf:disabled:hover {
+    opacity: 0.45;
+    box-shadow: none;
+    transform: none;
+    cursor: not-allowed;
+}
+
+.artikel-status { margin: 0; font-size: 0.82rem; color: var(--text-3); }
+.artikel-status.abgelaufen { color: var(--gold-deep); }
+
+/* Aktiver Skin: ruhig markiert, ohne die Karte zu ueberladen. */
+.artikel.aktiv { border-color: var(--gold-line); }
+.artikel.aktiv::before { opacity: 1; }
+
+/* ---------- Sprechblase ---------- */
+.blase-feld {
+    max-width: 620px;
+    padding: 22px;
+    background: var(--surface-1);
+    border: 1px solid var(--outline);
+    border-radius: var(--r-lg);
+}
+
+.blase-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+}
+
+.blase-eingabe { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.blase-eingabe input {
+    flex: 1 1 220px;
+    min-width: 0;
+    padding: 12px 14px;
+    background: var(--surface-2);
+    border: 1px solid var(--outline);
+    border-radius: var(--r-md);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.95rem;
+}
+
+.blase-eingabe input:focus { outline: none; border-color: var(--gold-line); }
+.blase-eingabe input:disabled { color: var(--text-3); cursor: not-allowed; }
+
+.blase-zeile {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: var(--text-3);
+}
+
+.blase-status { margin: 12px 0 0; font-size: 0.9rem; color: var(--text-2); overflow-wrap: break-word; }
+.blase-status.fehler { color: var(--gold-deep); }
