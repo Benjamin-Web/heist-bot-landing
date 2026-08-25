@@ -426,6 +426,7 @@
         if (!feld || !status) return;
 
         status.classList.remove('fehler');
+        feld.classList.remove('fehler');
         try {
             const res = await fetch(BACKEND + '/api/shop/speech', {
                 method: 'POST',
@@ -443,7 +444,10 @@
                 return;
             }
 
+            // Eine Ablehnung muss man sehen: eine kleine graue Zeile unter dem
+            // Feld wird uebersehen und der Knopf wirkt dann kaputt.
             status.classList.add('fehler');
+            feld.classList.add('fehler');
             if (res.status === 422) {
                 status.textContent = TEXTE[sprache()].gruende[daten.reason] || TEXTE[sprache()].gruende.blocked_word;
             } else if (res.status === 403) {

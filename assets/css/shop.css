@@ -182,4 +182,13 @@
 }
 
 .blase-status { margin: 12px 0 0; font-size: 0.9rem; color: var(--text-2); overflow-wrap: break-word; }
-.blase-status.fehler { color: var(--gold-deep); }
+
+/* Abgelehnter Text: das Feld faerbt sich mit, damit die Begruendung nicht
+   als kleine Zeile untergeht und der Knopf kaputt wirkt. */
+.blase-status.fehler { color: var(--gold-deep); font-weight: 600; }
+
+.blase-eingabe input.fehler,
+.blase-eingabe input.fehler:focus {
+    border-color: var(--gold-deep);
+    background: rgba(255, 140, 0, 0.06);
+}
