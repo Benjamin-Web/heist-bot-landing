@@ -76,9 +76,29 @@
 
 .artikel h3 { margin: 0; }
 
-/* Farbprobe statt Artwork: die Skins faerben die vorhandene Figur ein,
-   also zeigt die Probe genau das, was der Zuschauer bekommt. */
+/* Die Figur aus dem Overlay, im Shop genauso eingefaerbt wie im Spiel. */
+.vorschau {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 156px;
+}
+
+.vorschau canvas {
+    display: block;
+    height: 156px;
+    width: auto;
+    /* Ohne Schatten schwebt die Figur vor der Karte statt darauf zu stehen. */
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
+}
+
+.vorschau-blase { align-items: center; }
+
+/* Farbpunkt: Rueckfall, solange (oder falls) das Bild nicht da ist, und
+   feste Darstellung fuer die Sprechblase. */
 .probe {
+    flex: none;
+    align-self: center;
     width: 48px;
     height: 48px;
     border-radius: var(--r-full);

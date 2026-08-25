@@ -165,13 +165,75 @@
         return hex && /^#[0-9a-fA-F]{6}$/.test(hex) ? hex : null;
     }
 
+    /* ---------- Figuren-Vorschau ----------
+       Die Skins faerben die vorhandene Figur ein, statt eigenes Artwork
+       mitzubringen. Deshalb zeigt der Shop dieselbe Figur wie das Overlay,
+       eingefaerbt mit derselben Rechnung (Phaser setTint = Multiplikation
+       Kanal fuer Kanal). Ein Bild fuer alle Farben — aendert sich ein Ton in
+       der Datenbank, stimmt die Vorschau ohne neue Datei. */
+    const FIGUR = '/assets/img/raeuber.png';
+    let figurBild = null;
+    let figurLauf = null;
+
+    function figurLaden() {
+        if (figurLauf) return figurLauf;
+        figurLauf = new Promise(fertig => {
+            const bild = new Image();
+            bild.onload = () => { figurBild = bild; fertig(bild); };
+            bild.onerror = () => fertig(null);   // Kein Bild? Dann bleibt der Farbpunkt.
+            bild.src = FIGUR;
+        });
+        return figurLauf;
+    }
+
+    function figurZeichnen(leinwand, hex) {
+        if (!figurBild) return false;
+        leinwand.width = figurBild.naturalWidth;
+        leinwand.height = figurBild.naturalHeight;
+        const g = leinwand.getContext('2d');
+        if (!g) return false;
+
+        g.drawImage(figurBild, 0, 0);
+        const f = farbe(hex);
+        if (f) {
+            g.globalCompositeOperation = 'multiply';
+            g.fillStyle = f;
+            g.fillRect(0, 0, leinwand.width, leinwand.height);
+            // Die Multiplikation faerbt auch das Durchsichtige — die
+            // urspruengliche Deckkraft wieder als Maske anlegen.
+            g.globalCompositeOperation = 'destination-in';
+            g.drawImage(figurBild, 0, 0);
+            g.globalCompositeOperation = 'source-over';
+        }
+        return true;
+    }
+
     function probeBauen(item) {
-        const el = document.createElement('div');
-        el.className = 'probe' + (item.kind === 'speech' ? ' probe-blase' : '');
+        const huelle = document.createElement('div');
+        huelle.className = 'vorschau';
+
+        if (item.kind === 'speech') {
+            huelle.classList.add('vorschau-blase');
+            huelle.innerHTML = '<span class="probe probe-blase"><i data-lucide="message-square"></i></span>';
+            return huelle;
+        }
+
+        // Solange das Bild laedt — und falls es nie kommt — steht hier der
+        // Farbpunkt. Kein Kasten, der leer bleibt.
+        const punkt = document.createElement('div');
+        punkt.className = 'probe';
         const f = farbe(item.tint_hex);
-        if (f) el.style.setProperty('--probe', f);
-        if (item.kind === 'speech') el.innerHTML = '<i data-lucide="message-square"></i>';
-        return el;
+        if (f) punkt.style.setProperty('--probe', f);
+        huelle.appendChild(punkt);
+
+        figurLaden().then(bild => {
+            if (!bild) return;
+            const leinwand = document.createElement('canvas');
+            leinwand.setAttribute('aria-hidden', 'true');
+            if (figurZeichnen(leinwand, item.tint_hex)) huelle.replaceChildren(leinwand);
+        });
+
+        return huelle;
     }
 
     function karteBauen(item) {
