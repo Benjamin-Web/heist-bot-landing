@@ -208,6 +208,53 @@
         return true;
     }
 
+    /**
+     * Die stehende Entsprechung zum Goldregen im Overlay: Figur etwas kleiner
+     * und nach unten geschoben, die Muenzen fallen im freien Raum darueber.
+     * Feste Positionen statt Zufall — eine Karte, die bei jedem Aufbau anders
+     * aussieht, wirkt kaputt.
+     */
+    function figurMitRegenZeichnen(leinwand) {
+        if (!figurBild) return false;
+        const breite = figurBild.naturalWidth;
+        const hoehe = figurBild.naturalHeight;
+        leinwand.width = breite;
+        leinwand.height = hoehe;
+        const g = leinwand.getContext('2d');
+        if (!g) return false;
+
+        // 76 % lassen oben knapp ein Viertel Luft fuer die Muenzen.
+        const anteil = 0.76;
+        const zielB = breite * anteil;
+        const zielH = hoehe * anteil;
+        const kopfraum = hoehe - zielH;
+        g.drawImage(figurBild, (breite - zielB) / 2, kopfraum, zielB, zielH);
+
+        // Anteile beziehen sich auf den freien Raum, nicht auf die ganze
+        // Leinwand — sonst laegen die Muenzen auf der Muetze.
+        const muenzen = [
+            [0.20, 0.10, 7], [0.47, 0.02, 8], [0.74, 0.16, 6],
+            [0.33, 0.34, 6], [0.62, 0.46, 7], [0.14, 0.55, 5],
+            [0.84, 0.62, 6], [0.45, 0.72, 5], [0.26, 0.88, 5]
+        ];
+        muenzen.forEach(([px, py, r]) => {
+            const x = px * breite;
+            const y = py * kopfraum;
+            g.beginPath();
+            g.arc(x, y, r, 0, Math.PI * 2);
+            g.fillStyle = '#ffd700';
+            g.fill();
+            g.lineWidth = 2;
+            g.strokeStyle = '#fff3a0';
+            g.stroke();
+            g.beginPath();
+            g.arc(x, y, r * 0.35, 0, Math.PI * 2);
+            g.fillStyle = '#ffa500';
+            g.fill();
+        });
+        return true;
+    }
+
     function probeBauen(item) {
         const huelle = document.createElement('div');
         huelle.className = 'vorschau';
@@ -215,6 +262,24 @@
         if (item.kind === 'speech') {
             huelle.classList.add('vorschau-blase');
             huelle.innerHTML = '<span class="probe probe-blase"><i data-lucide="message-square"></i></span>';
+            return huelle;
+        }
+
+        // Effekte (Teil 4): die Figur ohne Einfaerbung, dafuer mit Muenzen —
+        // gekauft wird der Regen, nicht die Farbe.
+        if (item.kind === 'effect') {
+            const punkt = document.createElement('div');
+            punkt.className = 'probe';
+            punkt.style.setProperty('--probe', '#FFD700');
+            huelle.appendChild(punkt);
+
+            figurLaden().then(bild => {
+                if (!bild) return;
+                const leinwand = document.createElement('canvas');
+                leinwand.setAttribute('aria-hidden', 'true');
+                if (figurMitRegenZeichnen(leinwand)) huelle.replaceChildren(leinwand);
+            });
+
             return huelle;
         }
 
