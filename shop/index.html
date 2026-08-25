@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop — Heist Bot</title>
+    <meta name="description" content="Gib deinem Räuber ein eigenes Aussehen und eine Sprechblase. Reine Kosmetik — am Ausgang eines Raubs ändert sie nichts.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0f">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.heist-bot.pro/shop/">
+    <meta property="og:title" content="Shop — Heist Bot">
+    <meta property="og:description" content="Eigenes Aussehen und eine Sprechblase für deinen Räuber. Reine Kosmetik.">
+    <link rel="canonical" href="https://www.heist-bot.pro/shop/">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+
+    <!-- Schriften liegen lokal — es wird nichts nachgeladen. -->
+    <link rel="stylesheet" href="../assets/fonts.css">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <link rel="stylesheet" href="../assets/css/shop.css">
+
+    <script src="../assets/js/lucide.min.js"></script>
+    <script src="../assets/js/i18n-shop.js" defer></script>
+    <script src="../assets/js/shop.js" defer></script>
+</head>
+<body>
+
+<header class="kopf">
+    <div class="container">
+        <a class="marke" href="/">
+            <img src="../assets/favicon.png" alt="">
+            <span>Heist Bot</span>
+        </a>
+
+        <nav class="nav" aria-label="Hauptnavigation">
+            <a href="#katalog" data-i18n="nav_katalog">Katalog</a>
+            <a href="/#funktionen" data-i18n="nav_bot">Der Bot</a>
+        </nav>
+
+        <button class="sprache" id="sprache" type="button" aria-label="Sprache wechseln / switch language">EN</button>
+
+        <div class="anmeldung">
+            <button class="knopf knopf-gold knopf-klein" id="anmelden" type="button">
+                <i data-lucide="log-in"></i>
+                <span class="nur-breit" data-i18n="an_knopf">Mit Twitch anmelden</span>
+                <span class="nur-schmal" data-i18n="an_knopf_kurz">Anmelden</span>
+            </button>
+            <span class="wer" id="wer" hidden>
+                <span id="werName"></span>
+                <button class="knopf knopf-leer knopf-klein" id="abmelden" type="button" data-i18n="an_abmelden">Abmelden</button>
+            </span>
+        </div>
+    </div>
+</header>
+
+<main id="top">
+    <!-- ═══ Kopfzeile des Shops ═══ -->
+    <section class="shop-held">
+        <div class="container">
+            <p class="kicker" data-i18n="sh_kicker">Nur Kosmetik · kein Vorteil im Spiel</p>
+            <h1 data-i18n="sh_titel">Dein Räuber, <span class="gold">dein Auftritt</span></h1>
+            <p class="lede" data-i18n="sh_lede">Gib deiner Figur im Overlay eine eigene Farbe und lass sie sagen, was du willst. Am Ausgang eines Raubs ändert das nichts — und 30 % von dem, was du ausgibst, gehen an den Kanal, über den du hergekommen bist.</p>
+            <p class="hinweis" id="hinweis" hidden></p>
+        </div>
+    </section>
+
+    <!-- ═══ Katalog ═══ -->
+    <section class="abschnitt" id="katalog">
+        <div class="container">
+            <div class="abschnitt-kopf">
+                <p class="marker"><span data-i18n="mk_katalog">01 — Auslage</span></p>
+                <h2 data-i18n="kat_titel">Was es gibt</h2>
+                <p data-i18n="kat_lede">Skins bleiben dir dauerhaft. Die Sprechblase läuft 30 Tage und wird danach neu gekauft.</p>
+            </div>
+
+            <p id="katalogStatus" data-i18n="kat_laedt">Katalog wird geladen …</p>
+            <div class="karten" id="katalogListe"></div>
+        </div>
+    </section>
+
+    <!-- ═══ Mein Räuber ═══ -->
+    <section class="abschnitt" id="meins" hidden>
+        <div class="container">
+            <div class="abschnitt-kopf">
+                <p class="marker"><span data-i18n="mk_meins">02 — Deine Sachen</span></p>
+                <h2 data-i18n="mein_titel">Mein Räuber</h2>
+                <p data-i18n="mein_lede">Ein Aussehen ist gleichzeitig aktiv. Der Wechsel gilt sofort, im nächsten Raub siehst du ihn.</p>
+            </div>
+
+            <p id="besitzLeer" hidden data-i18n="mein_leer">Du besitzt noch nichts — oben im Katalog findest du alles.</p>
+            <div class="karten" id="besitzListe"></div>
+        </div>
+    </section>
+
+    <!-- ═══ Meine Sprechblase ═══ -->
+    <section class="abschnitt" id="blase" hidden>
+        <div class="container">
+            <div class="abschnitt-kopf">
+                <p class="marker"><span data-i18n="mk_blase">03 — Deine Stimme</span></p>
+                <h2 data-i18n="bl_titel">Meine Sprechblase</h2>
+                <p data-i18n="bl_lede">Höchstens 60 Zeichen, keine Links. Der Text wird geprüft, bevor er im Stream auftaucht.</p>
+            </div>
+
+            <div class="blase-feld">
+                <label class="blase-label" for="blaseText" data-i18n="bl_label">Dein Text</label>
+                <div class="blase-eingabe">
+                    <input id="blaseText" type="text" maxlength="60" autocomplete="off"
+                           placeholder="Ich bin dann mal reich." data-i18n-attr="placeholder" data-i18n="bl_platzhalter">
+                    <button class="knopf knopf-gold knopf-klein" id="blaseSpeichern" type="button" data-i18n="bl_speichern">Speichern</button>
+                </div>
+                <div class="blase-zeile">
+                    <span id="blaseZaehler">0/60</span>
+                    <span id="blaseRest"></span>
+                </div>
+                <p id="blaseStatus" class="blase-status"></p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="fuss">
+    <div class="container fuss-raster">
+        <div>
+            <p class="fuss-marke">Heist Bot</p>
+            <p class="fuss-klein" data-i18n="fuss_claim">Kostenloser Twitch-Bot mit Raub-Minispiel im OBS-Overlay.</p>
+        </div>
+        <nav class="fuss-links" aria-label="Fußzeile">
+            <a href="/">Start</a>
+            <a href="https://discord.gg/FV83Fcu3V3" target="_blank" rel="noopener">Discord</a>
+            <a href="/impressum.html" data-i18n="fuss_impressum">Impressum</a>
+            <a href="/datenschutz.html" data-i18n="fuss_datenschutz">Datenschutz</a>
+        </nav>
+    </div>
+    <div class="container">
+        <p class="fuss-klein fuss-spende" data-i18n="fuss_kosmetik">Alles hier ist reine Kosmetik. Der Bot selbst ist und bleibt für alle kostenlos.</p>
+    </div>
+</footer>
+
+</body>
+</html>
