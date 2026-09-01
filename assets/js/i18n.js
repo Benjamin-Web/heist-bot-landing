@@ -52,6 +52,12 @@ window.HEIST_I18N = (function () {
         fn9_t: 'Mod dashboard',
         fn9_b: 'Your mods configure everything in the browser — no install needed.',
 
+        /* Schaustuecke */
+        sc_alert_alt: 'Alert on stream: the robber from the game runs beside the message “Lena is raiding with 42 viewers!”',
+        sc_alert_b: 'Alerts on stream: your game character performs in person. In Zombie Dog mode the dog shows up instead of the robber.',
+        sc_dash_alt: 'The Heist Bot window on the streamer’s computer, with sidebar, task list and coin distribution',
+        sc_dash_b: 'The app on your machine: everything in one place, nothing greyed out.',
+
         /* Warum kostenlos */
         mk_kostenlos: '02 — The math',
         kf_titel: 'Why this is free',
