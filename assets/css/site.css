@@ -8,23 +8,23 @@
 
 /* ---------- Token ---------- */
 :root {
-    --gold: #ffd700;
-    --gold-deep: #ff8c00;
-    --gold-gradient: linear-gradient(135deg, #ffd700, #ff8c00);
+    --gold: #FFC53D;
+    --gold-deep: #E0A526;
+    --gold-gradient: linear-gradient(135deg, #FFC53D, #E0A526);
 
-    --surface: #0a0a0f;
-    --surface-1: #12121a;
-    --surface-2: #1a1a24;
-    --surface-3: #22222e;
+    --surface: #0A0B0F;
+    --surface-1: #101219;
+    --surface-2: #171A23;
+    --surface-3: #1F232F;
 
-    --text: #ffffff;
-    --text-2: #c5c5d0;
-    --text-3: #8a8a98;
+    --text: #F2F3F5;
+    --text-2: #A2A7B3;
+    --text-3: #858B99;
 
-    --outline: rgba(255, 255, 255, 0.10);
-    --outline-soft: rgba(255, 255, 255, 0.05);
-    --gold-soft: rgba(255, 215, 0, 0.10);
-    --gold-line: rgba(255, 215, 0, 0.22);
+    --outline: rgba(255, 255, 255, 0.14);
+    --outline-soft: rgba(255, 255, 255, 0.08);
+    --gold-soft: rgb(255 197 61 / .10);
+    --gold-line: rgb(255 197 61 / .22);
 
     --r-sm: 8px;
     --r-md: 12px;
