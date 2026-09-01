@@ -25,7 +25,11 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
-const BOT = 'C:/Users/benja/Desktop/Heist_bot';
+// Nachbarverzeichnis, kein fester Pfad — die Skripte liegen im
+// oeffentlich ausgelieferten Repo und sollen nichts ueber den Rechner
+// verraten, auf dem sie zuletzt liefen. Ueber HEIST_BOT_DIR ueberschreibbar.
+const BOT = (process.env.HEIST_BOT_DIR || path.join(__dirname, '..', '..', 'Heist_bot'))
+    .split(path.sep).join('/');
 const OUT_DIR = path.join(__dirname, '..', 'assets', 'shots');
 fs.mkdirSync(OUT_DIR, { recursive: true });
 
