@@ -422,7 +422,22 @@ p { margin: 0 0 1rem; }
     font-family: 'Rajdhani', sans-serif;
 }
 
-.chat-eingabe input:focus { outline: none; border-color: var(--gold-line); }
+/* Der einzige Fokus-Indikator der Seite. Vorher wurde die native Umrandung
+   entfernt und nur die Rahmenfarbe auf --gold-line (Gold mit 22 % Deckkraft)
+   gesetzt — das ergab 1,77:1 gegen das Eingabefeld und war damit praktisch
+   unsichtbar. Jetzt ein voller Goldring: sichtbar, ohne das Layout zu
+   verschieben, weil outline keinen Platz einnimmt. */
+.chat-eingabe input:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+    border-color: var(--gold);
+}
+
+/* Maus-Klicks bekommen weiterhin nur die ruhige Rahmenhervorhebung. */
+.chat-eingabe input:focus:not(:focus-visible) {
+    outline: none;
+    border-color: var(--gold-line);
+}
 
 .chat-vorschlaege {
     display: flex;

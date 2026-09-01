@@ -1,0 +1,121 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>OG-Karte</title>
+<!--
+  Vorlage fuer assets/og-image.png (1200x630).
+  Gerastert mit tools/capture-og.js ueber das Electron aus dem Bot-Repo.
+
+  Bewusst KEIN Screenshot der Oberflaeche: die vorhandenen Screenshots zeigen
+  noch das abgeschaffte PRO-Modell. Diese Karte nutzt stattdessen die echte
+  Spielfigur und die aktuelle Produktpalette, ist damit nicht veraltbar durch
+  UI-Aenderungen und sagt in einem Blick, worum es geht.
+
+  Die Schrift wird nur zum Rastern von ausserhalb geladen und landet NICHT
+  im Landing-Repo — die Datenschutzerklaerung sagt zu, dass die Seite selbst
+  nichts nachlaedt, und das bleibt so.
+-->
+<style>
+  @font-face {
+    font-family: 'Oswald';
+    font-weight: 600;
+    src: url('file:///C:/Users/benja/Desktop/Heist_bot/shared/fonts/oswald-600-latin.woff2') format('woff2');
+  }
+
+  :root {
+    --ink-900: #0A0B0F;
+    --ink-800: #101219;
+    --gold-500: #FFC53D;
+    --gold-300: #FFDE8A;
+    --gold-ink: #1A1200;
+    --fg: #F2F3F5;
+    --fg-muted: #A2A7B3;
+  }
+
+  * { box-sizing: border-box; margin: 0; }
+
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+
+  body {
+    position: relative;
+    background:
+      radial-gradient(120% 90% at 78% 50%, rgb(255 197 61 / .10), transparent 60%),
+      var(--ink-900);
+    font-family: 'Inter', system-ui, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 40px;
+    padding: 0 84px;
+  }
+
+  /* Absperrband — dasselbe Motiv wie im Produkt, oben und unten. */
+  body::before, body::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 10px;
+    background: repeating-linear-gradient(45deg,
+      transparent 0 14px, var(--gold-500) 14px 28px);
+  }
+  body::before { top: 0; }
+  body::after  { bottom: 0; }
+
+  .text { max-width: 700px; }
+
+  .wordmark {
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-weight: 600;
+    font-size: 104px;
+    line-height: .95;
+    letter-spacing: .035em;
+    text-transform: uppercase;
+    color: var(--gold-500);
+  }
+
+  .claim {
+    margin-top: 22px;
+    font-size: 34px;
+    line-height: 1.28;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .sub {
+    margin-top: 20px;
+    font-size: 23px;
+    color: var(--fg-muted);
+  }
+
+  .stamp {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 9px 20px;
+    border: 3px solid var(--gold-500);
+    border-radius: 2px;
+    transform: rotate(-2.5deg);
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-weight: 600;
+    font-size: 27px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gold-500);
+  }
+
+  .figure {
+    width: 314px;
+    height: 576px;
+    background: url('robber-hires.png') center bottom / contain no-repeat;
+    filter: drop-shadow(0 18px 36px rgb(0 0 0 / .6));
+    align-self: end;
+    margin-bottom: 10px;
+  }
+</style>
+
+<div class="text">
+  <div class="wordmark">Heist&nbsp;Bot</div>
+  <p class="claim">Dein Chat plant den nächsten Raub —<br>sichtbar im Stream.</p>
+  <p class="sub">Twitch-Bot mit Raub-Minispiel, Alerts, Moderation und Overlay.</p>
+  <div class="stamp">100 % kostenlos</div>
+</div>
+
+<div class="figure"></div>
