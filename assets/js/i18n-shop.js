@@ -26,6 +26,8 @@ window.HEIST_I18N_SHOP = (function () {
         kat_titel: 'What there is',
         kat_lede: 'Skins are yours for good. The speech bubble runs for 30 days and is bought again after that.',
         kat_laedt: 'Loading the catalogue …',
+        kat_gruppe_raeuber: 'For heist channels',
+        kat_gruppe_hunde: 'For zombie-dog channels',
 
         /* Mein Raeuber */
         mk_meins: '02 — Your things',

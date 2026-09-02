@@ -24,6 +24,8 @@
     const TEXTE = {
         de: {
             bald: 'Bald verfügbar',
+            gruppeRaeuber: 'Für Raub-Kanäle',
+            gruppeHunde: 'Für Zombie-Hund-Kanäle',
             kaufen: 'Kaufen',
             kaufenAnmelden: 'Zum Kaufen anmelden',
             kasseLaeuft: 'Einen Moment …',
@@ -56,6 +58,8 @@
         },
         en: {
             bald: 'Coming soon',
+            gruppeRaeuber: 'For heist channels',
+            gruppeHunde: 'For zombie-dog channels',
             kaufen: 'Buy',
             kaufenAnmelden: 'Sign in to buy',
             kasseLaeuft: 'One moment …',
@@ -399,10 +403,24 @@
     }
 
     function katalogZeichnen() {
-        const liste = document.getElementById('katalogListe');
-        if (!liste) return;
-        liste.innerHTML = '';
-        letzterKatalog.forEach(i => liste.appendChild(karteBauen(i)));
+        const gruppen = [
+            { mode: 'heist', liste: 'katalogRaeuber', titel: 'gruppeRaeuberTitel' },
+            { mode: 'zombie_dog', liste: 'katalogHunde', titel: 'gruppeHundeTitel' }
+        ];
+
+        gruppen.forEach(g => {
+            const liste = document.getElementById(g.liste);
+            const titel = document.getElementById(g.titel);
+            if (!liste) return;
+
+            // Artikel ohne Angabe gehoeren zu den Raeubern (alles vor Teil 5).
+            const artikel = letzterKatalog.filter(i => (i.game_mode || 'heist') === g.mode);
+            liste.innerHTML = '';
+            artikel.forEach(i => liste.appendChild(karteBauen(i)));
+            // Ueberschrift nur zeigen, wenn darunter auch etwas steht.
+            if (titel) titel.hidden = artikel.length === 0;
+        });
+
         if (window.lucide) window.lucide.createIcons();
     }
 
@@ -478,7 +496,19 @@
 
         const skins = (letzteEigene.items || []).filter(i => i.kind === 'skin');
         liste.innerHTML = '';
-        skins.forEach(i => liste.appendChild(besitzKarte(i)));
+
+        // Nach Figurenart sortiert, damit die beiden Welten nicht durcheinander
+        // liegen — aktiviert wird je Art getrennt.
+        ['heist', 'zombie_dog'].forEach(mode => {
+            const teil = skins.filter(i => (i.game_mode || 'heist') === mode);
+            if (teil.length === 0) return;
+            const titel = document.createElement('h3');
+            titel.className = 'gruppe-titel';
+            titel.textContent = mode === 'heist' ? t('gruppeRaeuber') : t('gruppeHunde');
+            liste.appendChild(titel);
+            teil.forEach(i => liste.appendChild(besitzKarte(i)));
+        });
+
         if (leer) leer.hidden = skins.length > 0;
         if (window.lucide) window.lucide.createIcons();
     }

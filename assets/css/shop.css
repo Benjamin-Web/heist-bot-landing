@@ -192,3 +192,17 @@
     border-color: var(--gold-deep);
     background: rgba(255, 140, 0, 0.06);
 }
+
+/* Ueberschrift ueber einer Katalog-Gruppe. */
+.gruppe-titel {
+    margin: 32px 0 14px;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-3);
+}
+
+.gruppe-titel:first-of-type { margin-top: 8px; }
+
+/* Ueberschrift im Karten-Raster: ueber die volle Breite. */
+.karten > .gruppe-titel { grid-column: 1 / -1; }
