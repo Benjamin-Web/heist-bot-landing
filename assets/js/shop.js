@@ -26,6 +26,8 @@
             bald: 'Bald verfügbar',
             kaufen: 'Kaufen',
             kaufenAnmelden: 'Zum Kaufen anmelden',
+            kasseLaeuft: 'Einen Moment …',
+            kasseWeg: 'Die Kasse ist gerade nicht erreichbar. Bitte später noch einmal versuchen.',
             aktiv: 'Aktiv',
             aktivieren: 'Aktivieren',
             dauerhaft: 'dauerhaft',
@@ -56,6 +58,8 @@
             bald: 'Coming soon',
             kaufen: 'Buy',
             kaufenAnmelden: 'Sign in to buy',
+            kasseLaeuft: 'One moment …',
+            kasseWeg: 'Checkout is unreachable at the moment. Please try again later.',
             aktiv: 'Active',
             aktivieren: 'Activate',
             dauerhaft: 'permanent',
@@ -315,27 +319,37 @@
     }
 
     /**
-     * Baut die Adresse der Kasse. Die Grundadresse kommt aus dem Katalog (und
-     * damit aus der Datenbank), angehaengt werden nur die Angaben, die der
-     * Kauf braucht: WER kauft und ueber WELCHEN Kanal. Ohne twitch_id kann der
-     * Kauf niemandem zugeordnet werden — dann fuehrt der Knopf zur Anmeldung.
+     * Holt die Kassen-Adresse vom Backend. Die Adresse bauen wir bewusst
+     * NICHT selbst zusammen: Wer kauft, steht im angemeldeten Shop-Ausweis,
+     * und der liegt beim Backend. Stuende die Kennung hier in der Seite,
+     * koennte man sie aendern und auf fremden Namen kaufen.
      */
-    function kassenUrl(item) {
-        const twitchId = localStorage.getItem(SCHLUESSEL_TWITCH_ID);
-        if (!item.checkout_url || !twitchId) return null;
+    async function zurKasse(item, knopf) {
+        const vorher = knopf.textContent;
+        knopf.disabled = true;
+        knopf.textContent = t('kasseLaeuft');
+        meldung('');
 
-        const trenner = item.checkout_url.includes('?') ? '&' : '?';
-        const teile = [
-            'checkout[custom][twitch_id]=' + encodeURIComponent(twitchId)
-        ];
-        const login = localStorage.getItem(SCHLUESSEL_LOGIN);
-        if (login) teile.push('checkout[custom][twitch_login]=' + encodeURIComponent(login));
-        // Kanal-Zuordnung aus dem !shop-Link: ohne sie bekommt niemand seinen
-        // Anteil, der Kauf funktioniert aber trotzdem.
-        const ref = sessionStorage.getItem(SCHLUESSEL_REF);
-        if (ref) teile.push('checkout[custom][ref_channel]=' + encodeURIComponent(ref));
-
-        return item.checkout_url + trenner + teile.join('&');
+        try {
+            const res = await fetch(BACKEND + '/api/shop/checkout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + ausweis() },
+                body: JSON.stringify({
+                    skin_key: item.key,
+                    // Kanal-Zuordnung aus dem !shop-Link: ohne sie bekommt
+                    // niemand seinen Anteil, der Kauf geht trotzdem.
+                    ref: sessionStorage.getItem(SCHLUESSEL_REF) || undefined
+                })
+            });
+            if (res.status === 401) { abmelden(); return; }
+            const daten = await res.json().catch(() => ({}));
+            if (!res.ok || typeof daten.url !== 'string') throw new Error('HTTP ' + res.status);
+            location.href = daten.url;
+        } catch (err) {
+            knopf.disabled = false;
+            knopf.textContent = vorher;
+            meldung(t('kasseWeg'));
+        }
     }
 
     /** Knopf je nach Lage: kaufen, anmelden oder (noch) gesperrt. */
@@ -344,25 +358,22 @@
         knopf.type = 'button';
         knopf.className = 'knopf knopf-gold knopf-klein';
 
-        // Kein Kassen-Link hinterlegt: der Artikel ist noch nicht kaufbar.
-        // Lieber ehrlich sperren als auf eine tote Adresse schicken.
-        if (!item.checkout_url) {
+        // Noch kein Produkt beim Zahlungsanbieter hinterlegt: ehrlich sperren,
+        // statt einen Knopf anzubieten, der ins Leere fuehrt.
+        if (!item.kaufbar) {
             knopf.disabled = true;
             knopf.textContent = t('bald');
             return knopf;
         }
 
-        if (!ausweis() || !localStorage.getItem(SCHLUESSEL_TWITCH_ID)) {
+        if (!ausweis()) {
             knopf.textContent = t('kaufenAnmelden');
             knopf.addEventListener('click', () => { location.href = anmeldeUrl(); });
             return knopf;
         }
 
         knopf.textContent = t('kaufen');
-        knopf.addEventListener('click', () => {
-            const ziel = kassenUrl(item);
-            if (ziel) location.href = ziel;
-        });
+        knopf.addEventListener('click', () => zurKasse(item, knopf));
         return knopf;
     }
 
