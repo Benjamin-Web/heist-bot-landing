@@ -344,7 +344,11 @@
         g.lineTo(mitte - halbeBasis, fuss);
         g.closePath();
         g.fillStyle = verlauf;
+        // Weichgezeichnet: mit harter Kante liest sich der Kegel als graue
+        // Form auf der Karte, nicht als Licht auf der Figur.
+        g.filter = 'blur(6px)';
         g.fill();
+        g.filter = 'none';
 
         // Staub im Kegel. Anteile beziehen sich auf die Kegelhoehe.
         const staub = [
