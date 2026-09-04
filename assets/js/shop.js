@@ -192,22 +192,26 @@
        eingefaerbt mit derselben Rechnung (Phaser setTint = Multiplikation
        Kanal fuer Kanal). Ein Bild fuer alle Farben — aendert sich ein Ton in
        der Datenbank, stimmt die Vorschau ohne neue Datei. */
-    const FIGUR = '/assets/img/raeuber.png';
-    let figurBild = null;
-    let figurLauf = null;
+    const FIGUREN = {
+        heist: '/assets/img/raeuber.png',
+        zombie_dog: '/assets/img/hund.png'
+    };
+    const figurLaeufe = {};
 
-    function figurLaden() {
-        if (figurLauf) return figurLauf;
-        figurLauf = new Promise(fertig => {
+    /** Laedt die Figur zum Spielmodus. Je Modus nur einmal. */
+    function figurLaden(modus) {
+        const quelle = FIGUREN[modus] || FIGUREN.heist;
+        if (figurLaeufe[quelle]) return figurLaeufe[quelle];
+        figurLaeufe[quelle] = new Promise(fertig => {
             const bild = new Image();
-            bild.onload = () => { figurBild = bild; fertig(bild); };
+            bild.onload = () => fertig(bild);
             bild.onerror = () => fertig(null);   // Kein Bild? Dann bleibt der Farbpunkt.
-            bild.src = FIGUR;
+            bild.src = quelle;
         });
-        return figurLauf;
+        return figurLaeufe[quelle];
     }
 
-    function figurZeichnen(leinwand, hex) {
+    function figurZeichnen(leinwand, hex, figurBild) {
         if (!figurBild) return false;
         leinwand.width = figurBild.naturalWidth;
         leinwand.height = figurBild.naturalHeight;
@@ -235,7 +239,7 @@
      * Feste Positionen statt Zufall — eine Karte, die bei jedem Aufbau anders
      * aussieht, wirkt kaputt.
      */
-    function figurMitRegenZeichnen(leinwand) {
+    function figurMitRegenZeichnen(leinwand, figurBild) {
         if (!figurBild) return false;
         const breite = figurBild.naturalWidth;
         const hoehe = figurBild.naturalHeight;
@@ -276,9 +280,69 @@
         return true;
     }
 
+    /**
+     * Die stehende Entsprechung zum Mondlicht im Overlay: ein Lichtkegel von
+     * oben ueber der Figur, additiv aufgetragen, mit ein paar Staubkoernern
+     * darin. Feste Positionen statt Zufall — eine Karte, die bei jedem Aufbau
+     * anders aussieht, wirkt kaputt.
+     */
+    function figurMitMondlichtZeichnen(leinwand, figurBild) {
+        if (!figurBild) return false;
+        const breite = figurBild.naturalWidth;
+        const hoehe = figurBild.naturalHeight;
+        leinwand.width = breite;
+        leinwand.height = hoehe;
+        const g = leinwand.getContext('2d');
+        if (!g) return false;
+
+        // Wie beim Goldregen: Figur etwas kleiner, damit oben Platz bleibt.
+        const anteil = 0.76;
+        const zielB = breite * anteil;
+        const zielH = hoehe * anteil;
+        const kopfraum = hoehe - zielH;
+        g.drawImage(figurBild, (breite - zielB) / 2, kopfraum, zielB, zielH);
+
+        const mitte = breite / 2;
+        const spitze = kopfraum * 0.1;
+        const fuss = hoehe * 0.92;
+        const halbeBasis = breite * 0.30;
+
+        // Additiv, wie im Overlay (Phaser.BlendModes.ADD): Licht legt sich
+        // auf die Figur, statt sie zu uebermalen.
+        g.globalCompositeOperation = 'lighter';
+
+        const verlauf = g.createLinearGradient(0, spitze, 0, fuss);
+        verlauf.addColorStop(0, 'rgba(207, 227, 255, 0.34)');
+        verlauf.addColorStop(1, 'rgba(207, 227, 255, 0)');
+        g.beginPath();
+        g.moveTo(mitte - halbeBasis * 0.12, spitze);
+        g.lineTo(mitte + halbeBasis * 0.12, spitze);
+        g.lineTo(mitte + halbeBasis, fuss);
+        g.lineTo(mitte - halbeBasis, fuss);
+        g.closePath();
+        g.fillStyle = verlauf;
+        g.fill();
+
+        // Staub im Kegel. Anteile beziehen sich auf die Kegelhoehe.
+        const staub = [
+            [0.42, 0.18, 2.0], [0.58, 0.30, 1.6], [0.47, 0.46, 2.2],
+            [0.62, 0.58, 1.5], [0.38, 0.66, 1.8], [0.55, 0.80, 1.4]
+        ];
+        g.fillStyle = 'rgba(226, 240, 255, 0.75)';
+        staub.forEach(([px, py, r]) => {
+            g.beginPath();
+            g.arc(px * breite, spitze + py * (fuss - spitze), r, 0, Math.PI * 2);
+            g.fill();
+        });
+
+        g.globalCompositeOperation = 'source-over';
+        return true;
+    }
+
     function probeBauen(item) {
         const huelle = document.createElement('div');
         huelle.className = 'vorschau';
+        const modus = item.game_mode || 'heist';
 
         if (item.kind === 'speech') {
             huelle.classList.add('vorschau-blase');
@@ -286,25 +350,25 @@
             return huelle;
         }
 
-        // Effekte (Teil 4): die Figur ohne Einfaerbung, dafuer mit Muenzen —
-        // gekauft wird der Regen, nicht die Farbe.
+        // Effekte (Teil 4/5): die Figur ohne Einfaerbung, dafuer mit dem
+        // Effekt darueber — gekauft wird der Regen bzw. das Licht, nicht die
+        // Farbe.
         if (item.kind === 'effect') {
             const punkt = document.createElement('div');
             punkt.className = 'probe';
             // Goldregen ist gold, Mondlicht bleich — der Punkt sagt schon, was kommt.
-            const hundeModus = (item.game_mode || 'heist') !== 'heist';
-            punkt.style.setProperty('--probe', hundeModus ? '#CFE3FF' : '#FFD700');
+            const bleich = modus !== 'heist';
+            punkt.style.setProperty('--probe', bleich ? '#CFE3FF' : '#FFD700');
             huelle.appendChild(punkt);
 
-            // Der Regen-Vorschau liegt der RAEUBER zugrunde. Fuer einen Effekt,
-            // der auf Zombie-Hunde wirkt, waere das die falsche Figur.
-            if (hundeModus) return huelle;
-
-            figurLaden().then(bild => {
+            figurLaden(modus).then(bild => {
                 if (!bild) return;
                 const leinwand = document.createElement('canvas');
                 leinwand.setAttribute('aria-hidden', 'true');
-                if (figurMitRegenZeichnen(leinwand)) huelle.replaceChildren(leinwand);
+                const fertig = bleich
+                    ? figurMitMondlichtZeichnen(leinwand, bild)
+                    : figurMitRegenZeichnen(leinwand, bild);
+                if (fertig) huelle.replaceChildren(leinwand);
             });
 
             return huelle;
@@ -318,16 +382,11 @@
         if (f) punkt.style.setProperty('--probe', f);
         huelle.appendChild(punkt);
 
-        // Fuer Zombie-Hunde gibt es (noch) keine eigene Figur. Lieber der
-        // schlichte Farbpunkt als ein eingefaerbter RAEUBER auf einer Karte,
-        // die einen Hund verkauft — das waere schlicht das falsche Bild.
-        if ((item.game_mode || 'heist') !== 'heist') return huelle;
-
-        figurLaden().then(bild => {
+        figurLaden(modus).then(bild => {
             if (!bild) return;
             const leinwand = document.createElement('canvas');
             leinwand.setAttribute('aria-hidden', 'true');
-            if (figurZeichnen(leinwand, item.tint_hex)) huelle.replaceChildren(leinwand);
+            if (figurZeichnen(leinwand, item.tint_hex, bild)) huelle.replaceChildren(leinwand);
         });
 
         return huelle;

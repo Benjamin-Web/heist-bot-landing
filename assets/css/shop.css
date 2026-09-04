@@ -88,6 +88,10 @@
     display: block;
     height: 156px;
     width: auto;
+    /* Der Hund ist deutlich breiter als der Raeuber. Ohne diese Grenze
+       waechst er bei schmalen Karten ueber den Rand hinaus. */
+    max-width: 100%;
+    object-fit: contain;
     /* Ohne Schatten schwebt die Figur vor der Karte statt darauf zu stehen. */
     filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
 }
