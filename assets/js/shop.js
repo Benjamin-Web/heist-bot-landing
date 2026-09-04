@@ -282,9 +282,12 @@
 
     /**
      * Die stehende Entsprechung zum Mondlicht im Overlay: ein Lichtkegel von
-     * oben ueber der Figur, additiv aufgetragen, mit ein paar Staubkoernern
-     * darin. Feste Positionen statt Zufall — eine Karte, die bei jedem Aufbau
-     * anders aussieht, wirkt kaputt.
+     * oben auf die Figur, additiv aufgetragen, mit ein paar Staubkoernern.
+     *
+     * Der Kegel richtet sich an der FIGUR aus, nicht an der Leinwandmitte.
+     * Der Hund hat einen langen Schwanz nach hinten — mittig gesetzt landete
+     * das Licht daneben statt auf ihm. Die Box kommt aus dem Alphakanal,
+     * damit dieselbe Rechnung fuer jede Figur stimmt.
      */
     function figurMitMondlichtZeichnen(leinwand, figurBild) {
         if (!figurBild) return false;
@@ -302,21 +305,41 @@
         const kopfraum = hoehe - zielH;
         g.drawImage(figurBild, (breite - zielB) / 2, kopfraum, zielB, zielH);
 
-        const mitte = breite / 2;
-        const spitze = kopfraum * 0.1;
-        const fuss = hoehe * 0.92;
-        const halbeBasis = breite * 0.30;
+        // Wo steht die Figur wirklich? Spalten mit Deckkraft suchen.
+        let x0 = breite, x1 = -1;
+        try {
+            const d = g.getImageData(0, 0, breite, hoehe).data;
+            for (let x = 0; x < breite; x++) {
+                for (let y = 0; y < hoehe; y++) {
+                    if (d[(y * breite + x) * 4 + 3] > 24) {
+                        if (x < x0) x0 = x;
+                        if (x > x1) x1 = x;
+                        break;
+                    }
+                }
+            }
+        } catch (e) {
+            x0 = breite * 0.25; x1 = breite * 0.75;   // Notfalls die Mitte.
+        }
+        if (x1 < 0) { x0 = breite * 0.25; x1 = breite * 0.75; }
+
+        const mitte = (x0 + x1) / 2;
+        const spitze = kopfraum * 0.15;
+        const fuss = hoehe * 0.95;
+        const halbeBasis = Math.min((x1 - x0) * 0.42, breite * 0.28);
 
         // Additiv, wie im Overlay (Phaser.BlendModes.ADD): Licht legt sich
-        // auf die Figur, statt sie zu uebermalen.
+        // auf die Figur, statt sie zu uebermalen. Bewusst schwach — ein
+        // kraeftiger Keil sieht aus wie eine graue Pyramide, nicht wie Licht.
         g.globalCompositeOperation = 'lighter';
 
         const verlauf = g.createLinearGradient(0, spitze, 0, fuss);
-        verlauf.addColorStop(0, 'rgba(207, 227, 255, 0.34)');
-        verlauf.addColorStop(1, 'rgba(207, 227, 255, 0)');
+        verlauf.addColorStop(0, 'rgba(174, 205, 255, 0.20)');
+        verlauf.addColorStop(0.65, 'rgba(174, 205, 255, 0.09)');
+        verlauf.addColorStop(1, 'rgba(174, 205, 255, 0)');
         g.beginPath();
-        g.moveTo(mitte - halbeBasis * 0.12, spitze);
-        g.lineTo(mitte + halbeBasis * 0.12, spitze);
+        g.moveTo(mitte - halbeBasis * 0.10, spitze);
+        g.lineTo(mitte + halbeBasis * 0.10, spitze);
         g.lineTo(mitte + halbeBasis, fuss);
         g.lineTo(mitte - halbeBasis, fuss);
         g.closePath();
@@ -325,13 +348,13 @@
 
         // Staub im Kegel. Anteile beziehen sich auf die Kegelhoehe.
         const staub = [
-            [0.42, 0.18, 2.0], [0.58, 0.30, 1.6], [0.47, 0.46, 2.2],
-            [0.62, 0.58, 1.5], [0.38, 0.66, 1.8], [0.55, 0.80, 1.4]
+            [-0.30, 0.22, 1.8], [0.26, 0.34, 1.5], [-0.12, 0.50, 2.0],
+            [0.34, 0.62, 1.4], [-0.40, 0.72, 1.6], [0.12, 0.84, 1.3]
         ];
-        g.fillStyle = 'rgba(226, 240, 255, 0.75)';
+        g.fillStyle = 'rgba(226, 240, 255, 0.55)';
         staub.forEach(([px, py, r]) => {
             g.beginPath();
-            g.arc(px * breite, spitze + py * (fuss - spitze), r, 0, Math.PI * 2);
+            g.arc(mitte + px * halbeBasis * 1.6, spitze + py * (fuss - spitze), r, 0, Math.PI * 2);
             g.fill();
         });
 
