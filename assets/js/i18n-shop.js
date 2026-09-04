@@ -33,7 +33,7 @@ window.HEIST_I18N_SHOP = (function () {
         /* Mein Raeuber */
         mk_meins: '02 — Your things',
         mein_titel: 'My robber',
-        mein_lede: 'One look is active at a time. The change applies right away — you will see it in the next heist.',
+        mein_lede: 'One look is active at a time. The change applies right away — you will see it in the next heist. Effects need no choosing — they run for as long as they last.',
         mein_leer: 'You do not own anything yet — the catalogue above has everything.',
 
         /* Sprechblase */

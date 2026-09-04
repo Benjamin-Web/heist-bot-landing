@@ -595,6 +595,21 @@
             return el;
         }
 
+        // Effekte belegen keinen Ausruest-Platz — sie laufen, solange sie
+        // gueltig sind. Ein "Aktivieren"-Knopf waere hier eine Luege.
+        // Stattdessen zeigt die Karte, was der Kaeufer sonst nirgends sieht:
+        // dass er den Effekt hat und wie lange noch.
+        if (item.kind === 'effect') {
+            const status = document.createElement('p');
+            status.className = 'artikel-status';
+            const tage = restTage(item.expires_at);
+            status.textContent = tage === null
+                ? t('aktiv')
+                : (tage <= 1 ? t('laeuftHeuteAus') : t('laeuftNoch').replace('{n}', tage));
+            el.appendChild(status);
+            return el;
+        }
+
         const knopf = document.createElement('button');
         knopf.type = 'button';
         if (item.equipped) {
@@ -615,13 +630,18 @@
         const leer = document.getElementById('besitzLeer');
         if (!liste || !letzteEigene) return;
 
-        const skins = (letzteEigene.items || []).filter(i => i.kind === 'skin');
+        // Skins UND Effekte. Die Sprechblase hat einen eigenen Abschnitt, ein
+        // Effekt hatte bisher gar keinen — wer einen kaufte, sah nirgends,
+        // dass er ihn besitzt.
+        const eigene = (letzteEigene.items || []).filter(i => i.kind === 'skin' || i.kind === 'effect');
         liste.innerHTML = '';
 
         // Nach Figurenart sortiert, damit die beiden Welten nicht durcheinander
-        // liegen — aktiviert wird je Art getrennt.
+        // liegen — aktiviert wird je Art getrennt. Skins zuerst, dann Effekte.
         ['heist', 'zombie_dog'].forEach(mode => {
-            const teil = skins.filter(i => (i.game_mode || 'heist') === mode);
+            const teil = eigene
+                .filter(i => (i.game_mode || 'heist') === mode)
+                .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'skin' ? -1 : 1));
             if (teil.length === 0) return;
             const titel = document.createElement('h3');
             titel.className = 'gruppe-titel';
@@ -630,7 +650,7 @@
             teil.forEach(i => liste.appendChild(besitzKarte(i)));
         });
 
-        if (leer) leer.hidden = skins.length > 0;
+        if (leer) leer.hidden = eigene.length > 0;
         if (window.lucide) window.lucide.createIcons();
     }
 
