@@ -28,6 +28,7 @@ window.HEIST_I18N_SHOP = (function () {
         kat_laedt: 'Loading the catalogue …',
         kat_gruppe_raeuber: 'For heist channels',
         kat_gruppe_hunde: 'For zombie-dog channels',
+        kat_gruppe_alle: 'For every channel',
 
         /* Mein Raeuber */
         mk_meins: '02 — Your things',

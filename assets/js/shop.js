@@ -499,10 +499,35 @@
         return el;
     }
 
+    /**
+     * Drei Gruppen, nicht zwei.
+     *
+     * Skins und Effekte haengen an einer Figurenart — ein Raeuber-Skin nuetzt
+     * in einem Hunde-Kanal nichts. Die SPRECHBLASE haengt an keiner: der Bot
+     * liefert sie unabhaengig vom Spielmodus aus (resolve-skins filtert nur
+     * Skins und Effekte nach game_mode), und das Overlay setzt sie ueber jede
+     * Figur, Hunde eingeschlossen.
+     *
+     * In der Datenbank steht sie trotzdem auf 'heist' — dort muss EIN Wert
+     * stehen, und die Ausruest-Logik kennt nur die beiden Welten. Sie
+     * deswegen unter "Fuer Raub-Kanaele" einzusortieren, hat einen Kaeufer
+     * aus einem Hunde-Kanal glauben lassen, sie sei nichts fuer ihn.
+     */
     function katalogZeichnen() {
         const gruppen = [
-            { mode: 'heist', liste: 'katalogRaeuber', titel: 'gruppeRaeuberTitel' },
-            { mode: 'zombie_dog', liste: 'katalogHunde', titel: 'gruppeHundeTitel' }
+            {
+                liste: 'katalogRaeuber', titel: 'gruppeRaeuberTitel',
+                // Artikel ohne Angabe gehoeren zu den Raeubern (alles vor Teil 5).
+                passt: i => i.kind !== 'speech' && (i.game_mode || 'heist') === 'heist'
+            },
+            {
+                liste: 'katalogHunde', titel: 'gruppeHundeTitel',
+                passt: i => i.kind !== 'speech' && (i.game_mode || 'heist') === 'zombie_dog'
+            },
+            {
+                liste: 'katalogAlle', titel: 'gruppeAlleTitel',
+                passt: i => i.kind === 'speech'
+            }
         ];
 
         gruppen.forEach(g => {
@@ -510,8 +535,7 @@
             const titel = document.getElementById(g.titel);
             if (!liste) return;
 
-            // Artikel ohne Angabe gehoeren zu den Raeubern (alles vor Teil 5).
-            const artikel = letzterKatalog.filter(i => (i.game_mode || 'heist') === g.mode);
+            const artikel = letzterKatalog.filter(g.passt);
             liste.innerHTML = '';
             artikel.forEach(i => liste.appendChild(karteBauen(i)));
             // Ueberschrift nur zeigen, wenn darunter auch etwas steht.
