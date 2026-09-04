@@ -291,8 +291,14 @@
         if (item.kind === 'effect') {
             const punkt = document.createElement('div');
             punkt.className = 'probe';
-            punkt.style.setProperty('--probe', '#FFD700');
+            // Goldregen ist gold, Mondlicht bleich — der Punkt sagt schon, was kommt.
+            const hundeModus = (item.game_mode || 'heist') !== 'heist';
+            punkt.style.setProperty('--probe', hundeModus ? '#CFE3FF' : '#FFD700');
             huelle.appendChild(punkt);
+
+            // Der Regen-Vorschau liegt der RAEUBER zugrunde. Fuer einen Effekt,
+            // der auf Zombie-Hunde wirkt, waere das die falsche Figur.
+            if (hundeModus) return huelle;
 
             figurLaden().then(bild => {
                 if (!bild) return;
@@ -311,6 +317,11 @@
         const f = farbe(item.tint_hex);
         if (f) punkt.style.setProperty('--probe', f);
         huelle.appendChild(punkt);
+
+        // Fuer Zombie-Hunde gibt es (noch) keine eigene Figur. Lieber der
+        // schlichte Farbpunkt als ein eingefaerbter RAEUBER auf einer Karte,
+        // die einen Hund verkauft — das waere schlicht das falsche Bild.
+        if ((item.game_mode || 'heist') !== 'heist') return huelle;
 
         figurLaden().then(bild => {
             if (!bild) return;
